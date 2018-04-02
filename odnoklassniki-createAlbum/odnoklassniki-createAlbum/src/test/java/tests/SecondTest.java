@@ -5,7 +5,10 @@ import core.LoginMainPage;
 import core.TestBase;
 import core.UserMainPage;
 import model.TestBot;
+import org.junit.Assert;
 import org.junit.Test;
+
+import static java.lang.Thread.sleep;
 
 public class SecondTest extends TestBase {
 
@@ -15,10 +18,13 @@ public class SecondTest extends TestBase {
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.clickCreateAlbum();
-        photoMainPage.typePhotoName("PhotoAlbum!!!");
+        String pa = "PhotoAlbum!!!";
+        photoMainPage.typePhotoName(pa);
+        sleep(5000);
         photoMainPage.clickCreateButton();
+      //  photoMainPage.isCreationAlbum("PhotoAlbum!!!");
+        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
 
-
-        //todo не хватает проверки
+                //todo не хватает проверки
     }
 }

@@ -43,9 +43,11 @@ public class PhotoMainPage extends HelperBase{
         Assert.assertTrue("Не найден элемент создания альбома", isElementPresent(CREATE_NEW_ALBUM));
         driver.findElement(CREATE_NEW_ALBUM).click();
     }
-    private static final By ALBUM_PRESENT = By.xpath(".//*[text() = 'PhotoAlbum!!!' ]");
-    public void checkCreationAlbum() {
-        Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
-        driver.findElement(ALBUM_PRESENT).click();
+
+    public boolean isCreationAlbum(String name) {
+        final By ALBUM_PRESENT = By.xpath(".//*[text() = '" + name + "' ]");
+      //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
+        return isElementPresent(ALBUM_PRESENT);
+        //должен возвращать boolean
     }
 }

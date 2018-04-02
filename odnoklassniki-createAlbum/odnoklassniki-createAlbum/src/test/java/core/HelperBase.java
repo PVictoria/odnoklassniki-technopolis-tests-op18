@@ -2,6 +2,7 @@ package core;
 
 import org.openqa.selenium.*;
 
+
 public abstract class HelperBase {
     protected WebDriver driver;
     private boolean acceptNextAlert = true;
@@ -16,6 +17,8 @@ public abstract class HelperBase {
     protected void type(String text, By locator) {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
+        int i = 1;
+
     }
 
     protected void click(By locator) {
