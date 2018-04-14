@@ -15,8 +15,9 @@ public abstract class HelperBase {
     protected abstract void check();
 
     protected void type(String text, By locator) {
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
+        WebElement element = driver.findElement(locator);
+        element.clear();
+        element.sendKeys(text);
         int i = 1;
 
     }

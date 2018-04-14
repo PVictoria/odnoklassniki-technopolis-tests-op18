@@ -12,6 +12,7 @@ public class LoginMainPage extends HelperBase{
 
     protected void check() {
         //todo
+        //форма для ввода прогрузилась
     }
 
     public void doLogin(TestBot testBot) {

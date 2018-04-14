@@ -50,4 +50,12 @@ public class PhotoMainPage extends HelperBase{
         return isElementPresent(ALBUM_PRESENT);
         //должен возвращать boolean
     }
+
+
+
+    public void clickOnAlbum(){
+        click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
+    }
+
+
 }
