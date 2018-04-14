@@ -11,7 +11,7 @@
     <name>Odnoklassniki Web Technopolis Tests</name>
 
     <properties>
-        <selenium.java.api.version>3.6.0</selenium.java.api.version>
+        <selenium.java.api.version>3.11.0</selenium.java.api.version>
     </properties>
 
     <dependencies>
