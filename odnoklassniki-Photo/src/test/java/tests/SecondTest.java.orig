@@ -25,6 +25,7 @@ import java.util.List;
 public class SecondTest extends TestBase {
 
     //Создание Альбома
+<<<<<<< HEAD
     @Test
     public void testPhotoAlbumCreation() throws Exception {
 
@@ -59,6 +60,8 @@ public class SecondTest extends TestBase {
     }
 
     //тест-кейс 8  Виктория
+=======
+>>>>>>> d2d9317647d737189a4143dd9358066f2a92e1aa
 //    @Test
 //    public void testPhotoAlbumCreation() throws Exception {
 //
