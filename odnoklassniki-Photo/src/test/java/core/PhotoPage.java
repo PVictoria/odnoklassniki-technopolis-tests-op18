@@ -19,14 +19,31 @@ public class PhotoPage extends HelperBase {
     private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]");
     private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
+    private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
 
+    private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
     public PhotoPage(WebDriver driver) {
+
         super(driver);
     }
 
     protected void check() {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(ADD_DESCRIPTION));
+    }
+
+    public void setAddComment(String comText){ //Таня
+        type(comText,ADD_COMMENT);
+    }
+
+    public void clickSetAddComment(){ // Таня
+        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
+        click(CLICK_ADD_COMMENT);
+    }
+
+    public boolean isAddComment(String com) {
+        final By COMMENT_CREATED = By.xpath(".//*[text() = '" + com + "' ]");
+        return isElementPresent(COMMENT_CREATED);
     }
 
     public void clickAddDescription() {

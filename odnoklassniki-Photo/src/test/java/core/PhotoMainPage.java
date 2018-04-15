@@ -13,7 +13,9 @@ public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
    private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
-    private static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
+   // private static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
+    private static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_865777208163')]");
+
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -49,7 +51,8 @@ public class PhotoMainPage extends HelperBase{
 
     public void clickOpenPhoto() {
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
-        driver.findElement(OPEN_PHOTO).click();
+        //driver.findElement(OPEN_PHOTO).click();
+        click(OPEN_PHOTO);
     }
 
     public boolean isCreationAlbum(String name) {
