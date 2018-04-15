@@ -25,7 +25,7 @@ import java.util.List;
 
 public class SecondTest extends TestBase {
 
-    //Создание Альбома
+
    /* @Test
     public void testPhotoAlbumCreation() throws Exception {
 
