@@ -11,7 +11,9 @@ public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
    private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
-   public PhotoMainPage(WebDriver driver) {
+    private static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
+
+    public PhotoMainPage(WebDriver driver) {
         super(driver);
     }
 
@@ -38,10 +40,14 @@ public class PhotoMainPage extends HelperBase{
         type(albumName, By.id("field_photoAlbumName"));
     }
 
-
     public void clickCreateAlbum() {
         Assert.assertTrue("Не найден элемент создания альбома", isElementPresent(CREATE_NEW_ALBUM));
         driver.findElement(CREATE_NEW_ALBUM).click();
+    }
+
+    public void clickOpenPhoto() {
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
+        driver.findElement(OPEN_PHOTO).click();
     }
 
     public boolean isCreationAlbum(String name) {
@@ -50,8 +56,6 @@ public class PhotoMainPage extends HelperBase{
         return isElementPresent(ALBUM_PRESENT);
         //должен возвращать boolean
     }
-
-
 
     public void clickOnAlbum(){
         click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер

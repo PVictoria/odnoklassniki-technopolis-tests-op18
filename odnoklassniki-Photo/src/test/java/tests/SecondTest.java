@@ -28,7 +28,7 @@ public class SecondTest extends TestBase {
     @Test
     public void testPhotoAlbumCreation() throws Exception {
 
-        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
 
 
      //  new UserMainPage(driver).clickPhotosOnToolbar();
@@ -36,14 +36,24 @@ public class SecondTest extends TestBase {
        userMainPage.clickPhotosOnToolbar();
 
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        photoMainPage.clickOpenPhoto();
+        PhotoPage photoPage = new PhotoPage(driver);
+        photoPage.clickAddDescription();
+        String description = "Описание...";
+        photoPage.typeDescrName(description);
+        photoPage.clickSaveDescription();
 
-        photoMainPage.clickCreateAlbum();
+        Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
+        //sleep(1000);
+        photoPage.phLogout();
+
+        /*photoMainPage.clickCreateAlbum();
         String pa = "PhotoAlbum!!!";
         photoMainPage.typePhotoName(pa);
         photoMainPage.clickCreateButton();
 
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
-        userMainPage.clickLogout();
+        userMainPage.clickLogout();*/
 
 
     }
