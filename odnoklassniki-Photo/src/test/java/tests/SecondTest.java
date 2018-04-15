@@ -4,13 +4,8 @@ import core.*;
 import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
-import java.util.List;
 
 //   String s = driver.findElement(By.xpath("string(.//*[@id='hook_Block_ProLink'])")).getText();
 //        List<WebElement> wes = (List<WebElement>) driver.findElements(By.xpath("(.//div[@class='col-card_num']/node())"));
@@ -24,6 +19,7 @@ import java.util.List;
 
 public class SecondTest extends TestBase {
 
+
     //Создание Альбома
     @Test
     public void testPhotoAlbumCreation() throws Exception {
@@ -34,9 +30,10 @@ public class SecondTest extends TestBase {
      //  new UserMainPage(driver).clickPhotosOnToolbar();
        UserMainPage userMainPage = new UserMainPage(driver);
        userMainPage.clickPhotosOnToolbar();
+    /////////////////////////добавлние описания к фото///////////////////////////
 
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto();
+       /* PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        photoMainPage.clickOpenPhoto(photoMainPage.OPEN_PHOTO);
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickAddDescription();
         String description = "Описание...";
@@ -45,7 +42,22 @@ public class SecondTest extends TestBase {
 
         Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
         //sleep(1000);
-        photoPage.phLogout();
+        photoPage.phLogout();*/
+    //////////////////////////////////////////////////////////////////////////////
+        PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
+        photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO);
+        PhotoPage photoPage1 = new PhotoPage(driver);
+        photoPage1.clickMarkFriends();
+        sleep(1000);
+        photoPage1.clickOnPhoto();
+        photoPage1.clickOnMyself();
+        photoPage1.clickDone();
+
+        /*Assert.assertTrue("Пользователь не отмечен", photoPage1.);
+        //sleep(1000);
+        photoPage.phLogout();*/
+    ////////////////////////////////////////////////////////
+
 
         /*photoMainPage.clickCreateAlbum();
         String pa = "PhotoAlbum!!!";
