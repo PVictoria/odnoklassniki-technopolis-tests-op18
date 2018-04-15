@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
@@ -58,7 +60,12 @@ public class PhotoMainPage extends HelperBase{
     }
 
     public void clickOnAlbum(){
-        click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
+       click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
+
+        //враппер
+//        List<AlbumWrapper> comments = new PhotoMainPage(driver).getComments();
+//        Assert.assertTrue("Комментарии при невыполнении условия", comments.get(0).isSmthgDisplayed());
+
     }
 
 
