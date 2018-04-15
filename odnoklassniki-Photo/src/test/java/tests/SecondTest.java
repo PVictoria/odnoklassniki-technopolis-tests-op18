@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import org.junit.Test;
 
 import static java.lang.Thread.sleep;
 import java.util.List;
@@ -25,13 +26,13 @@ import java.util.List;
 public class SecondTest extends TestBase {
 
     //Создание Альбома
-    @Test
+   /* @Test
     public void testPhotoAlbumCreation() throws Exception {
 
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
 
 
-     //  new UserMainPage(driver).clickPhotosOnToolbar();
+       //new UserMainPage(driver).clickPhotosOnToolbar();
        UserMainPage userMainPage = new UserMainPage(driver);
        userMainPage.clickPhotosOnToolbar();
 
@@ -56,7 +57,7 @@ public class SecondTest extends TestBase {
         userMainPage.clickLogout();*/
 
 
-    }
+    //}*/
 
     //тест-кейс 8  Виктория
 //    @Test
@@ -84,7 +85,7 @@ public class SecondTest extends TestBase {
 
     //тест-кейс 8  Виктория
     @Test
-    public void transferPhotosFromAlbumToAlbum() throws Exception {
+   /* public void transferPhotosFromAlbumToAlbum() throws Exception {
 
         new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
         new UserMainPage(driver).clickPhotosOnToolbar();
@@ -98,6 +99,17 @@ public class SecondTest extends TestBase {
         albumPage.clickButtonMove();
         Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
        // проверка
+
+
+    }*/
+
+    //тест-кейс добавление коммента Таня
+    @Test
+    public void transferPhotosFromAlbumToAlbum() throws Exception{
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+
 
 
     }
