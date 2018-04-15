@@ -3,17 +3,14 @@ package core;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
    private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
-    private static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
+    public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -47,9 +44,9 @@ public class PhotoMainPage extends HelperBase{
         driver.findElement(CREATE_NEW_ALBUM).click();
     }
 
-    public void clickOpenPhoto() {
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
-        driver.findElement(OPEN_PHOTO).click();
+    public void clickOpenPhoto(By openPhotoLocator) {
+        Assert.assertTrue("Не найдено фото", isElementPresent(openPhotoLocator));
+        driver.findElement(openPhotoLocator).click();
     }
 
     public boolean isCreationAlbum(String name) {

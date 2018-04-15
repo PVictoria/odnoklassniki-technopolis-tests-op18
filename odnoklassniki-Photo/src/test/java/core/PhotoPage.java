@@ -20,6 +20,12 @@ public class PhotoPage extends HelperBase {
     private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
 
+    private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
+    private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']");
+    private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']");
+    private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
+
+
     public PhotoPage(WebDriver driver) {
         super(driver);
     }
@@ -65,4 +71,28 @@ public class PhotoPage extends HelperBase {
         click(LOGOUT);*/
 
     }
+    public void clickMarkFriends() {
+        Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_FRIENDS));
+        driver.findElement(MARK_FRIENDS).click();
+    }
+    public void clickOnPhoto() {
+        Assert.assertTrue("Не найдено фото", isElementPresent(CLICK_ON_PHOTO));
+        driver.findElement(CLICK_ON_PHOTO).click();
+    }
+    public void clickOnMyself() {
+        Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_MYSELF));
+        driver.findElement(CHOOSE_MYSELF).click();
+    }
+    public void clickDone() {
+        Assert.assertTrue("Не найдено отметить себя", isElementPresent(DONE));
+        driver.findElement(DONE).click();
+    }
+
+    public boolean isMarkMyself(String login, String password) {
+        final By MARK_MYSELF_CREATED = By.xpath(".//*[text() = '" + login + " " + password + "' ]");
+        //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
+        return isElementPresent(MARK_MYSELF_CREATED);
+        //должен возвращать boolean
+    }
 }
+
