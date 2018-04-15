@@ -109,7 +109,10 @@ public class SecondTest extends TestBase {
         albumPage.choseTargetAlbum();
         albumPage.clickButtonMove();
         Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
-       // проверка
+
+        //click (By.linkText("Фото 13"));
+
+
 
 
     }
