@@ -114,8 +114,8 @@ public class SecondTest extends TestBase {
         //тестовый коммент
         new UserMainPage(driver).clickLogout();
 //        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
 //        new UserMainPage(driver).clickLogout();
 //        new UserMainPage(driver).clickLogout();
 
