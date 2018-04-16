@@ -5,6 +5,7 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static java.lang.Thread.sleep;
 
 //   String s = driver.findElement(By.xpath("string(.//*[@id='hook_Block_ProLink'])")).getText();
@@ -113,22 +114,12 @@ public class SecondTest extends TestBase {
         //click (By.linkText("Фото 13"));
         //тестовый коммент
         new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-
-
-
-
-
 
     }
 
     //тест-кейс добавление коммента Таня
-    /*@Test
-    public void transferPhotosFromAlbumToAlbum() throws Exception{
+    @Test
+    public void addCommentUnderPhoto() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
@@ -139,7 +130,7 @@ public class SecondTest extends TestBase {
         photopage.clickSetAddComment();
         //проверка
         Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
+        photopage.phLogout();
 
-
-    }*/
+    }
 }
