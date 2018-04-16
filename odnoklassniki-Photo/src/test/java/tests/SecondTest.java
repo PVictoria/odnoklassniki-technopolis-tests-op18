@@ -5,6 +5,7 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static java.lang.Thread.sleep;
 
 //   String s = driver.findElement(By.xpath("string(.//*[@id='hook_Block_ProLink'])")).getText();
@@ -123,8 +124,6 @@ public class SecondTest extends TestBase {
 
     }*/
 
-<<<<<<< HEAD
-=======
     //тест-кейс добавление коммента Таня
     @Test
     public void addCommentUnderPhoto() throws Exception{
@@ -141,5 +140,5 @@ public class SecondTest extends TestBase {
        
 
     }
->>>>>>> TanyaP
+
 }

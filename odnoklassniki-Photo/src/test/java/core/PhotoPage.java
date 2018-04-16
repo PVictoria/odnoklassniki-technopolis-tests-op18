@@ -28,6 +28,9 @@ public class PhotoPage extends HelperBase {
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
 
     private static final By ROTATE = By.xpath(".//*[@id = 'rotation-link-layer']");
+    private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
+
+    private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
@@ -112,6 +115,20 @@ public class PhotoPage extends HelperBase {
     public void clickRorate() {
         Assert.assertTrue("Не найдено повернуть фото", isElementPresent(ROTATE));
         driver.findElement(ROTATE).click();
+    }
+
+    public void setAddComment(String comText){ //Таня
+        type(comText,ADD_COMMENT);
+    }
+
+    public void clickSetAddComment(){ // Таня
+        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
+        click(CLICK_ADD_COMMENT);
+    }
+
+    public boolean isAddComment(String com) {
+        final By COMMENT_CREATED = By.xpath(".//*[text() = '" + com + "' ]");
+        return isElementPresent(COMMENT_CREATED);
     }
 
 }
