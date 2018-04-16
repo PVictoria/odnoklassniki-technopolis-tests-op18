@@ -130,7 +130,7 @@ public class SecondTest extends TestBase {
         photopage.clickSetAddComment();
         //проверка
         Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
-        photopage.phLogout();
+       
 
     }
 }
