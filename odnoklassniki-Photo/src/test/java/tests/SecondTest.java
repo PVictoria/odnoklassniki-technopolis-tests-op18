@@ -5,7 +5,6 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static java.lang.Thread.sleep;
 
 //   String s = driver.findElement(By.xpath("string(.//*[@id='hook_Block_ProLink'])")).getText();
@@ -25,7 +24,7 @@ public class SecondTest extends TestBase {
     @Test
     public void testPhotoAlbumCreation() throws Exception {
 
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21 ", "QA18testbott"));
 
 
      //  new UserMainPage(driver).clickPhotosOnToolbar();
@@ -47,10 +46,19 @@ public class SecondTest extends TestBase {
     //////////////////////////////////////////////////////////////////////////////
         PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
         photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO);
+        System.out.println("1");
         PhotoPage photoPage1 = new PhotoPage(driver);
+        System.out.println("2");
+       // photoPage1.clickRorate();
         photoPage1.clickMarkFriends();
         sleep(1000);
+        System.out.println("3");
+        photoPage1.clickOnMarkMessage();
+        sleep(5000);
+        System.out.println("4");
         photoPage1.clickOnPhoto();
+        System.out.println("5");
+        sleep(500);
         photoPage1.clickOnMyself();
         photoPage1.clickDone();
 
@@ -96,7 +104,7 @@ public class SecondTest extends TestBase {
 //    }
 
     //тест-кейс 8  Виктория
-    @Test
+    /*@Test
     public void transferPhotosFromAlbumToAlbum() throws Exception {
 
         new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
@@ -110,65 +118,9 @@ public class SecondTest extends TestBase {
         albumPage.choseTargetAlbum();
         albumPage.clickButtonMove();
         Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
-
-        //click (By.linkText("Фото 13"));
-        //тестовый коммент
-        new UserMainPage(driver).clickLogout();
+       // проверка
 
 
-//        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-        
+    }*/
 
-
-    }
-    @Test
-    public void blabla() throws Exception {
-
-        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-
-        photoMainPage.clickOnAlbum();
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditButton();
-        albumPage.clickOnPhoto();
-        albumPage.choseTargetAlbum();
-        albumPage.clickButtonMove();
-        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
-
-        //click (By.linkText("Фото 13"));
-        //тестовый коммент
-        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-//        new UserMainPage(driver).clickLogout();
-
-
-
-
-
-    }
-
-    //тест-кейс добавление коммента Таня
-    @Test
-    public void addCommentUnderPhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_COM);
-        String com = "New comment";
-        PhotoPage photopage = new PhotoPage(driver);
-        photopage.setAddComment(com);
-        photopage.clickSetAddComment();
-        //проверка
-        Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
-        photopage.phLogout();
-
-    }
 }

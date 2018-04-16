@@ -20,14 +20,14 @@ public class PhotoPage extends HelperBase {
     private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
 
-    private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
+    //private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
+    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
+    private static final By MARK_MESSAGE = By.xpath(".//*[text() = 'Чтобы отметить человека, наведите на него курсор и нажмите левую кнопку мыши.']");
     private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']");
     private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']");
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
-    private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
 
-    private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
-
+    private static final By ROTATE = By.xpath(".//*[@id = 'rotation-link-layer']");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
@@ -35,20 +35,7 @@ public class PhotoPage extends HelperBase {
 
     protected void check() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(ADD_DESCRIPTION));
-    }
-    public void setAddComment(String comText){ //Таня
-        type(comText,ADD_COMMENT);
-    }
-
-    public void clickSetAddComment(){ // Таня
-        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
-        click(CLICK_ADD_COMMENT);
-    }
-
-    public boolean isAddComment(String com) {
-        final By COMMENT_CREATED = By.xpath(".//*[text() = '" + com + "' ]");
-        return isElementPresent(COMMENT_CREATED);
+                .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
     }
 
     public void clickAddDescription() {
@@ -72,6 +59,10 @@ public class PhotoPage extends HelperBase {
         //должен возвращать boolean
     }
 
+    public void closePhoto(){
+        driver.findElement(CLOSE_PHOTO).click();
+    }
+
     public void phLogout() throws InterruptedException {
         driver.findElement(CLOSE_PHOTO).click();
        //sleep(1000);
@@ -85,11 +76,17 @@ public class PhotoPage extends HelperBase {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(LOGOUT));
         click(LOGOUT);*/
-
     }
+    ///////////////////////////////////////////////////////////////
+
     public void clickMarkFriends() {
         Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_FRIENDS));
-        driver.findElement(MARK_FRIENDS).click();
+        click(MARK_FRIENDS);
+        //driver.findElement(MARK_FRIENDS).click();
+    }
+    public void clickOnMarkMessage() {
+        Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_MESSAGE));
+        driver.findElement(MARK_MESSAGE).click();
     }
     public void clickOnPhoto() {
         Assert.assertTrue("Не найдено фото", isElementPresent(CLICK_ON_PHOTO));
@@ -100,7 +97,7 @@ public class PhotoPage extends HelperBase {
         driver.findElement(CHOOSE_MYSELF).click();
     }
     public void clickDone() {
-        Assert.assertTrue("Не найдено отметить себя", isElementPresent(DONE));
+        Assert.assertTrue("Не найдено готово", isElementPresent(DONE));
         driver.findElement(DONE).click();
     }
 
@@ -110,5 +107,12 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(MARK_MYSELF_CREATED);
         //должен возвращать boolean
     }
+    ///////////////////////////////////////////////////////////////
+
+    public void clickRorate() {
+        Assert.assertTrue("Не найдено повернуть фото", isElementPresent(ROTATE));
+        driver.findElement(ROTATE).click();
+    }
+
 }
 
