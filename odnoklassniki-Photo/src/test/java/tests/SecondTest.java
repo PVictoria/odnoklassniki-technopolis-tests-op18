@@ -111,6 +111,15 @@ public class SecondTest extends TestBase {
         Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
 
         //click (By.linkText("Фото 13"));
+        //тестовый коммент
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+
+
 
 
 
