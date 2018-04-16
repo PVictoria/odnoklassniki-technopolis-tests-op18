@@ -5,6 +5,7 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static core.AlbumPage.NEW_ALBUM_NAME;
 import static core.PhotoMainPage.OPEN_ALBOM;
 import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static java.lang.Thread.sleep;
@@ -153,7 +154,8 @@ public class SecondTest extends TestBase {
         albumPage.clickEditAlbum();
         albumPage.editAlbumName();
         albumPage.returnToPhoto();
-
+        //проверка
+        Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(NEW_ALBUM_NAME));
     }
 
 

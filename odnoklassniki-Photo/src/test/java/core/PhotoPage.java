@@ -36,7 +36,7 @@ public class PhotoPage extends HelperBase {
         super(driver);
     }
 
-    protected void check() {
+    protected void check() { //Пожалуйста, переименуй, путается с абстрактным check в helperbase
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
     }

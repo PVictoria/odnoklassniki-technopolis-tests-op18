@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AlbumPage extends HelperBase {
+    public static final String NEW_ALBUM_NAME = "NewName1";
     private static final By ALBUM = By.xpath(".//*[text() = 'I' ]"); //локатор содержит имя альбома!!
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
@@ -38,7 +39,7 @@ public class AlbumPage extends HelperBase {
     }
     public void editAlbumName(){
         click(FIND_ALBUM_NAME);
-        type("NewName",FIND_ALBUM_NAME);
+        type(NEW_ALBUM_NAME,FIND_ALBUM_NAME);
 
     }
     public void returnToPhoto(){
@@ -47,5 +48,9 @@ public class AlbumPage extends HelperBase {
     public  void clickEditAlbum(){
         click(EDIT_ALBUM_LOCATOR);
     }
+    public boolean isChangeAlbumsName(String name){
+        final By NAME_CHANGED = By.xpath(".//*[text() = '" + name + "' ]");
+        return isElementPresent(NAME_CHANGED);
 
+    }
 }
