@@ -114,8 +114,8 @@ public class SecondTest extends TestBase {
         //click (By.linkText("Фото 13"));
         //тестовый коммент
         new UserMainPage(driver).clickLogout();
-<<<<<<< HEAD
-=======
+
+
 //        new UserMainPage(driver).clickLogout();
         new UserMainPage(driver).clickLogout();
         new UserMainPage(driver).clickLogout();
@@ -151,7 +151,7 @@ public class SecondTest extends TestBase {
 
 
 
->>>>>>> polisV
+
 
     }
 
