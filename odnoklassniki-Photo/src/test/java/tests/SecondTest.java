@@ -123,4 +123,23 @@ public class SecondTest extends TestBase {
 
     }*/
 
+<<<<<<< HEAD
+=======
+    //тест-кейс добавление коммента Таня
+    @Test
+    public void addCommentUnderPhoto() throws Exception{
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_COM);
+        String com = "New comment";
+        PhotoPage photopage = new PhotoPage(driver);
+        photopage.setAddComment(com);
+        photopage.clickSetAddComment();
+        //проверка
+        Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
+       
+
+    }
+>>>>>>> TanyaP
 }
