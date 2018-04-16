@@ -6,8 +6,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static core.AlbumPage.NEW_ALBUM_NAME;
-import static core.PhotoMainPage.OPEN_ALBOM;
+import static core.PhotoMainPage.OPEN_ALBUM;
 import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
+import static core.PhotoMainPage.OPEN_PHOTO_FOR_LIKE;
 import static java.lang.Thread.sleep;
 
 //   String s = driver.findElement(By.xpath("string(.//*[@id='hook_Block_ProLink'])")).getText();
@@ -144,19 +145,31 @@ public class SecondTest extends TestBase {
     }*/
 
     //тест-кейсизменение названия альбома
-    @Test
+    /*@Test
     public void changeAlbomsName() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openAlbom(OPEN_ALBOM);
+        photoMainPage.openAlbum(OPEN_ALBUM);
         AlbumPage albumPage = new AlbumPage(driver);
         albumPage.clickEditAlbum();
         albumPage.editAlbumName();
         albumPage.returnToPhoto();
         //проверка
         Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(NEW_ALBUM_NAME));
-    }
+    }*/
 
+    //тест-кейс поставить лайк своему фото
+    @Test
+    public void likeToMyPhoto() throws Exception {
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
+        PhotoPage photoPage = new PhotoPage(driver);
+        photoPage.clickLike();
+        //проверка
+        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
+    }
 
 }
