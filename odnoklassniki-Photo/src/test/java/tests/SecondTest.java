@@ -5,6 +5,7 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static core.PhotoMainPage.OPEN_ALBOM;
 import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static java.lang.Thread.sleep;
 
@@ -22,7 +23,7 @@ public class SecondTest extends TestBase {
 
 
     //Создание Альбома
-    @Test
+    /*@Test
     public void testPhotoAlbumCreation() throws Exception {
 
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21 ", "QA18testbott"));
@@ -45,7 +46,7 @@ public class SecondTest extends TestBase {
         //sleep(1000);
         photoPage.phLogout();*/
     //////////////////////////////////////////////////////////////////////////////
-        PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
+       /* PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
         photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO);
         System.out.println("1");
         PhotoPage photoPage1 = new PhotoPage(driver);
@@ -61,7 +62,7 @@ public class SecondTest extends TestBase {
         System.out.println("5");
         sleep(500);
         photoPage1.clickOnMyself();
-        photoPage1.clickDone();
+        photoPage1.clickDone();*/
 
         /*Assert.assertTrue("Пользователь не отмечен", photoPage1.);
         //sleep(1000);
@@ -75,10 +76,10 @@ public class SecondTest extends TestBase {
         photoMainPage.clickCreateButton();
 
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
-        userMainPage.clickLogout();*/
+        userMainPage.clickLogout();
 
 
-    }
+    }*/
 
     //тест-кейс 8  Виктория
 //    @Test
@@ -125,7 +126,7 @@ public class SecondTest extends TestBase {
     }*/
 
     //тест-кейс добавление коммента Таня
-    @Test
+    /*@Test
     public void addCommentUnderPhoto() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
@@ -139,6 +140,21 @@ public class SecondTest extends TestBase {
         Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
        
 
+    }*/
+
+    //тест-кейсизменение названия альбома
+    @Test
+    public void changeAlbomsName() throws Exception{
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        photoMainPage.openAlbom(OPEN_ALBOM);
+        AlbumPage albumPage = new AlbumPage(driver);
+        albumPage.clickEditAlbum();
+        albumPage.editAlbumName();
+        albumPage.returnToPhoto();
+
     }
+
 
 }

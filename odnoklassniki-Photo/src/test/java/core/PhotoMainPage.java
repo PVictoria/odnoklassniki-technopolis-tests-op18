@@ -12,6 +12,7 @@ public class PhotoMainPage extends HelperBase{
    private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
     public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
+    public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -66,5 +67,9 @@ public class PhotoMainPage extends HelperBase{
 
     }
 
+    public void openAlbom(By openAlbomLocator){
+        Assert.assertTrue("Не найден альбом", isElementPresent(openAlbomLocator));
+        click(openAlbomLocator);
+    }
 
 }
