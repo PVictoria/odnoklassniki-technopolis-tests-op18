@@ -114,6 +114,44 @@ public class SecondTest extends TestBase {
         //click (By.linkText("Фото 13"));
         //тестовый коммент
         new UserMainPage(driver).clickLogout();
+<<<<<<< HEAD
+=======
+//        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+//        new UserMainPage(driver).clickLogout();
+//        new UserMainPage(driver).clickLogout();
+        
+
+
+    }
+    @Test
+    public void blabla() throws Exception {
+
+        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+
+        photoMainPage.clickOnAlbum();
+        AlbumPage albumPage = new AlbumPage(driver);
+        albumPage.clickEditButton();
+        albumPage.clickOnPhoto();
+        albumPage.choseTargetAlbum();
+        albumPage.clickButtonMove();
+        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
+
+        //click (By.linkText("Фото 13"));
+        //тестовый коммент
+        new UserMainPage(driver).clickLogout();
+//        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+        new UserMainPage(driver).clickLogout();
+//        new UserMainPage(driver).clickLogout();
+//        new UserMainPage(driver).clickLogout();
+
+
+
+>>>>>>> polisV
 
     }
 
