@@ -9,9 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
-   private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
+    private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
     public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
+    //private static final String idPhoto = "img_866966263525";
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
+    private static final By PERSONAL_PHOTO = By.xpath(".//*[@title = 'Личные фото']");
+
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -27,7 +30,7 @@ public class PhotoMainPage extends HelperBase{
 
         //пример использования класса ExpectedConditions
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(CREATE_NEW_ALBUM));
+                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
     }
     
     public void clickCreateButton() {
@@ -45,9 +48,9 @@ public class PhotoMainPage extends HelperBase{
         driver.findElement(CREATE_NEW_ALBUM).click();
     }
 
-    public void clickOpenPhoto(By openPhotoLocator) {
-        Assert.assertTrue("Не найдено фото", isElementPresent(openPhotoLocator));
-        driver.findElement(openPhotoLocator).click();
+    public void clickOpenPhotoLena() {
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
+        driver.findElement(OPEN_PHOTO).click();
     }
 
     public boolean isCreationAlbum(String name) {
@@ -65,6 +68,12 @@ public class PhotoMainPage extends HelperBase{
 //        Assert.assertTrue("Комментарии при невыполнении условия", comments.get(0).isSmthgDisplayed());
 
     }
+
+    public void clickPersonalPhoto(){
+        Assert.assertTrue("Не найдены личные фотографии", isElementPresent(PERSONAL_PHOTO));
+        driver.findElement(PERSONAL_PHOTO).click();
+    }
+
 
 
 }

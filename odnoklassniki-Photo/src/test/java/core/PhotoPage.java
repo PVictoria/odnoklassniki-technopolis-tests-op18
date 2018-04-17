@@ -13,7 +13,7 @@ import static java.lang.Thread.sleep;
  */
 public class PhotoPage extends HelperBase {
 
-    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]");
+    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]"); //добавить фабрику?
     private static final By SAVE_DESCRIPTION = By.xpath(".//*[contains(@value, 'Сохранить')]");
     private static final String INPUT_DESCRIPTION = "plp_descrInp";
     private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]");
@@ -26,8 +26,6 @@ public class PhotoPage extends HelperBase {
     private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']");
     private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']");
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
-
-    private static final By ROTATE = By.xpath(".//*[@id = 'rotation-link-layer']");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
@@ -84,10 +82,10 @@ public class PhotoPage extends HelperBase {
         click(MARK_FRIENDS);
         //driver.findElement(MARK_FRIENDS).click();
     }
-    public void clickOnMarkMessage() {
+    /*public void clickOnMarkMessage() {
         Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_MESSAGE));
         driver.findElement(MARK_MESSAGE).click();
-    }
+    }*/
     public void clickOnPhoto() {
         Assert.assertTrue("Не найдено фото", isElementPresent(CLICK_ON_PHOTO));
         driver.findElement(CLICK_ON_PHOTO).click();
@@ -107,12 +105,5 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(MARK_MYSELF_CREATED);
         //должен возвращать boolean
     }
-    ///////////////////////////////////////////////////////////////
-
-    public void clickRorate() {
-        Assert.assertTrue("Не найдено повернуть фото", isElementPresent(ROTATE));
-        driver.findElement(ROTATE).click();
-    }
-
 }
 
