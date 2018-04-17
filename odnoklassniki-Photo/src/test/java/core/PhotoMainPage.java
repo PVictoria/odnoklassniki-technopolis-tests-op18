@@ -3,8 +3,12 @@ package core;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Collections;
+import java.util.List;
 
 public class PhotoMainPage extends HelperBase{
 
@@ -13,6 +17,8 @@ public class PhotoMainPage extends HelperBase{
     public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
     public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
+    public static final By ALL_ALBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
+
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -57,13 +63,21 @@ public class PhotoMainPage extends HelperBase{
         return isElementPresent(ALBUM_PRESENT);
         //должен возвращать boolean
     }
+    public List<AlbumWrapper> getAllAlbums (){
+        if (isElementPresent(ALL_ALBUMS)) {
+            return AlbumTransformer.wrap(driver.findElements(ALL_ALBUMS), driver);
+        }
+        return Collections.emptyList();
+    }
 
-    public void clickOnAlbum(){
-       click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
+    public void clickOnAlbum(int number){
+      // click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
 
         //враппер
-//        List<AlbumWrapper> comments = new PhotoMainPage(driver).getComments();
-//        Assert.assertTrue("Комментарии при невыполнении условия", comments.get(0).isSmthgDisplayed());
+       List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+      // Assert.assertTrue("Нет альбомов кроме \" Личные фотографии \" ", albums.get(2).isSmthgDisplayed());
+       albums.get(number).clickAlbum();
+
 
     }
 

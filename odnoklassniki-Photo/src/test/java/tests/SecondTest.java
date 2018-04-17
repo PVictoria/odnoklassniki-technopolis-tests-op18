@@ -81,7 +81,7 @@ public class SecondTest extends TestBase {
 
     }*/
 
-    //тест-кейс 8  Виктория
+    //Создание Альбома - наш самый первый автотест
 //    @Test
 //    public void testPhotoAlbumCreation() throws Exception {
 //
@@ -106,24 +106,27 @@ public class SecondTest extends TestBase {
 //    }
 
     //тест-кейс 8  Виктория
-    /*@Test
-    public void transferPhotosFromAlbumToAlbum() throws Exception {
-
-        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-
-        photoMainPage.clickOnAlbum();
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditButton();
-        albumPage.clickOnPhoto();
-        albumPage.choseTargetAlbum();
-        albumPage.clickButtonMove();
-        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
-       // проверка
-
-
-    }*/
+    //У бота должно быть создано 2 альбома помимо личных фотографий.
+    // Хотя бы в одном альбоме должна быть хотя бы одна фотография
+//    @Test
+//    public void transferPhotosFromAlbumToAlbum() throws Exception {
+//
+//        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+//        new UserMainPage(driver).clickPhotosOnToolbar();
+//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+//
+//        photoMainPage.clickOnAlbum(3);
+//        AlbumPage albumPage = new AlbumPage(driver);
+//        albumPage.clickEditButton();
+//        albumPage.clickOnPhoto();
+//        String albumName = "ll";
+//        albumPage.choseTargetAlbum(albumName);
+//        albumPage.clickMoveButton();
+//        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
+//       // проверка
+//
+//
+//    }
 
     //тест-кейс добавление коммента Таня
     /*@Test
@@ -142,19 +145,19 @@ public class SecondTest extends TestBase {
 
     }*/
 
-    //тест-кейсизменение названия альбома
-    @Test
-    public void changeAlbomsName() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openAlbom(OPEN_ALBOM);
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditAlbum();
-        albumPage.editAlbumName();
-        albumPage.returnToPhoto();
-
-    }
+//    //тест-кейсизменение названия альбома
+//    @Test
+//    public void changeAlbomsName() throws Exception{
+//        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
+//        new UserMainPage(driver).clickPhotosOnToolbar();
+//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+//        photoMainPage.openAlbom(OPEN_ALBOM);
+//        AlbumPage albumPage = new AlbumPage(driver);
+//        albumPage.clickEditAlbum();
+//        albumPage.editAlbumName();
+//        albumPage.returnToPhoto();
+//
+//    }
 
 
 }
