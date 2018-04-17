@@ -9,7 +9,7 @@ public abstract class HelperBase {
 
     public HelperBase(WebDriver driver) {
         this.driver = driver;
-        //check();
+        //check(); //он путается с одним из методов в photopage, пришлось закоментить
     }
 
     protected abstract void check();

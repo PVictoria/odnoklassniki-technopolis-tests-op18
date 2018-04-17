@@ -19,6 +19,7 @@ public class PhotoPage extends HelperBase {
     private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]");
     private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
+    private static final By CLICK_LIKE = By.xpath("//*[contains(@class,'photo-layer_klass_link')]");
 
     //private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
     private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
@@ -31,12 +32,13 @@ public class PhotoPage extends HelperBase {
     private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
 
     private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
+    private static final By CHECK_LIKE = By.xpath("//*[contains(@data-flags, 'react')]//child::*[contains(@class, 'widget  __active __no-o __wide-count')]");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
     }
 
-    protected void check() {
+    protected void check() { //Пожалуйста, переименуй, путается с абстрактным check в helperbase
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
     }
@@ -131,5 +133,13 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(COMMENT_CREATED);
     }
 
+    public void clickLike(){
+        Assert.assertTrue("Не найдена кнопка лайка", isElementPresent(CLICK_LIKE));
+        click(CLICK_LIKE);
+    }
+
+    public boolean isLike(){
+        return isElementPresent(CLICK_LIKE);
+    }
 }
 
