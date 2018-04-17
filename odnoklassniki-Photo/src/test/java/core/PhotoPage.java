@@ -13,65 +13,61 @@ import static java.lang.Thread.sleep;
  */
 public class PhotoPage extends HelperBase {
 
-    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]"); //добавить фабрику?
-    private static final By SAVE_DESCRIPTION = By.xpath(".//*[contains(@value, 'Сохранить')]");
-    private static final String INPUT_DESCRIPTION = "plp_descrInp";
-    private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]");
-    private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
-    private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
-    private static final By CLICK_LIKE = By.xpath("//*[contains(@class,'photo-layer_klass_link')]");
+    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]");  //Lena //добавить фабрику?
+    private static final By SAVE_DESCRIPTION = By.xpath(".//*[contains(@value, 'Сохранить')]"); //Lena
+    private static final String INPUT_DESCRIPTION = "plp_descrInp"; //Lena
+    private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]"); //Lena
+    private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']"); //Lena
+    private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']"); //Lena
+    private static final By CLICK_LIKE = By.xpath("//*[contains(@class,'photo-layer_klass_link')]"); //Lena
 
-    //private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
-    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
-    private static final By MARK_MESSAGE = By.xpath(".//*[text() = 'Чтобы отметить человека, наведите на него курсор и нажмите левую кнопку мыши.']");
-    private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']");
-    private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']");
-    private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
+    //private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']"); //Lena
+    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']"); //Lena
+    private static final By MARK_MESSAGE = By.xpath(".//*[text() = 'Чтобы отметить человека, наведите на него курсор и нажмите левую кнопку мыши.']"); //Lena
+    private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']"); //Lena
+    private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']"); //Lena
+    private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']"); //Lena
 
-<<<<<<< HEAD
-=======
-    private static final By ROTATE = By.xpath(".//*[@id = 'rotation-link-layer']");
     private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
 
     private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
     private static final By CHECK_LIKE = By.xpath("//*[contains(@data-flags, 'react')]//child::*[contains(@class, 'widget  __active __no-o __wide-count')]");
 
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     public PhotoPage(WebDriver driver) {
         super(driver);
     }
 
-    protected void check() { //Пожалуйста, переименуй, путается с абстрактным check в helperbase
+    protected void check() { //Пожалуйста, переименуй, путается с абстрактным check в helperbase //Lena
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
     }
 
-    public void clickAddDescription() {
+    public void clickAddDescription() { //Lena
         Assert.assertTrue("Не найдено добавление описания", isElementPresent(ADD_DESCRIPTION));
         driver.findElement(ADD_DESCRIPTION).click();
     }
 
-    public void typeDescrName(String descroption) {
+    public void typeDescrName(String descroption) { //Lena
         type(descroption, By.id(INPUT_DESCRIPTION));
     }
 
-    public void clickSaveDescription() {
+    public void clickSaveDescription() { //Lena
         Assert.assertTrue("Не найдена кнопка сохраннения описания", isElementPresent(SAVE_DESCRIPTION));
         driver.findElement(SAVE_DESCRIPTION).click();
     }
 
-    public boolean isAddDescription(String description) {
+    public boolean isAddDescription(String description) { //Lena
         final By DESCRIPTION_CREATED = By.xpath(".//*[text() = '" + description + "' ]");
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
         return isElementPresent(DESCRIPTION_CREATED);
         //должен возвращать boolean
     }
 
-    public void closePhoto(){
+    public void closePhoto(){ //Lena
         driver.findElement(CLOSE_PHOTO).click();
     }
 
-    public void phLogout() throws InterruptedException {
+    public void phLogout() throws InterruptedException { //Lena
         driver.findElement(CLOSE_PHOTO).click();
        //sleep(1000);
         driver.findElement(MENU_LOGOUT).click();
@@ -87,42 +83,36 @@ public class PhotoPage extends HelperBase {
     }
     ///////////////////////////////////////////////////////////////
 
-    public void clickMarkFriends() {
+    public void clickMarkFriends() { //Lena
         Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_FRIENDS));
         click(MARK_FRIENDS);
         //driver.findElement(MARK_FRIENDS).click();
     }
-    /*public void clickOnMarkMessage() {
+    /*public void clickOnMarkMessage() { //Lena
         Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_MESSAGE));
         driver.findElement(MARK_MESSAGE).click();
     }*/
-    public void clickOnPhoto() {
+    public void clickOnPhoto() { //Lena
         Assert.assertTrue("Не найдено фото", isElementVisible(CLICK_ON_PHOTO));
         driver.findElement(CLICK_ON_PHOTO).click();
     }
-    public void clickOnMyself() {
+    public void clickOnMyself() { //Lena
         Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_MYSELF));
         driver.findElement(CHOOSE_MYSELF).click();
     }
-    public void clickDone() {
+    public void clickDone() { //Lena
         Assert.assertTrue("Не найдено готово", isElementPresent(DONE));
         driver.findElement(DONE).click();
     }
 
-    public boolean isMarkMyself(String login, String password) {
+    public boolean isMarkMyself(String login, String password) { //Lena
         final By MARK_MYSELF_CREATED = By.xpath(".//*[text() = '" + login + " " + password + "' ]");
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
         return isElementPresent(MARK_MYSELF_CREATED);
         //должен возвращать boolean
     }
-<<<<<<< HEAD
-=======
     ///////////////////////////////////////////////////////////////
 
-    public void clickRorate() {
-        Assert.assertTrue("Не найдено повернуть фото", isElementPresent(ROTATE));
-        driver.findElement(ROTATE).click();
-    }
 
     public void setAddComment(String comText){ //Таня
         type(comText,ADD_COMMENT);
@@ -146,6 +136,5 @@ public class PhotoPage extends HelperBase {
     public boolean isLike(){
         return isElementPresent(CLICK_LIKE);
     }
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
 }
 

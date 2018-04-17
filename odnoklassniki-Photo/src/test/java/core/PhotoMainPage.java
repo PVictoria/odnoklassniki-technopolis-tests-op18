@@ -14,12 +14,10 @@ public class PhotoMainPage extends HelperBase{
 
    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
     private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
-    public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
-<<<<<<< HEAD
+    public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");  //Lena
     //private static final String idPhoto = "img_866966263525";
-=======
+
     public static final By OPEN_PHOTO_FOR_LIKE = By.xpath(".//*[contains(@id, 'img_866106130788')]");
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
     private static final By PERSONAL_PHOTO = By.xpath(".//*[@title = 'Личные фото']");
 
@@ -64,15 +62,14 @@ public class PhotoMainPage extends HelperBase{
         driver.findElement(CREATE_NEW_ALBUM).click();
     }
 
-<<<<<<< HEAD
-    public void clickOpenPhotoLena() {
+    public void clickOpenPhotoLena() {  //Lena
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
         driver.findElement(OPEN_PHOTO).click();
-=======
-    public void clickOpenPhoto(By openPhotoLocator) {
+    }
+
+    public void clickOpenPhoto(By openPhotoLocator) {   //Lena old
         Assert.assertTrue("Не найдено фото", isElementPresent(openPhotoLocator));
         click(openPhotoLocator);
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     }
 
     public boolean isCreationAlbum(String name) {
@@ -114,14 +111,11 @@ public class PhotoMainPage extends HelperBase{
 
     }
 
-<<<<<<< HEAD
-    public void clickPersonalPhoto(){
+    public void clickPersonalPhoto(){  //Lena
         Assert.assertTrue("Не найдены личные фотографии", isElementPresent(PERSONAL_PHOTO));
         driver.findElement(PERSONAL_PHOTO).click();
     }
 
-
-=======
     public void openAlbum(By openAlbumLocator){
         Assert.assertTrue("Не найден альбом", isElementPresent(openAlbumLocator));
         click(openAlbumLocator);
@@ -130,6 +124,4 @@ public class PhotoMainPage extends HelperBase{
         //делать этот метод тут или на другом пэйдже???
         return false;
     }
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
-
 }

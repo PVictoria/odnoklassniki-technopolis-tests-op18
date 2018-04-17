@@ -11,17 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumPage extends HelperBase {
-<<<<<<< HEAD
 
-    private static final By EDIT_ALBUM = By.xpath(".//*[text() = 'Редактировать, изменить порядок']");
-    private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block866966264549']//child::*[@class = 'photo-widget __del']");
-    private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']");
-    private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']");
+    private static final By EDIT_ALBUM = By.xpath(".//*[text() = 'Редактировать, изменить порядок']"); //Lena
+    private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block866966264549']//child::*[@class = 'photo-widget __del']"); //Lena
+    private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
+    private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
-
-=======
     public static final String NEW_ALBUM_NAME = "NewName2";
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     private static final By ALBUM = By.xpath(".//*[text() = 'I' ]"); //локатор содержит имя альбома!!
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
@@ -65,26 +61,26 @@ public class AlbumPage extends HelperBase {
         final By INFO = By.xpath(".//div[starts-with(@class, 'iblock') ]");
         return isElementPresent(INFO);
     }
-<<<<<<< HEAD
 
     //////////lena///////////
-    public void clickEdit(){
+    public void clickEdit(){ //Lena
         Assert.assertTrue("Не найдено редактировать", isElementPresent(EDIT_ALBUM));
         driver.findElement(EDIT_ALBUM).click();
     }
 
-    public void clickDelete(){
+    public void clickDelete(){ //Lena
         Assert.assertTrue("Не найдено удалить", isElementPresent(DELETE_BUTTON));
         driver.findElement(DELETE_BUTTON).click();
     }
-    public void isDeleted(){
+    public void isDeleted(){ //Lena
         Assert.assertTrue("Не найдено фоторафия удалена", isElementPresent(DELETE_DONE));
         driver.findElement(DELETE_DONE);
     }
-    public void recoveryPhoto(){
+    public void recoveryPhoto() { //Lena
         Assert.assertTrue("Не найдено востановить", isElementPresent(RECOVERY_PHOTO));
         driver.findElement(RECOVERY_PHOTO);
-=======
+    }
+
     public void editAlbumName(){
         click(FIND_ALBUM_NAME);
         type(NEW_ALBUM_NAME,FIND_ALBUM_NAME);
@@ -109,6 +105,5 @@ public class AlbumPage extends HelperBase {
     }
     public void confirmAlbumDeletion(){
         click(By.id("hook_FormButton_button_delete_confirm"));
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     }
 }
