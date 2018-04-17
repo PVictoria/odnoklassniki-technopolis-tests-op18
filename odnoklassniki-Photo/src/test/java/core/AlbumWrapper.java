@@ -28,6 +28,13 @@ public class AlbumWrapper {
     public void clickAlbum(){
         element.click();
     }
+    public String getAlbumName(){
+        WebElement albumName= element.findElement(By.xpath(".//div[contains(@class,'photo-album_t')]"));
+        return albumName.getText();
+    }
+//    public String getText(){
+//        return element.getText();
+//    }
 
 
 }

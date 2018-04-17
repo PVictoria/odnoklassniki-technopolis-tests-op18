@@ -116,13 +116,13 @@ public class SecondTest extends TestBase {
 //        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
 //        new UserMainPage(driver).clickPhotosOnToolbar();
 //        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//
-//        photoMainPage.clickOnAlbum(3);
+//        String albumNameFrom = "aa";
+//        photoMainPage.clickOnAlbum(albumNameFrom);
 //        AlbumPage albumPage = new AlbumPage(driver);
 //        albumPage.clickEditButton();
 //        albumPage.clickOnPhoto();
-//        String albumName = "ll";
-//        albumPage.choseTargetAlbum(albumName);
+//        String albumNameTo = "a";
+//        albumPage.choseTargetAlbum(albumNameTo);
 //        albumPage.clickMoveButton();
 //        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
 //       // проверка
@@ -177,18 +177,18 @@ public class SecondTest extends TestBase {
         Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(NEW_ALBUM_NAME));
     }*/
 
-    //тест-кейс поставить лайк своему фото
-    @Test
-    public void likeToMyPhoto() throws Exception {
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
-        PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.clickLike();
-        //проверка
-        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
-    }
+//    //тест-кейс поставить лайк своему фото
+//    @Test
+//    public void likeToMyPhoto() throws Exception {
+//        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
+//        new UserMainPage(driver).clickPhotosOnToolbar();
+//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+//        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
+//        PhotoPage photoPage = new PhotoPage(driver);
+//        photoPage.clickLike();
+//        //проверка
+//        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
+//    }
 
 
 }

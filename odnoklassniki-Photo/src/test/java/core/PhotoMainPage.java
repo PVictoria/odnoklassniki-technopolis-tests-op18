@@ -17,13 +17,14 @@ public class PhotoMainPage extends HelperBase{
     public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");
     public static final By OPEN_PHOTO_FOR_LIKE = By.xpath(".//*[contains(@id, 'img_866106130788')]");
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
-<<<<<<< HEAD
-    public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
-    public static final By ALL_ALBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
 
-=======
+    public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
+    //public static final By ALL_ALBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
+    public static final By ALL_ALBUMS = By.xpath(".//div[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
+
+
     public static final By OPEN_ALBUM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
->>>>>>> 8425aff8991294a67b03dff8d540b1e5c0510818
+
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -75,13 +76,22 @@ public class PhotoMainPage extends HelperBase{
         return Collections.emptyList();
     }
 
-    public void clickOnAlbum(int number){
+    public void clickOnAlbum(String albumName){
       // click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
 
         //враппер
        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
       // Assert.assertTrue("Нет альбомов кроме \" Личные фотографии \" ", albums.get(2).isSmthgDisplayed());
-       albums.get(number).clickAlbum();
+       //albums.get(number).clickAlbum();
+        boolean flag = false;
+        for (AlbumWrapper album : albums) {
+            if ( album.getAlbumName().equals(albumName)){
+                album.clickAlbum();
+                flag = true;
+                break;
+            }
+        }
+        Assert.assertTrue("Альбом " + albumName + " не найден", flag);
 
 
     }

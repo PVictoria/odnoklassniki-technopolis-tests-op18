@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,12 +36,15 @@ public class AlbumPage extends HelperBase {
 
         List<WebElement> albumList = new ArrayList<WebElement>();
         albumList = driver.findElements(By.xpath("((.//div[contains(@class,'drop-lst')])/descendant::li[contains(@class, 'custom-isl')])"));
+        boolean flag = false;
         for (WebElement album : albumList) {
             if ( album.getText().equals(albumName)){
                 album.click();
+                flag = true;
                 break;
             }
         }
+        Assert.assertTrue("Альбом " + albumName + " не найден", flag);
 
 
     }
