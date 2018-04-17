@@ -14,11 +14,12 @@ public class AlbumTransformer {
             if (elements.isEmpty()) {
                 return Collections.<AlbumWrapper>emptyList();
             }
-            List<AlbumWrapper> comments = new ArrayList<AlbumWrapper>();
-            for (WebElement comment : elements) {
-                comments.add(new AlbumWrapper(comment, driver));
+
+            List<AlbumWrapper> albums = new ArrayList<AlbumWrapper>();
+            for (WebElement album : elements) {
+                albums.add(new AlbumWrapper(album, driver));
             }
-            return comments;
+            return albums;
         }
 
 

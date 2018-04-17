@@ -19,6 +19,7 @@ public class PhotoPage extends HelperBase {
     private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]");
     private static final By MENU_LOGOUT = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     private static final By LOGOUT = By.xpath(".//*[@data-l = 't,logoutCurrentUser']");
+    private static final By CLICK_LIKE = By.xpath("//*[contains(@class,'photo-layer_klass_link')]");
 
     //private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']");
     private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
@@ -27,11 +28,20 @@ public class PhotoPage extends HelperBase {
     private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']");
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']");
 
+<<<<<<< HEAD
+=======
+    private static final By ROTATE = By.xpath(".//*[@id = 'rotation-link-layer']");
+    private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
+
+    private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
+    private static final By CHECK_LIKE = By.xpath("//*[contains(@data-flags, 'react')]//child::*[contains(@class, 'widget  __active __no-o __wide-count')]");
+
+>>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
     public PhotoPage(WebDriver driver) {
         super(driver);
     }
 
-    protected void check() {
+    protected void check() { //Пожалуйста, переименуй, путается с абстрактным check в helperbase
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
     }
@@ -87,7 +97,7 @@ public class PhotoPage extends HelperBase {
         driver.findElement(MARK_MESSAGE).click();
     }*/
     public void clickOnPhoto() {
-        Assert.assertTrue("Не найдено фото", isElementPresent(CLICK_ON_PHOTO));
+        Assert.assertTrue("Не найдено фото", isElementVisible(CLICK_ON_PHOTO));
         driver.findElement(CLICK_ON_PHOTO).click();
     }
     public void clickOnMyself() {
@@ -105,5 +115,37 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(MARK_MYSELF_CREATED);
         //должен возвращать boolean
     }
+<<<<<<< HEAD
+=======
+    ///////////////////////////////////////////////////////////////
+
+    public void clickRorate() {
+        Assert.assertTrue("Не найдено повернуть фото", isElementPresent(ROTATE));
+        driver.findElement(ROTATE).click();
+    }
+
+    public void setAddComment(String comText){ //Таня
+        type(comText,ADD_COMMENT);
+    }
+
+    public void clickSetAddComment(){ // Таня
+        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
+        click(CLICK_ADD_COMMENT);
+    }
+
+    public boolean isAddComment(String com) {
+        final By COMMENT_CREATED = By.xpath(".//*[text() = '" + com + "' ]");
+        return isElementPresent(COMMENT_CREATED);
+    }
+
+    public void clickLike(){
+        Assert.assertTrue("Не найдена кнопка лайка", isElementPresent(CLICK_LIKE));
+        click(CLICK_LIKE);
+    }
+
+    public boolean isLike(){
+        return isElementPresent(CLICK_LIKE);
+    }
+>>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
 }
 

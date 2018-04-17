@@ -10,7 +10,7 @@ public class AlbumWrapper {
     private WebElement element;
     private WebDriver driver;
 
-    private static final By SMILE_IN_MESSAGE = By.xpath(".//img[contains(@class,'usmile')]");
+    //private static final By ALL_AlBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
 
     public AlbumWrapper(WebElement element, WebDriver driver) {
         this.driver = driver;
@@ -18,10 +18,23 @@ public class AlbumWrapper {
     }
 
     /**
-     * Возвращает true если отображается что-то
+     * Возвращает true если альбом отображается
      */
-    public boolean isSmthgDisplayed() {
-        return element.findElement(SMILE_IN_MESSAGE).isDisplayed();
+    public boolean isExist() {
+        //return element.findElement(ALL_AlBUMS).isDisplayed();
+        return element.isDisplayed();
     }
+
+    public void clickAlbum(){
+        element.click();
+    }
+    public String getAlbumName(){
+        WebElement albumName= element.findElement(By.xpath(".//div[contains(@class,'photo-album_t')]"));
+        return albumName.getText();
+    }
+//    public String getText(){
+//        return element.getText();
+//    }
+
 
 }
