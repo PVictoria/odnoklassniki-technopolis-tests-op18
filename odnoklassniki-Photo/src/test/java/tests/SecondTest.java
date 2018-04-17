@@ -147,7 +147,7 @@ public class SecondTest extends TestBase {
 
     }*/
 
-<<<<<<< HEAD
+
 //    //тест-кейсизменение названия альбома
 //    @Test
 //    public void changeAlbomsName() throws Exception{
@@ -161,7 +161,7 @@ public class SecondTest extends TestBase {
 //        albumPage.returnToPhoto();
 //
 //    }
-=======
+
     //тест-кейсизменение названия альбома
     /*@Test
     public void changeAlbomsName() throws Exception{
@@ -189,6 +189,6 @@ public class SecondTest extends TestBase {
         //проверка
         Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
     }
->>>>>>> 8425aff8991294a67b03dff8d540b1e5c0510818
+
 
 }
