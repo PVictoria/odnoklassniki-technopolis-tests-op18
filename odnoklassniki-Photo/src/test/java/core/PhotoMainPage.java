@@ -100,5 +100,9 @@ public class PhotoMainPage extends HelperBase{
         Assert.assertTrue("Не найден альбом", isElementPresent(openAlbumLocator));
         click(openAlbumLocator);
     }
+    public boolean isAlbumExist(String albumName){
+        //делать этот метод тут или на другом пэйдже???
+        return false;
+    }
 
 }

@@ -71,4 +71,13 @@ public class AlbumPage extends HelperBase {
         return isElementPresent(NAME_CHANGED);
 
     }
+
+    public  void clickDeleteButton (){
+       // click (By.xpath(".//div[contains(@class, 'photo-panel_info')]/descendant::a[contains(@href , 'RemoveUserAlbums')]"));
+       click(By.linkText("Удалить альбом"));
+        //driver.findElement(By.id("hook_FormButton_button_delete_confirm")).click();
+    }
+    public void confirmAlbumDeletion(){
+        click(By.id("hook_FormButton_button_delete_confirm"));
+    }
 }

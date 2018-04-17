@@ -191,4 +191,27 @@ public class SecondTest extends TestBase {
 //    }
 
 
+    //тест-кейс 6  Виктория
+    // Удаление албома
+    //У бота должен быть хотя бы один альбом помимо личных фотографий
+
+    @Test
+    public void deleteingAlbum() throws Exception {
+
+        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+        new UserMainPage(driver).clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        String albumName = "bbb";
+        photoMainPage.clickOnAlbum(albumName);
+        AlbumPage albumPage = new AlbumPage(driver);
+        albumPage.clickEditButton();
+        albumPage.clickDeleteButton();
+        albumPage.confirmAlbumDeletion();
+        // проверка
+        // Assert.assertTrue("Альбом не удален или чуществует еще один с таким же именем", photoMainPage.isAlbumExist(albumName));
+
+
+    }
+
+
 }
