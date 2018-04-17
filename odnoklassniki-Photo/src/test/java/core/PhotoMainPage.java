@@ -83,6 +83,12 @@ public class PhotoMainPage extends HelperBase{
        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
       // Assert.assertTrue("Нет альбомов кроме \" Личные фотографии \" ", albums.get(2).isSmthgDisplayed());
        //albums.get(number).clickAlbum();
+
+
+        // весь фор в отдельный метод поиска альбома по имени
+        //клик будет в тесте
+
+
         boolean flag = false;
         for (AlbumWrapper album : albums) {
             if ( album.getAlbumName().equals(albumName)){

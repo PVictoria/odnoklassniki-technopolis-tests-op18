@@ -3,6 +3,7 @@ package tests;
 import core.*;
 import model.TestBot;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import static core.AlbumPage.NEW_ALBUM_NAME;
@@ -25,54 +26,55 @@ public class SecondTest extends TestBase {
 
 
     //Создание Альбома
-    /*@Test
+    @Test
     public void testPhotoAlbumCreation() throws Exception {
 
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21 ", "QA18testbott"));
 
 
-     //  new UserMainPage(driver).clickPhotosOnToolbar();
-       UserMainPage userMainPage = new UserMainPage(driver);
-       userMainPage.clickPhotosOnToolbar();
-    /////////////////////////добавлние описания к фото///////////////////////////
+        //  new UserMainPage(driver).clickPhotosOnToolbar();
+        UserMainPage userMainPage = new UserMainPage(driver);
+        userMainPage.clickPhotosOnToolbar();
+        /////////////////////////добавлние описания к фото///////////////////////////
 
-       /* PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto(photoMainPage.OPEN_PHOTO);
-        PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.clickAddDescription();
-        String description = "Описание...";
-        photoPage.typeDescrName(description);
-        photoPage.clickSaveDescription();
-
-        Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
-        //sleep(1000);
-        photoPage.phLogout();*/
-    //////////////////////////////////////////////////////////////////////////////
-       /* PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
-        photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO);
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+//        photoMainPage.clickOpenPhoto(photoMainPage.OPEN_PHOTO);
+//        PhotoPage photoPage = new PhotoPage(driver);
+//        photoPage.clickAddDescription();
+//        String description = "Описание...";
+//        photoPage.typeDescrName(description);
+//        photoPage.clickSaveDescription();
+//
+//        Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
+//        //sleep(1000);
+//        photoPage.phLogout();
+        //////////////////////////////////////////////////////////////////////////////
+        PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
+        photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO); //метод один айди передаем как параметр
         System.out.println("1");
         PhotoPage photoPage1 = new PhotoPage(driver);
         System.out.println("2");
-       // photoPage1.clickRorate();
+        // photoPage1.clickRorate();
         photoPage1.clickMarkFriends();
         sleep(1000);
         System.out.println("3");
         photoPage1.clickOnMarkMessage();
         sleep(5000);
         System.out.println("4");
-        photoPage1.clickOnPhoto();
+        photoPage1.clickOnPhoto();//
         System.out.println("5");
         sleep(500);
         photoPage1.clickOnMyself();
-        photoPage1.clickDone();*/
+        photoPage1.clickDone();
 
-        /*Assert.assertTrue("Пользователь не отмечен", photoPage1.);
+
+        //Assert.assertTrue("Пользователь не отмечен", photoPage1.);
         //sleep(1000);
-        photoPage.phLogout();*/
+       // photoPage.phLogout();
     ////////////////////////////////////////////////////////
 
 
-        /*photoMainPage.clickCreateAlbum();
+        photoMainPage.clickCreateAlbum();
         String pa = "PhotoAlbum!!!";
         photoMainPage.typePhotoName(pa);
         photoMainPage.clickCreateButton();
@@ -81,57 +83,36 @@ public class SecondTest extends TestBase {
         userMainPage.clickLogout();
 
 
-    }*/
+    }
 
     //Создание Альбома - наш самый первый автотест
-//    @Test
-//    public void testPhotoAlbumCreation() throws Exception {
-//
-//        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
-//
-//
-//     //  new UserMainPage(driver).clickPhotosOnToolbar();
-//       UserMainPage userMainPage = new UserMainPage(driver);
-//       userMainPage.clickPhotosOnToolbar();
-//
-//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//
-//        photoMainPage.clickCreateAlbum();
-//        String pa = "PhotoAlbum!!!";
-//        photoMainPage.typePhotoName(pa);
-//        photoMainPage.clickCreateButton();
-//
-//        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
-//        userMainPage.clickLogout();
-//
-//
-//    }
+    //
+    @Test
+    public void testPhotoAlbumCreation1() throws Exception {
 
-    //тест-кейс 8  Виктория
-    //У бота должно быть создано 2 альбома помимо личных фотографий.
-    // Хотя бы в одном альбоме должна быть хотя бы одна фотография
-//    @Test
-//    public void transferPhotosFromAlbumToAlbum() throws Exception {
-//
-//        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
-//        new UserMainPage(driver).clickPhotosOnToolbar();
-//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//        String albumNameFrom = "aa";
-//        photoMainPage.clickOnAlbum(albumNameFrom);
-//        AlbumPage albumPage = new AlbumPage(driver);
-//        albumPage.clickEditButton();
-//        albumPage.clickOnPhoto();
-//        String albumNameTo = "a";
-//        albumPage.choseTargetAlbum(albumNameTo);
-//        albumPage.clickMoveButton();
-//        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved());
-//       // проверка
-//
-//
-//    }
+        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+
+
+     //  new UserMainPage(driver).clickPhotosOnToolbar();
+       UserMainPage userMainPage = new UserMainPage(driver);
+       userMainPage.clickPhotosOnToolbar();
+
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+
+        photoMainPage.clickCreateAlbum();
+        String pa = "PhotoAlbum!!!";
+        photoMainPage.typePhotoName(pa);
+        photoMainPage.clickCreateButton();
+
+        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
+        userMainPage.clickLogout();
+
+
+    }
+
 
     //тест-кейс добавление коммента Таня
-    /*@Test
+    @Test
     public void addCommentUnderPhoto() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
@@ -143,29 +124,15 @@ public class SecondTest extends TestBase {
         photopage.clickSetAddComment();
         //проверка
         Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
-       
-
-    }*/
 
 
-//    //тест-кейсизменение названия альбома
-//    @Test
-//    public void changeAlbomsName() throws Exception{
-//        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
-//        new UserMainPage(driver).clickPhotosOnToolbar();
-//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//        photoMainPage.openAlbom(OPEN_ALBOM);
-//        AlbumPage albumPage = new AlbumPage(driver);
-//        albumPage.clickEditAlbum();
-//        albumPage.editAlbumName();
-//        albumPage.returnToPhoto();
-//
-//    }
+    }
+
 
     //тест-кейсизменение названия альбома
-    /*@Test
+    @Test
     public void changeAlbomsName() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.openAlbum(OPEN_ALBUM);
@@ -175,43 +142,21 @@ public class SecondTest extends TestBase {
         albumPage.returnToPhoto();
         //проверка
         Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(NEW_ALBUM_NAME));
-    }*/
+    }
 
-//    //тест-кейс поставить лайк своему фото
-//    @Test
-//    public void likeToMyPhoto() throws Exception {
-//        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot"));
-//        new UserMainPage(driver).clickPhotosOnToolbar();
-//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
-//        PhotoPage photoPage = new PhotoPage(driver);
-//        photoPage.clickLike();
-//        //проверка
-//        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
-//    }
-
-
-    //тест-кейс 6  Виктория
-    // Удаление албома
-    //У бота должен быть хотя бы один альбом помимо личных фотографий
-
+    //тест-кейс поставить лайк своему фото
     @Test
-    public void deleteingAlbum() throws Exception {
-
-        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+    public void likeToMyPhoto() throws Exception {
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String albumName = "bbb";
-        photoMainPage.clickOnAlbum(albumName);
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditButton();
-        albumPage.clickDeleteButton();
-        albumPage.confirmAlbumDeletion();
-        // проверка
-        // Assert.assertTrue("Альбом не удален или чуществует еще один с таким же именем", photoMainPage.isAlbumExist(albumName));
-
-
+        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
+        PhotoPage photoPage = new PhotoPage(driver);
+        photoPage.clickLike();
+        //проверка
+        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
     }
+
 
 
 }

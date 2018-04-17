@@ -94,7 +94,7 @@ public class PhotoPage extends HelperBase {
         driver.findElement(MARK_MESSAGE).click();
     }
     public void clickOnPhoto() {
-        Assert.assertTrue("Не найдено фото", isElementPresent(CLICK_ON_PHOTO));
+        Assert.assertTrue("Не найдено фото", isElementVisible(CLICK_ON_PHOTO));
         driver.findElement(CLICK_ON_PHOTO).click();
     }
     public void clickOnMyself() {

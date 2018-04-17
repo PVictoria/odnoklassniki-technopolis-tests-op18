@@ -14,6 +14,7 @@ public class AlbumTransformer {
             if (elements.isEmpty()) {
                 return Collections.<AlbumWrapper>emptyList();
             }
+
             List<AlbumWrapper> albums = new ArrayList<AlbumWrapper>();
             for (WebElement album : elements) {
                 albums.add(new AlbumWrapper(album, driver));
