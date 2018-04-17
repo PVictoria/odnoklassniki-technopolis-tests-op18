@@ -13,7 +13,7 @@ import java.util.List;
 public class AlbumPage extends HelperBase {
 
     private static final By EDIT_ALBUM = By.xpath(".//*[text() = 'Редактировать, изменить порядок']"); //Lena
-    private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block866966264549']//child::*[@class = 'photo-widget __del']"); //Lena
+    private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block867039499749']//child::*[@class = 'photo-widget __del']"); //Lena
     private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
     private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
@@ -78,7 +78,7 @@ public class AlbumPage extends HelperBase {
     }
     public void recoveryPhoto() { //Lena
         Assert.assertTrue("Не найдено востановить", isElementPresent(RECOVERY_PHOTO));
-        driver.findElement(RECOVERY_PHOTO);
+        driver.findElement(RECOVERY_PHOTO).click();
     }
 
     public void editAlbumName(){

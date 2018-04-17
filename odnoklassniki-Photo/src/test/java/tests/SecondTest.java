@@ -31,8 +31,6 @@ public class SecondTest extends TestBase {
 
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
 
-
-<<<<<<< HEAD
      //  new UserMainPage(driver).clickPhotosOnToolbar();
        UserMainPage userMainPage = new UserMainPage(driver);
        userMainPage.clickPhotosOnToolbar();
@@ -123,10 +121,6 @@ public class SecondTest extends TestBase {
         userMainPage.clickLogout();
 <<<<<<< HEAD
         driver.navigate().refresh();*/
-=======
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
-
-
     }
 
     //Создание Альбома - наш самый первый автотест
