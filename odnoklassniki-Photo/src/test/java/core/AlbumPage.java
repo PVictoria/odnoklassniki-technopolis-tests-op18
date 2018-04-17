@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumPage extends HelperBase {
-    public static final String NEW_ALBUM_NAME = "NewName1";
+    public static final String NEW_ALBUM_NAME = "NewName2";
     private static final By ALBUM = By.xpath(".//*[text() = 'I' ]"); //локатор содержит имя альбома!!
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");

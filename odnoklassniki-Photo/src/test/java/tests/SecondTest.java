@@ -106,57 +106,5 @@ public class SecondTest extends TestBase {
 
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
         userMainPage.clickLogout();
-
-
     }
-
-
-    //тест-кейс добавление коммента Таня
-    @Test
-    public void addCommentUnderPhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_COM);
-        String com = "New comment";
-        PhotoPage photopage = new PhotoPage(driver);
-        photopage.setAddComment(com);
-        photopage.clickSetAddComment();
-        //проверка
-        Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
-
-
-    }
-
-
-    //тест-кейсизменение названия альбома
-    @Test
-    public void changeAlbomsName() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openAlbum(OPEN_ALBUM);
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditAlbum();
-        albumPage.editAlbumName();
-        albumPage.returnToPhoto();
-        //проверка
-        Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(NEW_ALBUM_NAME));
-    }
-
-    //тест-кейс поставить лайк своему фото
-    @Test
-    public void likeToMyPhoto() throws Exception {
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhoto(OPEN_PHOTO_FOR_LIKE);
-        PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.clickLike();
-        //проверка
-        Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
-    }
-
-
-
 }
