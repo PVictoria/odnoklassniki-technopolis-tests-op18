@@ -3,6 +3,7 @@ package core;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,6 +33,8 @@ public class PhotoPage extends HelperBase {
     private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
     //private static final By CHECK_LIKE = By.xpath("//*[contains(@data-flags, 'react')]//child::*[contains(@class, 'widget  __active __no-o __wide-count')]");
     private static final By CHECK_LIKE = By.xpath("//*[contains(@class, 'photo-layer_klass __active __anim')]");
+    private static final By DELETE_COM = By.xpath("(//a[@title='Удалить'])[last()]");
+    private static final By WAIT_FOR_DEL_COM = By.xpath("(//*[@class='photo-layer_bottom_l'])");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
@@ -135,6 +138,16 @@ public class PhotoPage extends HelperBase {
 
     public boolean isLike(){
         return isElementPresent(CHECK_LIKE);
+    }
+
+    public  void delAllCom(){
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(WAIT_FOR_DEL_COM));
+        Assert.assertTrue("Не найдена кнопка удалить", isElementPresent(DELETE_COM));
+        Actions builder;
+        builder = new Actions(driver);
+        builder.moveToElement(driver.findElement(DELETE_COM)).click().build().perform();
+
     }
 }
 

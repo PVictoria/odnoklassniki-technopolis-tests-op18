@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static core.AlbumPage.NEW_ALBUM_NAME;
+import static core.AlbumPage.newAlbumName;
 import static core.PhotoMainPage.OPEN_ALBUM;
 import static core.PhotoMainPage.OPEN_PHOTO_FOR_COM;
 import static core.PhotoMainPage.OPEN_PHOTO_FOR_LIKE;

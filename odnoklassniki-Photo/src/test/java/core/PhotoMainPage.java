@@ -69,12 +69,12 @@ public class PhotoMainPage extends HelperBase{
         driver.findElement(OPEN_PHOTO).click();
     }
 
-    public void clickOpenPhotoForCom() {   //Lena old
+    public void clickOpenPhotoForCom() {
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_COM));
         click(OPEN_PHOTO_FOR_COM);
     }
 
-    public void clickOpenPhotoForLike() {   //Lena old
+    public void clickOpenPhotoForLike() {
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_LIKE));
         click(OPEN_PHOTO_FOR_LIKE);
     }
