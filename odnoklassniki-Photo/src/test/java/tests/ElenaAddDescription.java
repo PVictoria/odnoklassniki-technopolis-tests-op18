@@ -22,6 +22,11 @@ public class ElenaAddDescription extends TestBase{
 
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.clickOpenPhotoLena();
+
+        DescInterface exampleInterface = new DescFactory().get(driver);
+        org.junit.Assert.assertTrue("Комментарии при невыполнении условия", exampleInterface.isDescEmpty()); //??
+
+
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickAddDescription();
         photoPage.typeDescrName(description);
@@ -29,6 +34,7 @@ public class ElenaAddDescription extends TestBase{
 
         Assert.assertTrue(photoPage.isAddDescription(description), "Описание не добавлено");
         photoPage.closePhoto();
+        //
 
     }
 }
