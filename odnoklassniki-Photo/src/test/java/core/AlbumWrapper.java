@@ -1,8 +1,11 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class AlbumWrapper {
 
@@ -22,7 +25,11 @@ public class AlbumWrapper {
      */
     public boolean isExist() {
         //return element.findElement(ALL_AlBUMS).isDisplayed();
-        return element.isDisplayed();
+        try {
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 
     public void clickAlbum(){
@@ -35,6 +42,7 @@ public class AlbumWrapper {
 //    public String getText(){
 //        return element.getText();
 //    }
+
 
 
 }

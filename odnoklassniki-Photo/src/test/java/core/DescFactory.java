@@ -20,9 +20,10 @@ public class DescFactory { //Lena
 
     private boolean isDescEmpty(WebDriver driver) {
 
-        if (isElementPresent(CLEAR_DESC)){
-
-        }
+//        if (isElementPresent(CLEAR_DESC)){
+//            //
+//
+//        }
         //здесь должен быть код, который определит на какой странице мы находимся ExamplePage или ExamplePageNew
         return true;
     }

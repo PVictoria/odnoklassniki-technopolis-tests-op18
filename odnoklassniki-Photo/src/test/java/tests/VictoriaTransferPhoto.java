@@ -17,8 +17,8 @@ public class VictoriaTransferPhoto extends TestBase{
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         String albumNameFrom = "aa";
-        photoMainPage.clickOnAlbum(albumNameFrom); //должен возвращать albumPage
-        AlbumPage albumPage = new AlbumPage(driver);
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumNameFrom); //должен возвращать albumPage
+        //AlbumPage albumPage = new AlbumPage(driver);
         albumPage.clickEditButton();
         albumPage.clickOnPhoto();
         String albumNameTo = "a";

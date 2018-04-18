@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Collections;
 import java.util.List;
 
-public class PhotoMainPage extends HelperBase{
+public class PhotoMainPage extends HelperBase {
 
-   // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
+    // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
     private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
     public static final By OPEN_PHOTO = By.xpath(".//*[contains(@id, 'img_866966263525')]");  //Lena
     //private static final String idPhoto = "img_866966263525";
@@ -43,12 +43,12 @@ public class PhotoMainPage extends HelperBase{
 //        });
 
         //пример использования класса ExpectedConditions
-        (new WebDriverWait(driver, 10))
-                //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
-                //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_COM));
-                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_LIKE));
+        //  (new WebDriverWait(driver, 10))
+        //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
+        //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_COM));
+        //   .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_LIKE));
     }
-    
+
     public void clickCreateButton() {
         //click(By.id("hook_FormButton_button_create"));
         click(By.id("hook_FormButton_button_album_create"));
@@ -78,55 +78,54 @@ public class PhotoMainPage extends HelperBase{
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_LIKE));
         click(OPEN_PHOTO_FOR_LIKE);
     }
+
     public boolean isCreationAlbum(String name) {
         final By ALBUM_PRESENT = By.xpath(".//*[text() = '" + name + "' ]");
-      //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
+        //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
         return isElementPresent(ALBUM_PRESENT);
         //должен возвращать boolean
     }
-    public List<AlbumWrapper> getAllAlbums (){
+
+    public List<AlbumWrapper> getAllAlbums() {
         if (isElementPresent(ALL_ALBUMS)) {
             return AlbumTransformer.wrap(driver.findElements(ALL_ALBUMS), driver);
         }
         return Collections.emptyList();
     }
 
-    public void clickOnAlbum(String albumName){
-      // click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
-
-        //враппер
-       List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
-      // Assert.assertTrue("Нет альбомов кроме \" Личные фотографии \" ", albums.get(2).isSmthgDisplayed());
-       //albums.get(number).clickAlbum();
-
-
-        // весь фор в отдельный метод поиска альбома по имени
-        //клик будет в тесте
-
-
-        boolean flag = false;
+    public AlbumWrapper findAlbumByName(List<AlbumWrapper> albums, String albumName) {
         for (AlbumWrapper album : albums) {
-            if ( album.getAlbumName().equals(albumName)){
-                album.clickAlbum();
-                flag = true;
-                break;
+            if (album.getAlbumName().equals(albumName)) {
+                return album;
             }
         }
-        Assert.assertTrue("Альбом " + albumName + " не найден", flag);
+        return null;
+    }
+
+    public AlbumPage clickOnAlbum(String albumName) {
+        // click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
+
+        //враппер
+        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+        AlbumWrapper album = findAlbumByName(albums, albumName);
+        Assert.assertTrue("Альбом " + albumName + " не найден", album.isExist());
+        album.clickAlbum();
+        return new AlbumPage(driver);
 
 
     }
 
-    public void clickPersonalPhoto(){  //Lena
+    public void clickPersonalPhoto() {  //Lena
         Assert.assertTrue("Не найдены личные фотографии", isElementPresent(PERSONAL_PHOTO));
         driver.findElement(PERSONAL_PHOTO).click();
     }
 
-    public void openAlbum(By openAlbumLocator){
+    public void openAlbum(By openAlbumLocator) {
         Assert.assertTrue("Не найден альбом", isElementPresent(openAlbumLocator));
         click(openAlbumLocator);
     }
-    public boolean isAlbumExist(String albumName){
+
+    public boolean isAlbumExist(String albumName) {
         //делать этот метод тут или на другом пэйдже???
         return false;
     }

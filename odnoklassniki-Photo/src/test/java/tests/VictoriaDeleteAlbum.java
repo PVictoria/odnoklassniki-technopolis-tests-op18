@@ -33,8 +33,8 @@ public class VictoriaDeleteAlbum extends TestBase {
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
 
-        photoMainPage.clickOnAlbum(albumName);
-        AlbumPage albumPage = new AlbumPage(driver);
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
+         //new AlbumPage(driver);
         albumPage.clickEditButton();
         albumPage.clickDeleteButton();
         albumPage.confirmAlbumDeletion();
