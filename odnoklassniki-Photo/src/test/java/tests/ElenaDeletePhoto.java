@@ -26,6 +26,5 @@ public class ElenaDeletePhoto extends TestBase {
         albumPage.isDeleted();
         sleep(500);
         albumPage.recoveryPhoto();
-
     }
 }
