@@ -29,24 +29,7 @@ public class SecondTest extends TestBase {
     @Test
     public void testPhotoAlbumCreation() throws Exception {
 
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
-
-     //  new UserMainPage(driver).clickPhotosOnToolbar();
-       UserMainPage userMainPage = new UserMainPage(driver);
-       userMainPage.clickPhotosOnToolbar();
-    /////////////////////////добавлние описания к фото///////////////////////////
-
-        /*PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhotoLena();
-        PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.clickAddDescription();
-        String description = "Описание...";
-        photoPage.typeDescrName(description);
-        photoPage.clickSaveDescription();
-
-        Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
-                photoPage.phLogout();*/
-    //////////////////////////////отметка себя на фото////////////////////////////
+            //////////////////////////////отметка себя на фото////////////////////////////
      /*   PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
         photoMainPage1.clickOpenPhotoLena();
         System.out.println("1");
@@ -56,55 +39,7 @@ public class SecondTest extends TestBase {
         //  new UserMainPage(driver).clickPhotosOnToolbar();
         UserMainPage userMainPage = new UserMainPage(driver);
         userMainPage.clickPhotosOnToolbar();
-        /////////////////////////добавлние описания к фото///////////////////////////
 
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-//        photoMainPage.clickOpenPhoto(photoMainPage.OPEN_PHOTO);
-//        PhotoPage photoPage = new PhotoPage(driver);
-//        photoPage.clickAddDescription();
-//        String description = "Описание...";
-//        photoPage.typeDescrName(description);
-//        photoPage.clickSaveDescription();
-//
-//        Assert.assertTrue("Описание не добавлено", photoPage.isAddDescription(description));
-//        //sleep(1000);
-//        photoPage.phLogout();
-        //////////////////////////////////////////////////////////////////////////////
-        PhotoMainPage photoMainPage1 = new PhotoMainPage(driver);
-        photoMainPage1.clickOpenPhoto(photoMainPage1.OPEN_PHOTO); //метод один айди передаем как параметр
-        System.out.println("1");
-        PhotoPage photoPage1 = new PhotoPage(driver);
-        System.out.println("2");
-        // photoPage1.clickRorate();
->>>>>>> f4176c7f19ea49c9a9b3a264ef7d4e683e489355
-        photoPage1.clickMarkFriends();
-        sleep(1000);
-        System.out.println("3");
-       // photoPage1.clickOnMarkMessage();
-        sleep(5000);
-        System.out.println("4");
-        photoPage1.clickOnPhoto();//
-        System.out.println("5");
-        sleep(500);
-        photoPage1.clickOnMyself();
-        photoPage1.clickDone();
-
-
-        //Assert.assertTrue("Пользователь не отмечен", photoPage1.);
-        //sleep(1000);
-<<<<<<< HEAD
-        photoPage.phLogout();*/
-    /////////////////////////удаление фото при редактирование///////////////////////////
-        PhotoMainPage photoMainPage2 = new PhotoMainPage(driver);
-        photoMainPage2.clickPersonalPhoto();
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEdit();
-        albumPage.clickDelete();
-        albumPage.isDeleted();
-        sleep(8000);
-        albumPage.recoveryPhoto();
-
-        ////////////////////////////////////////////////////////
         /*photoMainPage.clickCreateAlbum();
 =======
        // photoPage.phLogout();
