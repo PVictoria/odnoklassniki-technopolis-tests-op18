@@ -2,6 +2,7 @@ package tests;
 
 import core.*;
 import model.TestBot;
+import org.junit.Test;
 
 import static java.lang.Thread.sleep;
 
@@ -10,6 +11,7 @@ import static java.lang.Thread.sleep;
  */
 public class ElenaTagYourselfOnPhoto extends TestBase{
 
+    @Test
     public void tagYourself() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         new UserMainPage(driver).clickPhotosOnToolbar();
@@ -36,7 +38,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
 
         //Assert.assertTrue("Пользователь не отмечен", photoPage1.);
         //sleep(1000);
-        photoPage.phLogout();
+        photoPage.closePhoto();
 
     }
 }
