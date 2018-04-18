@@ -25,11 +25,10 @@ public class PhotoPage extends HelperBase {
     private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']"); //Lena
     private static final By MARK_MESSAGE = By.xpath(".//*[text() = 'Чтобы отметить человека, наведите на него курсор и нажмите левую кнопку мыши.']"); //Lena
     private static final By CLICK_ON_PHOTO = By.xpath(".//*[@id = '__plpcte_target']"); //Lena
-    private static final By CHOOSE_MYSELF = By.xpath(".//*[@id = 'plpp_markSelf']"); //Lena
+    private static final By CHOOSE_SELF = By.xpath(".//*[@id = 'plpp_markSelf']"); //Lena
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']"); //Lena
 
     private static final By ADD_COMMENT = By.xpath(".//*[contains(@class,'itx js-comments_add')]");
-
     private static final By CLICK_ADD_COMMENT = By.xpath(".//button[contains(@class,'button-pro form-actions_yes')]");
     //private static final By CHECK_LIKE = By.xpath("//*[contains(@data-flags, 'react')]//child::*[contains(@class, 'widget  __active __no-o __wide-count')]");
     private static final By CHECK_LIKE = By.xpath("//*[contains(@class, 'photo-layer_klass __active __anim')]");
@@ -97,19 +96,19 @@ public class PhotoPage extends HelperBase {
         Assert.assertTrue("Не найдено фото", isElementVisible(CLICK_ON_PHOTO));
         driver.findElement(CLICK_ON_PHOTO).click();
     }
-    public void clickOnMyself() { //Lena
-        Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_MYSELF));
-        driver.findElement(CHOOSE_MYSELF).click();
+    public void clickOnSelf() { //Lena
+        Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_SELF));
+        driver.findElement(CHOOSE_SELF).click();
     }
     public void clickDone() { //Lena
         Assert.assertTrue("Не найдено готово", isElementPresent(DONE));
         driver.findElement(DONE).click();
     }
 
-    public boolean isMarkMyself(String login, String password) { //Lena
-        final By MARK_MYSELF_CREATED = By.xpath(".//*[text() = '" + login + " " + password + "' ]");
+    public boolean isMarkSelf(String login, String password) { //Lena
+        final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + login + " " + password + "' ]");
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
-        return isElementPresent(MARK_MYSELF_CREATED);
+        return isElementPresent(MARK_SELF_CREATED);
         //должен возвращать boolean
     }
     ///////////////////////////////////////////////////////////////
