@@ -24,8 +24,8 @@ public class PhotoMainPage extends HelperBase {
 
     public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
     //public static final By ALL_ALBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
-    public static final By ALL_ALBUMS = By.xpath(".//div[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
-
+    //public static final By ALL_ALBUMS = By.xpath(".//div[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
+    public static final By ALL_ALBUMS = By.xpath(".//div[contains(@id, 'UserAlbumStreamBlock')]/descendant::li[@class = 'ugrid_i']");
 
     public static final By OPEN_ALBUM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
 

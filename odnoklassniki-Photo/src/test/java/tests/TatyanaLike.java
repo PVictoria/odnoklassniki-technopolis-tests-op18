@@ -25,5 +25,9 @@ public class TatyanaLike extends TestBase {
         //проверка
         //Assert.assertTrue("Лайк не поставлен", photoPage.isLike());
         new ClickLikePromise(driver, photoPage).SetClickType();
+        photoPage.closePhoto();
+        photoMainPage.clickOpenPhotoForLike();
+        photoPage.clickLike();
+        new ClickLikePromise(driver, photoPage).SetClickType();
     }
 }

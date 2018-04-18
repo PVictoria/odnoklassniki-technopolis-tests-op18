@@ -15,7 +15,7 @@ import static core.PhotoMainPage.OPEN_ALBUM;
 public class TatyanaChangeAlbumsName extends TestBase{
     //тест-кейсизменение названия альбома
     //в before создание альбома??
-    String oldAlbumName = "Old Album";
+    String oldAlbumName = "Old Album5";
     @Before
     public void createAlbum() {
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
