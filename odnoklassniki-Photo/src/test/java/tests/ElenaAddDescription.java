@@ -34,6 +34,7 @@ public class ElenaAddDescription extends TestBase{
 
         Assert.assertTrue(photoPage.isAddDescription(description), "Описание не добавлено");
         photoPage.closePhoto();
+        //
 
     }
 }
