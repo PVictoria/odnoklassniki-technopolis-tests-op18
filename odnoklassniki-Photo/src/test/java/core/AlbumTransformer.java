@@ -23,7 +23,14 @@ public class AlbumTransformer {
         }
 
 
-
+//    public AlbumWrapper findAlbumByName(List<AlbumWrapper> albums, String albumName) {
+//        for (AlbumWrapper album : albums) {
+//            if (album.getAlbumName().equals(albumName)) {
+//                return album;
+//            }
+//        }
+//        return null;
+//    }
 
 
 

@@ -16,12 +16,12 @@ public class VictoriaTransferPhoto extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String albumNameFrom = "aa";
+        String albumNameFrom = "Old";
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumNameFrom); //должен возвращать albumPage
         //AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditButton();
+        albumPage.clickEdit();
         albumPage.clickOnPhoto();
-        String albumNameTo = "a";
+        String albumNameTo = "Личные фото";
         albumPage.choseTargetAlbum(albumNameTo);
         albumPage.clickMoveButton();
         Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved()); //проверить сам текст

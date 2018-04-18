@@ -18,24 +18,38 @@ public class AlbumPage extends HelperBase {
     private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
     public static final String newAlbumName = "NewName";
-    private static final By ALBUM = By.xpath(".//*[text() = 'I' ]"); //локатор содержит имя альбома!!
+
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
     public static final By EDIT_ALBUM_LOCATOR = By.xpath("//*[contains(@class,'tico_img ic12')]/parent::span[@class='tico tico__12']/parent::a");
+    public static final By MIDDLE_PART_OF_PAGE = By.xpath(".//*[@id= 'hook_Block_MiddleColumn']");
+
+    public static final By DELETE_ALBUM = By.linkText("Удалить альбом");
+    public static final By CONFIRM_DELETE_ALBUM = By.id("hook_FormButton_button_delete_confirm");
+
+
+
     public  AlbumPage(WebDriver driver){
         super(driver);
     }
     protected void check() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(ALBUM));
+                .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE ));
     }
-
-    public void clickEditButton(){
-        click(By.xpath("(.//div[contains(@class,'photo-menu_edit')])"));
-   }
+// Возьму ленин
+//    public void clickEditButton(){
+//        click(By.xpath("(.//div[contains(@class,'photo-menu_edit')])"));
+//   }
     public void clickOnPhoto(){
         click(By.xpath("(.//span[contains(@class,'selectable-card')])[1]"));// плохой локатор, тут тоже можно ваппер
     }
+//    public WebElement choseAlbumFromList (List<WebElement> albumList, String albumName){
+//        for (WebElement album : albumList) {
+//            if ( album.getText().equals(albumName)){
+//               return album;
+//            }
+//        }
+//    }
     public void choseTargetAlbum(String albumName){ //БУДУ ПЕРЕПИСЫВАТЬ
         click(By.xpath("(.//a[contains(@class,'custom-isl_choice')])"));//выпадает окно
       //  click(By.xpath("((.//div[contains(@class,'drop-lst')])/descendant::li[contains(@class, 'custom-isl')])[3]"));//как вытащить textContent??
@@ -99,11 +113,10 @@ public class AlbumPage extends HelperBase {
     }
 
     public  void clickDeleteButton (){
-       // click (By.xpath(".//div[contains(@class, 'photo-panel_info')]/descendant::a[contains(@href , 'RemoveUserAlbums')]"));
-       click(By.linkText("Удалить альбом"));
-        //driver.findElement(By.id("hook_FormButton_button_delete_confirm")).click();
+       click(DELETE_ALBUM);
+
     }
     public void confirmAlbumDeletion(){
-        click(By.id("hook_FormButton_button_delete_confirm"));
+        click(CONFIRM_DELETE_ALBUM);
     }
 }

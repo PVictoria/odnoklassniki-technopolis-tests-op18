@@ -47,6 +47,11 @@ public class PhotoMainPage extends HelperBase {
         //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
         //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_COM));
         //   .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_LIKE));
+
+
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(ALL_ALBUMS))),
+                        5, 500) );
     }
 
     public void clickCreateButton() {
