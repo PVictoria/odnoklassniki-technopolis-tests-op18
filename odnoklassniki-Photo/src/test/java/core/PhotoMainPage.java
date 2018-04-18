@@ -44,7 +44,9 @@ public class PhotoMainPage extends HelperBase{
 
         //пример использования класса ExpectedConditions
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
+                //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
+                //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_COM));
+                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_LIKE));
     }
     
     public void clickCreateButton() {
@@ -67,11 +69,15 @@ public class PhotoMainPage extends HelperBase{
         driver.findElement(OPEN_PHOTO).click();
     }
 
-    public void clickOpenPhoto(By openPhotoLocator) {   //Lena old
-        Assert.assertTrue("Не найдено фото", isElementPresent(openPhotoLocator));
-        click(openPhotoLocator);
+    public void clickOpenPhotoForCom() {   //Lena old
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_COM));
+        click(OPEN_PHOTO_FOR_COM);
     }
 
+    public void clickOpenPhotoForLike() {   //Lena old
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_LIKE));
+        click(OPEN_PHOTO_FOR_LIKE);
+    }
     public boolean isCreationAlbum(String name) {
         final By ALBUM_PRESENT = By.xpath(".//*[text() = '" + name + "' ]");
       //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));

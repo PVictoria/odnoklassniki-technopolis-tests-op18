@@ -17,7 +17,7 @@ public class AlbumPage extends HelperBase {
     private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
     private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
-    public static final String NEW_ALBUM_NAME = "NewName2";
+    public static final String NEW_ALBUM_NAME = "NewName3";
     private static final By ALBUM = By.xpath(".//*[text() = 'I' ]"); //локатор содержит имя альбома!!
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");

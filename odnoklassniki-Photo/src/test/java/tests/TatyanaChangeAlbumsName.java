@@ -19,6 +19,7 @@ public class TatyanaChangeAlbumsName extends TestBase{
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.openAlbum(OPEN_ALBUM);
+        //photoMainPage.clickOnAlbum("NewName2");
         AlbumPage albumPage = new AlbumPage(driver);
         albumPage.clickEditAlbum();
         albumPage.editAlbumName();
