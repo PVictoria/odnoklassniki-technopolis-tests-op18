@@ -29,7 +29,7 @@ public class VictoriaMakePhotoMain extends TestBase {
        // albumPage.clickOnPhoto(); //внутри эдита
        // albumPage.chosePhoto();
 
-        
+
     }
 
 
