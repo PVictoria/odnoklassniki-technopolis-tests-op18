@@ -26,8 +26,11 @@ public class AlbumPage extends HelperBase {
 
     public static final By DELETE_ALBUM = By.linkText("Удалить альбом");
     public static final By CONFIRM_DELETE_ALBUM = By.id("hook_FormButton_button_delete_confirm");
-
-
+    public static final By TARGET_ALBUM = By.xpath("((.//*[contains(@class,'drop-lst')])/descendant::li[contains(@class, 'custom-isl')])");
+    public static final By DROP_DOWN_LIST_ALBUMS = By.xpath("(.//a[contains(@class,'custom-isl_choice')])");
+    public static final By FIRST_PHOTO_IN_ALBUM = By.xpath("(.//span[contains(@class,'selectable-card')])[1]");// плохой локатор, тут тоже можно ваппер
+    public static final By MOVE_BUTTON = By.xpath("(.//a[contains(@class,'button_move') ])");
+    public static final By INFO_PHOTO_MOVED = By.xpath(".//div[starts-with(@class, 'iblock') ]");
 
     public  AlbumPage(WebDriver driver){
         super(driver);
@@ -41,39 +44,35 @@ public class AlbumPage extends HelperBase {
 //        click(By.xpath("(.//div[contains(@class,'photo-menu_edit')])"));
 //   }
     public void clickOnPhoto(){
-        click(By.xpath("(.//span[contains(@class,'selectable-card')])[1]"));// плохой локатор, тут тоже можно ваппер
+        click(FIRST_PHOTO_IN_ALBUM);
     }
-//    public WebElement choseAlbumFromList (List<WebElement> albumList, String albumName){
-//        for (WebElement album : albumList) {
-//            if ( album.getText().equals(albumName)){
-//               return album;
-//            }
-//        }
-//    }
-    public void choseTargetAlbum(String albumName){ //БУДУ ПЕРЕПИСЫВАТЬ
-        click(By.xpath("(.//a[contains(@class,'custom-isl_choice')])"));//выпадает окно
-      //  click(By.xpath("((.//div[contains(@class,'drop-lst')])/descendant::li[contains(@class, 'custom-isl')])[3]"));//как вытащить textContent??
-
-        List<WebElement> albumList = new ArrayList<WebElement>();
-        albumList = driver.findElements(By.xpath("((.//div[contains(@class,'drop-lst')])/descendant::li[contains(@class, 'custom-isl')])"));
-        boolean flag = false;
-        for (WebElement album : albumList) {
-            if ( album.getText().equals(albumName)){
-                album.click();
-                flag = true;
-                break;
+    public WebElement choseAlbumFromList (List<WebElement> albumList, String albumName){
+        for (WebElement webElement : albumList) {
+            if ( webElement.getText().equals(albumName)){
+               return webElement;
             }
         }
-        Assert.assertTrue("Альбом " + albumName + " не найден", flag);
-
-
+        Assert.assertNotNull("Альбом " + albumName + " не найден", null);
+        return null;
+    }
+    public void choseTargetAlbum(String albumName){
+        click(DROP_DOWN_LIST_ALBUMS);
+        List<WebElement> albumList = driver.findElements(TARGET_ALBUM);
+        WebElement album = choseAlbumFromList(albumList, albumName);
+        album.click();
     }
     public void clickMoveButton() {
-        click(By.xpath("(.//a[contains(@class,'button_move') ])"));
+        click(MOVE_BUTTON);
     }
-    public boolean isPhotoMoved(){
-        final By INFO = By.xpath(".//div[starts-with(@class, 'iblock') ]");
-        return isElementPresent(INFO);
+    public boolean isPhotoMoved(String albumName){
+        if ( isElementPresent(INFO_PHOTO_MOVED)) {
+            WebElement info = driver.findElement(INFO_PHOTO_MOVED);
+         //   if (info.getText().equals("Фото перенесены в альбом\""+albumName+"\"")){
+            if (info.getText().contains("Фото перенесены в")){
+                return true;
+            }
+        }
+        return false;
     }
 
     //////////lena///////////

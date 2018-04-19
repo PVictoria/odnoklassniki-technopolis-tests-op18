@@ -2,12 +2,13 @@ package core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AlbumTransformer {
+public abstract class AlbumTransformer {
 
 
         public static List<AlbumWrapper> wrap(List<WebElement> elements, WebDriver driver) {
@@ -21,18 +22,6 @@ public class AlbumTransformer {
             }
             return albums;
         }
-
-
-//    public AlbumWrapper findAlbumByName(List<AlbumWrapper> albums, String albumName) {
-//        for (AlbumWrapper album : albums) {
-//            if (album.getAlbumName().equals(albumName)) {
-//                return album;
-//            }
-//        }
-//        return null;
-//    }
-
-
 
 
 }

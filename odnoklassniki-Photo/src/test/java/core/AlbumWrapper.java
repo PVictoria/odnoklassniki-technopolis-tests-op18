@@ -13,7 +13,7 @@ public class AlbumWrapper {
     private WebElement element;
     private WebDriver driver;
 
-    //private static final By ALL_AlBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
+    private static final By ALBUN_TITLE = By.xpath(".//div[contains(@class,'photo-album_t')]");
 
     public AlbumWrapper(WebElement element, WebDriver driver) {
         this.driver = driver;
@@ -35,13 +35,11 @@ public class AlbumWrapper {
     public void clickAlbum(){
         element.click();
     }
+
     public String getAlbumName(){
-        WebElement albumName= element.findElement(By.xpath(".//div[contains(@class,'photo-album_t')]"));
+        WebElement albumName = element.findElement(ALBUN_TITLE);
         return albumName.getText();
     }
-//    public String getText(){
-//        return element.getText();
-//    }
 
 
 

@@ -24,7 +24,7 @@ public class PhotoMainPage extends HelperBase {
 
     public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
     //public static final By ALL_ALBUMS = By.xpath("(.//div[@class='photo-album_cnt'])");
-    public static final By ALL_ALBUMS = By.xpath(".//div[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
+    public static final By ALL_ALBUMS = By.xpath(".//*[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
 
 
     public static final By OPEN_ALBUM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
@@ -104,20 +104,17 @@ public class PhotoMainPage extends HelperBase {
                 return album;
             }
         }
+        Assert.assertNotNull("Альбом " + albumName + " не найден", null);
         return null;
     }
 
     public AlbumPage clickOnAlbum(String albumName) {
-        // click(By.xpath("(.//div[@class='photo-album_cnt'])[3]")); //плохой локатор, можно применить врарппер
-
         //враппер
         List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
         AlbumWrapper album = findAlbumByName(albums, albumName);
         Assert.assertTrue("Альбом " + albumName + " не найден", album.isExist());
         album.clickAlbum();
         return new AlbumPage(driver);
-
-
     }
 
     public void clickPersonalPhoto() {  //Lena
