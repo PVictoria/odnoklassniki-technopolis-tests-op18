@@ -27,9 +27,13 @@ public class PhotoWrapper {
     public void clickPhoto(){
         element.click();
     }
-    public String getPhotoDel(){
+    /*public String getPhotoDel(){
        // WebElement photoName= element.findElement(By.xpath(".//*[@class = 'va_target rotate__0deg']"));
-        WebElement photoDel= element.findElement(By.xpath(".//*[@class = 'ic ic_i_remove']"));
+        WebElement photoDel = element.findElement(By.xpath(".//*[@class = 'ic ic_i_remove']"));
         return photoDel.getText(); //?
+    }*/
+    public void delPhoto(){
+        // WebElement photoName= element.findElement(By.xpath(".//*[@class = 'va_target rotate__0deg']"));
+        element.findElement(By.xpath(".//*[@class = 'ic ic_i_remove']")).click();
     }
 }

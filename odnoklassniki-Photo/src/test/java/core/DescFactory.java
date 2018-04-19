@@ -12,9 +12,9 @@ public class DescFactory { //Lena
     public DescInterface get(WebDriver driver) {
         //условие
         if (isDescEmpty(driver)) {
-            return new ClearDesc(driver);
+            return new ClearDescPage(driver);
         } else {
-            return new DescPresent(driver);
+            return new DescPresentPage(driver);
         }
     }
 

@@ -8,12 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by User on 18.04.2018.
  */
-public class DescPresent extends HelperBase implements DescInterface{ //Lena
-
-    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']"); //Lena
+public class ClearDescPage extends PhotoPage implements DescInterface { //Lena
 
     private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
-    public DescPresent(WebDriver driver) {
+    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
+
+    ClearDescPage(WebDriver driver) {
         super(driver);
     }
 
@@ -23,7 +23,7 @@ public class DescPresent extends HelperBase implements DescInterface{ //Lena
     }
 
     public boolean isDescEmpty() {
-        if (!isElementPresent(CLEAR_DESC)){
+        if (isElementPresent(CLEAR_DESC)){
             return true;
         }
         return false;
