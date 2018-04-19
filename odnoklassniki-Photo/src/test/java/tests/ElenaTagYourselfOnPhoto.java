@@ -37,27 +37,24 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         sleep(1000);
         System.out.println("1");
         photoPage.clickMarkFriends();
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         photoPage.clickBy(id, 300,200);
-=======
         sleep(1000);
         System.out.println("3");
         // photoPage1.clickOnMarkMessage();
         sleep(5000);
         System.out.println("4");
        // photoPage.clickBy();
-        photoPage.clickOnPhoto();//
+        //photoPage.clickOnPhoto();//
         System.out.println("5");
         sleep(500);
->>>>>>> polisV
-=======
+
+
         sleep(1000);
         System.out.println("2");
         photoPage.clickBy(id, 400,150);
         sleep(1000);
         System.out.println("3");
->>>>>>> Lena
         photoPage.clickOnSelf();
         sleep(2000);
         photoPage.clickDone();

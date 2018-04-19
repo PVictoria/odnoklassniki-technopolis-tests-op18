@@ -14,8 +14,7 @@ import static java.lang.Thread.sleep;
  */
 public class TatyanaAddComment extends TestBase{
     //тест-кейс добавление коммента Таня
-    //залить фото???
-    //удалить все комментарии
+    String myId;
 
     @Before
     public void deleteAllComments() throws Exception{
@@ -23,8 +22,8 @@ public class TatyanaAddComment extends TestBase{
         UserMainPage userMainPage = new UserMainPage(driver);
         userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String pathname = "C:/Users/таня/Pictures/Chrysanthemum.jpg";
-        photoMainPage.addPhoto(pathname);
+        String pathname = "C:/Users/таня/Pictures/Hydrangeas.jpg";
+        myId = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
     }
 
@@ -33,7 +32,7 @@ public class TatyanaAddComment extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhotoForCom();
+        photoMainPage.openPhotoId(myId);
         String com = "New comment20";
         PhotoPage photopage = new PhotoPage(driver);
         photopage.setAddComment(com);

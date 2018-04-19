@@ -12,21 +12,31 @@ import static core.PhotoMainPage.OPEN_PHOTO_FOR_LIKE;
  * Created by таня on 18.04.2018.
  */
 public class TatyanaLike extends TestBase {
-    //тест-кейс поставить лайк своему фото
-    // в before??
-    String id = "img_866106130788";
+    String myId;
+
+    @Before
+    public void deleteAllComments() throws Exception{
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
+        UserMainPage userMainPage = new UserMainPage(driver);
+        userMainPage.clickPhotosOnToolbar();
+        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+        String pathname = "C:/Users/таня/Pictures/Hydrangeas.jpg";
+        myId = photoMainPage.addPhoto(pathname);
+        userMainPage.clickLogout();
+    }
+
     @Test
     public void likeToMyPhoto() throws Exception {
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openPhotoId(id);
+        photoMainPage.openPhotoId(myId);
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickLike();
         new ClickLikePromise(driver, photoPage).SetClickType();
-        photoPage.closePhoto();
-        photoMainPage.clickOpenPhotoForLike();
-        photoPage.clickLike();
-        new ClickLikePromise(driver, photoPage).SetClickType();
+        //photoPage.closePhoto();
+        //photoMainPage.clickOpenPhotoForLike();
+        //photoPage.clickLike();
+        //new ClickLikePromise(driver, photoPage).SetClickType();
     }
 }
