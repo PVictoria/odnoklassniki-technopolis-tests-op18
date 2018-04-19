@@ -14,7 +14,7 @@ import static java.lang.Thread.sleep;
  */
 public class PhotoPage extends HelperBase {
 
-    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]");  //Lena //добавить фабрику?
+    private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@class, 'tico_txt')]");  //Lena
     private static final By SAVE_DESCRIPTION = By.xpath(".//*[contains(@value, 'Сохранить')]"); //Lena
     private static final String INPUT_DESCRIPTION = "plp_descrInp"; //Lena
     private static final By CLOSE_PHOTO = By.xpath(".//*[contains(@class, 'js-photoLayerClose ic photo-layer_close')]"); //Lena
