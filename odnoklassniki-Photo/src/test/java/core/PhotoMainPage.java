@@ -61,7 +61,7 @@ public class PhotoMainPage extends HelperBase {
 
     public void typeAlbumName(String albumName) {
         type(albumName, By.id("field_photoAlbumName"));
-    }
+}
 
     public void clickCreateAlbum() {
         Assert.assertTrue("Не найден элемент создания альбома", isElementPresent(CREATE_NEW_ALBUM));
@@ -137,5 +137,10 @@ public class PhotoMainPage extends HelperBase {
 
     public void addPhoto(String pathname) {
         driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathname);
+    }
+
+    public void openPhotoId(String id){
+        By OPEN= By.xpath(".//*[contains(@id, '" + id + "')]");
+        click(OPEN);
     }
 }

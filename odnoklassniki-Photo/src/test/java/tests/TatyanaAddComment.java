@@ -22,13 +22,9 @@ public class TatyanaAddComment extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickOpenPhotoForCom();
-        PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.delAllCom();
-        sleep(5000);
-        photoPage.closePhoto();
-        UserMainPage userMainPage = new UserMainPage(driver);
-        userMainPage.clickLogout();
+        String pathname = "C:/Users/таня/Pictures/Chrysanthemum.jpg";
+        photoMainPage.addPhoto(pathname);
+        //photoMainPage.clickOpenPhotoForCom();
     }
 
     @Test
