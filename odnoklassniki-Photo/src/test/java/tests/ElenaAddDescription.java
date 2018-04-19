@@ -14,6 +14,15 @@ import org.junit.Assert;
 
 public class ElenaAddDescription extends TestBase{
 
+    @Before
+    public void beforeAddDescription(){
+        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        //  new UserMainPage(driver).clickPhotosOnToolbar();
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+
+
+    }
     String description = "Описание...";
 
     @Test

@@ -30,6 +30,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         // photoPage1.clickOnMarkMessage();
         sleep(5000);
         System.out.println("4");
+        photoPage.clickBy();
         photoPage.clickOnPhoto();//
         System.out.println("5");
         sleep(500);

@@ -3,6 +3,7 @@ package core;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -113,6 +114,11 @@ public class PhotoPage extends HelperBase {
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
         return isElementPresent(MARK_SELF_CREATED);
         //должен возвращать boolean
+    }
+    protected void clickBy(By locator, int xOffSet, int yOffSet) { //for me
+        WebElement webElement = driver.findElement(locator);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(webElement, xOffSet, yOffSet).click().build().perform();
     }
     ///////////////////////////////////////////////////////////////
 
