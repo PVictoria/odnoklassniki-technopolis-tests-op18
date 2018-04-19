@@ -35,16 +35,13 @@ public class VictoriaDeleteAlbum extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
-        albumPage.clickEdit();
-        albumPage.clickDeleteButton();
-        albumPage.confirmAlbumDeletion();
-
-
-        // проверка
+        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+        editAlbumPage.clickDeleteButton();
+        editAlbumPage.confirmAlbumDeletion();
+        photoMainPage  = new ToolBar(driver).openPhotoMainPage();
         Assert.assertTrue("Альбом не удален или cуществует еще один с таким же именем", photoMainPage.isAlbumExist(albumName));
         userMainPage.clickLogout();
-        //возвращаемся к фто пэйджу или нет?
-        // photoMainPage  = new ToolBar(driver).openPhotoMainPage();
+
 
     }
 

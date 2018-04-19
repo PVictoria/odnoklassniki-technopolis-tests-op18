@@ -53,12 +53,12 @@ public class VictoriaTransferPhoto extends TestBase{
 
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumNameFrom); //должен возвращать albumPage
         //AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEdit();
-        albumPage.clickOnPhoto();
+        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+        editAlbumPage.clickOnPhoto();
 
-        albumPage.choseTargetAlbum(albumNameTo);
-        albumPage.clickMoveButton();
-        Assert.assertTrue("Фото не перенесены", albumPage.isPhotoMoved(albumNameTo)); //проверить сам текст
+        editAlbumPage.choseTargetAlbum(albumNameTo);
+        editAlbumPage.clickMoveButton();
+        Assert.assertTrue("Фото не перенесены", editAlbumPage.isPhotoMoved(albumNameTo)); //проверить сам текст
         //проверка по айди фоотографии
         // проверка
 

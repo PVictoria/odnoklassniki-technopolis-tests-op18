@@ -4,10 +4,13 @@ import core.*;
 import model.TestBot;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class VictoriaMakePhotoMain extends TestBase {
+
     TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
     String albumName = "Личные фото";
+
 
     @Before
     public void loadPhoto() {
@@ -25,7 +28,7 @@ public class VictoriaMakePhotoMain extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
-        //albumPage.clickEdit();
+
        // albumPage.clickOnPhoto(); //внутри эдита
        // albumPage.chosePhoto();
 

@@ -39,83 +39,33 @@ public class AlbumPage extends HelperBase {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE ));
     }
-// Возьму ленин
-//    public void clickEditButton(){
-//        click(By.xpath("(.//div[contains(@class,'photo-menu_edit')])"));
-//   }
-    public void clickOnPhoto(){
-        click(FIRST_PHOTO_IN_ALBUM);
-    }
-    public WebElement choseAlbumFromList (List<WebElement> albumList, String albumName){
-        for (WebElement webElement : albumList) {
-            if ( webElement.getText().equals(albumName)){
-               return webElement;
-            }
-        }
-        Assert.assertNotNull("Альбом " + albumName + " не найден", null);
-        return null;
-    }
-    public void choseTargetAlbum(String albumName){
-        click(DROP_DOWN_LIST_ALBUMS);
-        List<WebElement> albumList = driver.findElements(TARGET_ALBUM);
-        WebElement album = choseAlbumFromList(albumList, albumName);
-        album.click();
-    }
-    public void clickMoveButton() {
-        click(MOVE_BUTTON);
-    }
-    public boolean isPhotoMoved(String albumName){
-        if ( isElementPresent(INFO_PHOTO_MOVED)) {
-            WebElement info = driver.findElement(INFO_PHOTO_MOVED);
-         //   if (info.getText().equals("Фото перенесены в альбом\""+albumName+"\"")){
-            if (info.getText().contains("Фото перенесены в")){
-                return true;
-            }
-        }
-        return false;
-    }
 
     //////////lena///////////
-    public void clickEdit(){ //Lena
+    //Метод теперь возвраает страницу редактирования альбома
+    public EditAlbumPage clickEdit(){ //Lena
         Assert.assertTrue("Не найдено редактировать", isElementPresent(EDIT_ALBUM));
         driver.findElement(EDIT_ALBUM).click();
+        return new EditAlbumPage(driver);
     }
 
-    public void clickDelete(){ //Lena
-        Assert.assertTrue("Не найдено удалить", isElementPresent(DELETE_BUTTON));
-        driver.findElement(DELETE_BUTTON).click();
-    }
-    public void isDeleted(){ //Lena
-        Assert.assertTrue("Не найдено фоторафия удалена", isElementPresent(DELETE_DONE));
-        driver.findElement(DELETE_DONE);
-    }
-    public void recoveryPhoto() { //Lena
-        Assert.assertTrue("Не найдено востановить", isElementPresent(RECOVERY_PHOTO));
-        driver.findElement(RECOVERY_PHOTO).click();
-    }
 
-    public void editAlbumName(){
-        click(FIND_ALBUM_NAME);
-        type(newAlbumName,FIND_ALBUM_NAME);
 
-    }
     public void returnToPhoto(){
         click(RETERN_TO_PHOTO_FROM_EDIT);
     }
     public  void clickEditAlbum(){
         click(EDIT_ALBUM_LOCATOR);
     }
-    public boolean isChangeAlbumsName(String name){
-        final By NAME_CHANGED = By.xpath(".//*[text() = '" + name + "' ]");
-        return isElementPresent(NAME_CHANGED);
+//
+//    public PhotoPage clickOpenPhoto() {
+//        //Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
+//
+//
+//        (new WebDriverWait(driver, 10))
+//                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
+//        Assert.assertTrue("Не отображается фото", isElementVisible(OPEN_PHOTO));
+//        driver.findElement(OPEN_PHOTO).click();
+//        return new PhotoPage(driver);
+//    }
 
-    }
-
-    public  void clickDeleteButton (){
-       click(DELETE_ALBUM);
-
-    }
-    public void confirmAlbumDeletion(){
-        click(CONFIRM_DELETE_ALBUM);
-    }
 }
