@@ -20,11 +20,12 @@ public class TatyanaAddComment extends TestBase{
     @Before
     public void deleteAllComments() throws Exception{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
+        UserMainPage userMainPage = new UserMainPage(driver);
+        userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         String pathname = "C:/Users/таня/Pictures/Chrysanthemum.jpg";
         photoMainPage.addPhoto(pathname);
-        //photoMainPage.clickOpenPhotoForCom();
+        userMainPage.clickLogout();
     }
 
     @Test

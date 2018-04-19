@@ -139,8 +139,10 @@ public class PhotoMainPage extends HelperBase {
         driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathname);
     }
 
-    public void openPhotoId(String id){
-        By OPEN= By.xpath(".//*[contains(@id, '" + id + "')]");
+    public PhotoPage openPhotoId(String id){
+        By OPEN = By.xpath(".//*[contains(@id, '" + id + "')]");
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
         click(OPEN);
+        return new PhotoPage(driver);
     }
 }
