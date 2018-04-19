@@ -155,5 +155,8 @@ public class PhotoPage extends HelperBase {
         builder.moveToElement(driver.findElement(DELETE_COM)).click().build().perform();
 
     }
+    public void makePhotoMain(String id){
+
+    }
 }
 

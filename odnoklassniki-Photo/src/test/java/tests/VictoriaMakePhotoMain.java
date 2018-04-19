@@ -10,6 +10,7 @@ public class VictoriaMakePhotoMain extends TestBase {
 
     TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
     String albumName = "Личные фото";
+    String photoId;
 
 
     @Before
@@ -18,7 +19,7 @@ public class VictoriaMakePhotoMain extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         String pathname = "C:/JavaProjects/myPhoto.jpg";
-        photoMainPage.addPhoto(pathname);
+        photoId = photoMainPage.addPhoto(pathname);
         //проверка, что фото добавлено
     }
 
@@ -29,7 +30,8 @@ public class VictoriaMakePhotoMain extends TestBase {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
 
-       // albumPage.clickOnPhoto(); //внутри эдита
+        PhotoPage photoPage = albumPage.clickOnPhoto(photoId); //внутри эдита
+
        // albumPage.chosePhoto();
 
 

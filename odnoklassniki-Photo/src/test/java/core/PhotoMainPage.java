@@ -28,6 +28,8 @@ public class PhotoMainPage extends HelperBase {
             //By.xpath(".//*[contains(@class, 'photo-stream')]//*[contains(@class, 'add-stub') and text()='Добавить фото']");
             //By.xpath(".//input[@type = 'file' and @name = 'photo']");
 
+    private static final By LOADED_PHOTO =  By.xpath("(.//span[@class = 'photo-card_cnt']/img)");
+
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -135,8 +137,11 @@ public class PhotoMainPage extends HelperBase {
         return false;
     }
 
-    public void addPhoto(String pathname) {
+    public String addPhoto(String pathname) {
         driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathname);
+        Assert.assertTrue("Фото не загружено", isElementPresent(LOADED_PHOTO));
+        String id = driver.findElement(LOADED_PHOTO).getAttribute("id");
+        return id;
     }
 
     public PhotoPage openPhotoId(String id){
