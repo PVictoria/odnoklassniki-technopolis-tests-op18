@@ -32,6 +32,8 @@ public class AlbumPage extends HelperBase {
     public static final By MOVE_BUTTON = By.xpath("(.//a[contains(@class,'button_move') ])");
     public static final By INFO_PHOTO_MOVED = By.xpath(".//div[starts-with(@class, 'iblock') ]");
 
+    public static final  By PHOTOS= By.xpath("(.//a[@class = 'photo-card_cnt'])");
+
     public  AlbumPage(WebDriver driver){
         super(driver);
     }
@@ -56,16 +58,17 @@ public class AlbumPage extends HelperBase {
     public  void clickEditAlbum(){
         click(EDIT_ALBUM_LOCATOR);
     }
-//
-//    public PhotoPage clickOpenPhoto() {
-//        //Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
-//
-//
+
+//    public PhotoPage clickOnPhoto(String photoId) {
+//        By PHOTO= By.xpath("(.//a[@class = 'photo-card_cnt'])[1]");
 //        (new WebDriverWait(driver, 10))
-//                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
-//        Assert.assertTrue("Не отображается фото", isElementVisible(OPEN_PHOTO));
-//        driver.findElement(OPEN_PHOTO).click();
+//                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
+//        Assert.assertTrue("Не отображается фото", isElementVisible(PHOTO));
+//        driver.findElement(PHOTO).click();
 //        return new PhotoPage(driver);
+//
+//        //List<PhotoElement>
 //    }
+    //$x(".//a[@class = 'photo-card_cnt']")
 
 }
