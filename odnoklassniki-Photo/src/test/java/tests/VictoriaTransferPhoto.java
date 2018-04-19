@@ -5,6 +5,7 @@ import model.TestBot;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class VictoriaTransferPhoto extends TestBase{
     String albumNameFrom = "From";
@@ -15,12 +16,13 @@ public class VictoriaTransferPhoto extends TestBase{
     // Хотя бы в одном альбоме должна быть хотя бы одна фотография
     @Before
     public void createAlbums() {
+
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
         photoMainPage.clickCreateAlbum();
-        photoMainPage.typePhotoName(albumNameFrom);
+        photoMainPage.typeAlbumName(albumNameFrom);
         photoMainPage.clickCreateButton();
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumNameFrom));
         //нажимаем добавить фото
@@ -29,8 +31,14 @@ public class VictoriaTransferPhoto extends TestBase{
 
         userMainPage.clickLogout();
     }
+    public void loadPhoto() {
+        new LoginMainPage(driver).doLogin(testBot);
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
+        //driver.findElement(By.xpath(".//*[contains(@class, 'photo-stream')]//*[contains(@class, 'add-stub') and text()='Добавить фото']")).click();
 
+    }
     @Test
     public void transferPhotosFromAlbumToAlbum() throws Exception {
 

@@ -27,6 +27,8 @@ public class PhotoMainPage extends HelperBase {
     public static final By ALL_ALBUMS = By.xpath(".//*[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
 
     public static final By OPEN_ALBUM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
+    private static final By PHOTO_ADD_BUTTON = By.xpath(".//*[contains(@class, 'photo-stream')]//*[contains(@class, 'add-stub') and text()='Добавить фото']");
+            //By.xpath(".//input[@type = 'file' and @name = 'photo']");
 
 
     public PhotoMainPage(WebDriver driver) {
@@ -59,7 +61,7 @@ public class PhotoMainPage extends HelperBase {
     }
 
 
-    public void typePhotoName(String albumName) {
+    public void typeAlbumName(String albumName) {
         type(albumName, By.id("field_photoAlbumName"));
     }
 
@@ -129,5 +131,9 @@ public class PhotoMainPage extends HelperBase {
     public boolean isAlbumExist(String albumName) {
         //делать этот метод тут или на другом пэйдже???
         return false;
+    }
+
+    public void addPhoto(String pathname) {
+        driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathname);
     }
 }
