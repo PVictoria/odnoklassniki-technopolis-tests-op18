@@ -13,16 +13,14 @@ import org.junit.Assert;
 import static java.lang.Thread.sleep;
 
 public class ElenaAddDescription extends TestBase{
-
+    String id;
     @Before
     public void beforeAddDescription() throws InterruptedException {
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         String pathname = "C:/Users/User/Desktop/car.jpg";
-  //      img_867101393125
-        photoMainPage.addPhoto(pathname);
-
+        id = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
     }
     String description = "Описание...";
@@ -32,7 +30,7 @@ public class ElenaAddDescription extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        PhotoPage photoPage = photoMainPage.clickOpenPhotoLena();
+        PhotoPage photoPage = photoMainPage.openPhotoId(id);
 
         DescInterface photoInterface = new DescFactory().getPage(driver);
         photoInterface.clickAddDescription();
