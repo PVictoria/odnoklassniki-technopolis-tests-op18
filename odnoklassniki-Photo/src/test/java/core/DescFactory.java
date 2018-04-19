@@ -12,7 +12,6 @@ public class DescFactory { //Lena
 
     private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
     public DescInterface getPage(WebDriver driver) {
-        //условие
         if (isDescEmpty(driver)) {
             return new ClearDescPage(driver);
         } else {

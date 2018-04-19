@@ -10,14 +10,11 @@ import org.junit.*;
  * Created by User on 18.04.2018.
  */
 
-
 import org.junit.Assert;
-
-import static java.lang.Thread.sleep;
 
 public class ElenaAddDescription extends TestBase{
 
-    String description = "ОписаниеNew...";
+    String description = "Описание...";
 
     @Test
     public void addDescription() throws Exception{
@@ -33,14 +30,8 @@ public class ElenaAddDescription extends TestBase{
         photoInterface.typeDescrName(description);
         photoInterface.clickSaveDescription();
 
-//        photoPage.clickAddDescription();
-//        photoPage.typeDescrName(description);
-//        photoPage.clickSaveDescription();
-
         Assert.assertTrue( "Описание не добавлено", photoPage.isAddDescription(description));
         photoPage.closePhoto();
         userMainPage.clickLogout();
-        //
-
     }
 }
