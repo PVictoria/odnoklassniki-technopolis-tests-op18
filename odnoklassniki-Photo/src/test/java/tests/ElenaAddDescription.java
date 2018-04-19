@@ -13,9 +13,11 @@ import org.junit.*;
 
 import org.junit.Assert;
 
+import static java.lang.Thread.sleep;
+
 public class ElenaAddDescription extends TestBase{
 
-    String description = "Описание...";
+    String description = "ОписаниеNew...";
 
     @Test
     public void addDescription() throws Exception{
@@ -26,9 +28,8 @@ public class ElenaAddDescription extends TestBase{
         PhotoPage photoPage = photoMainPage.clickOpenPhotoLena();
 
         DescInterface photoInterface = new DescFactory().getPage(driver);
-        Assert.assertTrue("Комментарии при невыполнении условия", photoInterface.isDescEmpty()); //??
-
-        photoInterface.clickAddDescription();  //?
+        //Assert.assertTrue("Комментарии при невыполнении условия", photoInterface.isDescEmpty()); //??
+        photoInterface.clickAddDescription();
         photoInterface.typeDescrName(description);
         photoInterface.clickSaveDescription();
 
@@ -38,6 +39,7 @@ public class ElenaAddDescription extends TestBase{
 
         Assert.assertTrue( "Описание не добавлено", photoPage.isAddDescription(description));
         photoPage.closePhoto();
+        userMainPage.clickLogout();
         //
 
     }
