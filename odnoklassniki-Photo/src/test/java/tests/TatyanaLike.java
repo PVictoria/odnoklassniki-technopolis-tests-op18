@@ -20,7 +20,7 @@ public class TatyanaLike extends TestBase {
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openPhotoId(id);
+        photoMainPage.openPhotoById(id);
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickLike();
         new ClickLikePromise(driver, photoPage).SetClickType();

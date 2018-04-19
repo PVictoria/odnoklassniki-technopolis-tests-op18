@@ -37,6 +37,8 @@ public class PhotoPage extends HelperBase {
     private static final By DELETE_COM = By.xpath("(//a[@title='Удалить'])[last()]");
     private static final By WAIT_FOR_DEL_COM = By.xpath("(//*[@class='photo-layer_bottom_l'])");
 
+    private static final By MAKE_PHOTO_MAIN =By.xpath("(.//*[@class='u-menu']/descendant::span[@class='tico'])[3]");
+
     public PhotoPage(WebDriver driver) {
         super(driver);
     }
@@ -155,8 +157,13 @@ public class PhotoPage extends HelperBase {
         builder.moveToElement(driver.findElement(DELETE_COM)).click().build().perform();
 
     }
-    public void makePhotoMain(String id){
+    public void makePhotoMain(){
+        click(By.xpath(".//*[@class, 'u-menu']/descendent::[@class, 'tico']"));
+        click(MAKE_PHOTO_MAIN);
 
     }
+
+
+
 }
 

@@ -32,34 +32,35 @@ public class AlbumPage extends HelperBase {
     public static final By MOVE_BUTTON = By.xpath("(.//a[contains(@class,'button_move') ])");
     public static final By INFO_PHOTO_MOVED = By.xpath(".//div[starts-with(@class, 'iblock') ]");
 
-    public static final  By PHOTOS= By.xpath("(.//a[@class = 'photo-card_cnt'])");
+    public static final By PHOTOS = By.xpath("(.//a[@class = 'photo-card_cnt'])");
 
-    public  AlbumPage(WebDriver driver){
+    public AlbumPage(WebDriver driver) {
         super(driver);
     }
+
     protected void check() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE ));
+                .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE));
     }
 
     //////////lena///////////
     //Метод теперь возвраает страницу редактирования альбома
-    public EditAlbumPage clickEdit(){ //Lena
+    public EditAlbumPage clickEdit() { //Lena
         Assert.assertTrue("Не найдено редактировать", isElementPresent(EDIT_ALBUM));
         driver.findElement(EDIT_ALBUM).click();
         return new EditAlbumPage(driver);
     }
 
 
-
-    public void returnToPhoto(){
+    public void returnToPhoto() {
         click(RETERN_TO_PHOTO_FROM_EDIT);
     }
-    public  void clickEditAlbum(){
+
+    public void clickEditAlbum() {
         click(EDIT_ALBUM_LOCATOR);
     }
 
-//    public PhotoPage clickOnPhoto(String photoId) {
+    //    public PhotoPage clickOnPhoto(String photoId) {
 //        By PHOTO= By.xpath("(.//a[@class = 'photo-card_cnt'])[1]");
 //        (new WebDriverWait(driver, 10))
 //                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
@@ -70,5 +71,11 @@ public class AlbumPage extends HelperBase {
 //        //List<PhotoElement>
 //    }
     //$x(".//a[@class = 'photo-card_cnt']")
+    public PhotoPage openPhotoById(String photoId) {
+        By OPEN = By.xpath(".//*[contains(@id, '" + photoId + "')]");
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
+        click(OPEN);
+        return new PhotoPage(driver);
+    }
 
 }

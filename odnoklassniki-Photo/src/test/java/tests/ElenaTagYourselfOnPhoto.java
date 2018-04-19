@@ -35,9 +35,9 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         photoMainPage.clickOpenPhotoLena(); //метод один айди передаем как параметр
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickMarkFriends();
-<<<<<<< HEAD
+
         photoPage.clickBy(id, 300,200);
-=======
+
         sleep(1000);
         System.out.println("3");
         // photoPage1.clickOnMarkMessage();
@@ -47,7 +47,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         photoPage.clickOnPhoto();//
         System.out.println("5");
         sleep(500);
->>>>>>> polisV
+
         photoPage.clickOnSelf();
         photoPage.clickDone();
 

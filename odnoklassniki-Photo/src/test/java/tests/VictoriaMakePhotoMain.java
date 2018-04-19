@@ -21,6 +21,7 @@ public class VictoriaMakePhotoMain extends TestBase {
         String pathname = "C:/JavaProjects/myPhoto.jpg";
         photoId = photoMainPage.addPhoto(pathname);
         //проверка, что фото добавлено
+        userMainPage.clickLogout();
     }
 
     @Test
@@ -30,7 +31,10 @@ public class VictoriaMakePhotoMain extends TestBase {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
 
-        PhotoPage photoPage = albumPage.clickOnPhoto(photoId); //внутри эдита
+        PhotoPage photoPage = albumPage.openPhotoById("img_866280278557"); //внутри эдита
+        photoPage.makePhotoMain();
+        photoPage.closePhoto();
+
 
        // albumPage.chosePhoto();
 

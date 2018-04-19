@@ -16,17 +16,20 @@ public class VictoriaDeleteAlbum extends TestBase {
     String albumName = "NewName";
     TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
 
-    @Before
-    public void createAlbum() {
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
-        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        photoMainPage.clickCreateAlbum();
-        photoMainPage.typeAlbumName(albumName);
-        photoMainPage.clickCreateButton();
-        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumName));
-        userMainPage.clickLogout();
-    }
+   // @Before
+
+    HelperTest.createAlbum(driver, testBot, albumName);
+
+//    public void createAlbum() {
+//        new LoginMainPage(driver).doLogin(testBot);
+//        UserMainPage userMainPage = new UserMainPage(driver);
+//        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+//        photoMainPage.clickCreateAlbum();
+//        photoMainPage.typeAlbumName(albumName);
+//        photoMainPage.clickCreateButton();
+//        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumName));
+//        userMainPage.clickLogout();
+//    }
 
     @Test
     public void deleteingAlbum() throws Exception {
