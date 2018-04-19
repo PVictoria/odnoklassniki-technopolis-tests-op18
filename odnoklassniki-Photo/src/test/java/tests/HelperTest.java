@@ -8,9 +8,12 @@ import model.TestBot;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public abstract class HelperTest {
+public class HelperTest {
+    private HelperTest(){
 
-    static public void createAlbum(WebDriver driver, TestBot testBot, String albumName) {
+    }
+
+     static void createAlbum(WebDriver driver, TestBot testBot, String albumName) {
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
