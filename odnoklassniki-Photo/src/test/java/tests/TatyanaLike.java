@@ -20,7 +20,7 @@ public class TatyanaLike extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String pathname = "C:/Users/таня/Pictures/Hydrangeas.jpg";
+        String pathname = "C:/JavaProjects/myPhoto.jpg";
         myId = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
     }
@@ -33,7 +33,7 @@ public class TatyanaLike extends TestBase {
         photoMainPage.openPhotoId(myId);
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickLike();
-        new ClickLikePromise(driver, photoPage).SetClickType();
+        new ClickLikePromise(driver, photoPage).SetClickType(); //убрать сетклик , клик возвращает промис и вызываем нужный нам метод сами
         //photoPage.closePhoto();
         //photoMainPage.clickOpenPhotoForLike();
         //photoPage.clickLike();

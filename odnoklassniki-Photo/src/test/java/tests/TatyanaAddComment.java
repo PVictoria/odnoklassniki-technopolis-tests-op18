@@ -22,7 +22,7 @@ public class TatyanaAddComment extends TestBase{
         UserMainPage userMainPage = new UserMainPage(driver);
         userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String pathname = "C:/Users/таня/Pictures/Hydrangeas.jpg";
+        String pathname = "C:/JavaProjects/myPhoto.jpg";
         myId = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
     }

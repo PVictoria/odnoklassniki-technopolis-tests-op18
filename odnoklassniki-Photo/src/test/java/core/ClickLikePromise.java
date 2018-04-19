@@ -22,7 +22,7 @@ public class ClickLikePromise {
     }
 
     public PhotoPage andClickLikeOn(){
-        System.out.println("Лайк был поставлен");
+        System.out.println("Лайк был поставлен"); // обавить ожидание или ассерт
         return new PhotoPage(driver);
     }
 
@@ -31,7 +31,7 @@ public class ClickLikePromise {
         return new PhotoPage(driver);
     }
 
-    public PhotoPage SetClickType(){
+    public PhotoPage SetClickType(){ //убрать блок
         if(photoPage.isElementPresent(CHECK_LIKE)){
             return new ClickLikePromise(driver, photoPage).andClickLikeOn();
         }

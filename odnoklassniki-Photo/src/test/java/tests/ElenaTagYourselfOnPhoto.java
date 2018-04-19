@@ -38,7 +38,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         sleep(1000);
         System.out.println("1");
         photoPage.clickMarkFriends();
-<<<<<<< HEAD
+
 
         photoPage.clickBy(id, 300,200);
         sleep(1000);
@@ -55,11 +55,6 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         sleep(1000);
         System.out.println("2");
         photoPage.clickBy(id, 400,150);
-=======
-        sleep(1000);
-        photoPage.clickBy(idImg, 400,150);
->>>>>>> Lena
-        sleep(1000);
         System.out.println("3");
         photoPage.clickOnSelf();
         sleep(1000);
