@@ -12,16 +12,20 @@ import org.junit.*;
 
 import org.junit.Assert;
 
+import static java.lang.Thread.sleep;
+
 public class ElenaAddDescription extends TestBase{
 
     @Before
-    public void beforeAddDescription(){
+    public void beforeAddDescription() throws InterruptedException {
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
-        //  new UserMainPage(driver).clickPhotosOnToolbar();
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+        String pathname = "C:/Users/User/Desktop/car.jpg";
+  //      img_867101393125
+        photoMainPage.addPhoto(pathname);
 
-
+        userMainPage.clickLogout();
     }
     String description = "Описание...";
 

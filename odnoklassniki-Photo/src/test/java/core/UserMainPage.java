@@ -11,6 +11,7 @@ public class UserMainPage extends HelperBase{
     public static final By LOGOUT = By.linkText("Выйти");
     public static final By LOGOFF = By.id("hook_FormButton_logoff.confirm_not_decorate");
     public static final By PHOTOS = By.xpath(".//*[contains(@data-l,'userPhotos')]");
+    public static final By FIO = By.xpath(".//*[contains(@class, 'ic_nav_profile')]");
 
     public UserMainPage(WebDriver driver) {
         super(driver);
@@ -40,6 +41,9 @@ public class UserMainPage extends HelperBase{
                 .until(ExpectedConditions.elementToBeClickable(LOGOFF));
         click(LOGOFF);
     }
-
-
+    public String getFIO() {
+        String fio;
+        fio = driver.findElement(FIO).getText();
+        return fio;
+    }
 }

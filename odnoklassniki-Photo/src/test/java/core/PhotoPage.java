@@ -109,14 +109,14 @@ public class PhotoPage extends HelperBase {
         driver.findElement(DONE).click();
     }
 
-    public boolean isMarkSelf(String login, String password) { //Lena
-        final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + login + " " + password + "' ]");
+    public boolean isMarkSelf(String fio) { //Lena
+        final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + fio + "' ]");
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
         return isElementPresent(MARK_SELF_CREATED);
         //должен возвращать boolean
     }
-    protected void clickBy(By locator, int xOffSet, int yOffSet) { //for me
-        WebElement webElement = driver.findElement(locator);
+    public void clickBy(String id, int xOffSet, int yOffSet) { //for me
+        WebElement webElement = driver.findElement(By.xpath(".//*[@id = '" + id + "']"));
         Actions builder = new Actions(driver);
         builder.moveToElement(webElement, xOffSet, yOffSet).click().build().perform();
     }
