@@ -10,7 +10,7 @@ import java.util.List;
 public class EditAlbumPage  extends HelperBase  {
 
     private static final By EDIT_ALBUM = By.xpath(".//*[text() = 'Редактировать, изменить порядок']"); //Lena
-    private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block867039499749']//child::*[@class = 'photo-widget __del']"); //Lena
+   // private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block867039499749']//child::*[@class = 'photo-widget __del']"); //Lena
     private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
     private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
@@ -86,17 +86,14 @@ public class EditAlbumPage  extends HelperBase  {
 
     }
 
-    public void clickDelete(){ //Lena
+    public void clickDelete(String id){ //Lena
+        By DELETE_BUTTON = By.xpath(".//*[contains(@href, '" + id.substring(4) + "') and @class = 'photo-widget __del']");
         Assert.assertTrue("Не найдено удалить", isElementPresent(DELETE_BUTTON));
         driver.findElement(DELETE_BUTTON).click();
     }
     public void isDeleted(){ //Lena
         Assert.assertTrue("Не найдено фоторафия удалена", isElementPresent(DELETE_DONE));
         driver.findElement(DELETE_DONE);
-    }
-    public void recoveryPhoto() { //Lena
-        Assert.assertTrue("Не найдено востановить", isElementPresent(RECOVERY_PHOTO));
-        driver.findElement(RECOVERY_PHOTO).click();
     }
 
     public void editAlbumName(){

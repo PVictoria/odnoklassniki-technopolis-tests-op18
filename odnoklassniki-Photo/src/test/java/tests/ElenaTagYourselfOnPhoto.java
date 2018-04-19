@@ -13,15 +13,16 @@ import static java.lang.Thread.sleep;
  */
 public class ElenaTagYourselfOnPhoto extends TestBase{
     String fio;
+    String id;
     @Before
     public void beforeTagYourself(){
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         fio = userMainPage.getFIO();
         System.out.println(fio);
-        //        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-  //      String pathname = "C:/Users/User/Desktop/car.jpg";
-        //  photoMainPage.addPhoto(pathname);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+        String pathname = "C:/Users/User/Desktop/man.jpg";
+        id = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
 
     }
@@ -31,12 +32,13 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage  = userMainPage.clickPhotosOnToolbar();
 
-        String id = "__plpcte_target";
-        photoMainPage.clickOpenPhotoLena(); //метод один айди передаем как параметр
+        String idImg = "__plpcte_target";
+        photoMainPage.openPhotoId(id); //метод один айди передаем как параметр
         PhotoPage photoPage = new PhotoPage(driver);
         sleep(1000);
         System.out.println("1");
         photoPage.clickMarkFriends();
+<<<<<<< HEAD
 
         photoPage.clickBy(id, 300,200);
         sleep(1000);
@@ -53,12 +55,16 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         sleep(1000);
         System.out.println("2");
         photoPage.clickBy(id, 400,150);
+=======
+        sleep(1000);
+        photoPage.clickBy(idImg, 400,150);
+>>>>>>> Lena
         sleep(1000);
         System.out.println("3");
         photoPage.clickOnSelf();
-        sleep(2000);
+        sleep(1000);
         photoPage.clickDone();
-        sleep(2000);
+        sleep(1000);
         Assert.assertTrue("Пользователь не отмечен", photoPage.isMarkSelf(fio));
         photoPage.closePhoto();
         userMainPage.clickLogout();

@@ -30,7 +30,11 @@ public class VictoriaMakePhotoMain extends TestBase {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
 
+<<<<<<< HEAD
         //PhotoPage photoPage = albumPage.clickOnPhoto(photoId); //внутри эдита
+=======
+       // PhotoPage photoPage = albumPage.clickOnPhoto(photoId); //внутри эдита
+>>>>>>> Lena
 
        // albumPage.chosePhoto();
 
