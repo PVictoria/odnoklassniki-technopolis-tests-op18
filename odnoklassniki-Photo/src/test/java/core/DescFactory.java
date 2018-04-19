@@ -1,7 +1,9 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by User on 18.04.2018.
@@ -9,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 public class DescFactory { //Lena
 
     private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
-    public DescInterface get(WebDriver driver) {
+    public DescInterface getPage(WebDriver driver) {
         //условие
         if (isDescEmpty(driver)) {
             return new ClearDescPage(driver);
@@ -19,12 +21,9 @@ public class DescFactory { //Lena
     }
 
     private boolean isDescEmpty(WebDriver driver) {
-
-//        if (isElementPresent(CLEAR_DESC)){
-//            //
-//
-//        }
-        //здесь должен быть код, который определит на какой странице мы находимся ExamplePage или ExamplePageNew
-        return true;
+        if (driver.findElement(CLEAR_DESC).isDisplayed()){
+            return  true;
+        }
+        return false;
     }
 }

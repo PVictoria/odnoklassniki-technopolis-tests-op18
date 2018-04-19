@@ -21,11 +21,14 @@ public class PhotoMainPage extends HelperBase {
     public static final By OPEN_PHOTO_FOR_COM = By.xpath(".//*[contains(@id, 'img_865777208163')]");
     private static final By PERSONAL_PHOTO = By.xpath(".//*[@title = 'Личные фото']");
 
-
     public static final By OPEN_ALBOM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
+<<<<<<< HEAD
 
     public static final By ALL_ALBUMS = By.xpath(".//*[contains(@id, 'UserAlbumStreamBlockLoader')]/descendant::li[@class = 'ugrid_i']");
 
+=======
+    public static final By ALL_ALBUMS = By.xpath(".//*[contains(@id, 'UserAlbumStreamBlock')]/descendant::li[@class = 'ugrid_i']");
+>>>>>>> LenaP
     public static final By OPEN_ALBUM = By.xpath(".//*[contains(@id,'hook_Block_PhotoCardBlock')]//*[@class='photo-album_cnt']");
 
 
@@ -68,9 +71,13 @@ public class PhotoMainPage extends HelperBase {
         driver.findElement(CREATE_NEW_ALBUM).click();
     }
 
-    public void clickOpenPhotoLena() {  //Lena
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
+    public PhotoPage clickOpenPhotoLena() {  //Lena
+        //Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO));
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
+        Assert.assertTrue("Не отображается фото", isElementVisible(OPEN_PHOTO));
         driver.findElement(OPEN_PHOTO).click();
+        return new PhotoPage(driver);
     }
 
     public void clickOpenPhotoForCom() {

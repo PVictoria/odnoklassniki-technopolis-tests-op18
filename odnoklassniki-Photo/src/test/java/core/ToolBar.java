@@ -19,6 +19,7 @@ public class ToolBar extends HelperBase {
 
 //    public PhotoMainPage openPhotoMainPage(){
 //        WebElement webElement = element.findElement(By.xpath("/descendant::*[contains(@href, 'photos')]"));
+                                                             // (".//*[contains(@hrefattrs, 'NavMenu_User_Photos')]")
 //        if(webElement.isDisplayed()) {
 //            webElement.click();
 //        }
