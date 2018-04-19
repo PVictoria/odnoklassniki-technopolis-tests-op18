@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ToolBar extends HelperBase {
-    WebElement element;
+   // WebElement element;
     public ToolBar(WebDriver driver) {
        super(driver);
-       element =  driver.findElement(By.id("mainTopContentRow"));
+      // element =  driver.findElement(By.id("mainTopContentRow"));
 
     }
     public void check(){
@@ -17,13 +17,14 @@ public class ToolBar extends HelperBase {
     }
 
 
-//    public PhotoMainPage openPhotoMainPage(){
-//        WebElement webElement = element.findElement(By.xpath("/descendant::*[contains(@href, 'photos')]"));
-                                                             // (".//*[contains(@hrefattrs, 'NavMenu_User_Photos')]")
-//        if(webElement.isDisplayed()) {
-//            webElement.click();
-//        }
-//            return new PhotoMainPage(driver);
-//
-//    }
+    public PhotoMainPage openPhotoMainPage(){
+       // WebElement webElement = element.findElement(By.xpath("/descendant::*[contains(@href, 'photos')]"));
+        //                                                      (".//*[contains(@hrefattrs, 'NavMenu_User_Photos')]")
+        WebElement webElement = driver.findElement(By.xpath (".//*[contains(@hrefattrs, 'NavMenu_User_Photos')]"));
+        if(webElement.isDisplayed()) {
+            webElement.click();
+        }
+            return new PhotoMainPage(driver);
+
+    }
 }
