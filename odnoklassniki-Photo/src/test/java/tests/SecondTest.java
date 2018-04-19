@@ -74,7 +74,7 @@ public class SecondTest extends TestBase {
 
         photoMainPage.clickCreateAlbum();
         String pa = "PhotoAlbum!!!";
-        photoMainPage.typePhotoName(pa);
+        photoMainPage.typeAlbumName(pa);
         photoMainPage.clickCreateButton();
 
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));

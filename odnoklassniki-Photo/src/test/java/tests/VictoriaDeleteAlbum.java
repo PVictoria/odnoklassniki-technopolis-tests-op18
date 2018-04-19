@@ -22,7 +22,7 @@ public class VictoriaDeleteAlbum extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         photoMainPage.clickCreateAlbum();
-        photoMainPage.typePhotoName(albumName);
+        photoMainPage.typeAlbumName(albumName);
         photoMainPage.clickCreateButton();
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumName));
         userMainPage.clickLogout();

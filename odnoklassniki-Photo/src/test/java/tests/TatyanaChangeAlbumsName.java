@@ -23,7 +23,7 @@ public class TatyanaChangeAlbumsName extends TestBase{
         userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.clickCreateAlbum();
-        photoMainPage.typePhotoName(oldAlbumName);
+        photoMainPage.typeAlbumName(oldAlbumName);
         photoMainPage.clickCreateButton();
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(oldAlbumName));
         userMainPage.clickLogout();
