@@ -21,10 +21,10 @@ public class ElenaDeletePhoto extends TestBase {
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.clickPersonalPhoto();
         AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEdit();
-        albumPage.clickDelete();
-        albumPage.isDeleted();
+        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+        editAlbumPage.clickDelete();
+        editAlbumPage.isDeleted();
         sleep(500);
-        albumPage.recoveryPhoto();
+        editAlbumPage.recoveryPhoto();
     }
 }

@@ -30,16 +30,31 @@ public class TatyanaChangeAlbumsName extends TestBase{
     }
     @Test
     public void changeAlbumsName() throws Exception{
+//        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
+//        new UserMainPage(driver).clickPhotosOnToolbar();
+//        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+//        photoMainPage.openAlbum(OPEN_ALBUM);
+//
+//        AlbumPage albumPage = new AlbumPage(driver);
+//        albumPage.clickEditAlbum(); //эти методы теперь в EditAlbumPage
+//        albumPage.editAlbumName();
+//        albumPage.returnToPhoto(); //  photoMainPage  = new ToolBar(driver).openPhotoMainPage();
+//        //проверка
+//        Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(newAlbumName));
+
+        //При открытии нового пейджа методдолжен его возвращать
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openAlbum(OPEN_ALBUM);
-        //photoMainPage.clickOnAlbum(oldAlbumName);
-        AlbumPage albumPage = new AlbumPage(driver);
-        albumPage.clickEditAlbum();
-        albumPage.editAlbumName();
-        albumPage.returnToPhoto();
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+
+        AlbumPage albumPage = photoMainPage.clickOnAlbum("AlbumName");
+
+        EditAlbumPage editAlbumPage = albumPage.clickEdit(); //эти методы теперь в EditAlbumPage
+        editAlbumPage.editAlbumName();
+        Assert.assertTrue("Имя альбома не изменено", editAlbumPage.isChangeAlbumsName(newAlbumName));
+        photoMainPage  = new ToolBar(driver).openPhotoMainPage();
         //проверка
-        Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(newAlbumName));
+
+
     }
 }
