@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by User on 18.04.2018.
  */
-public class PhotoTransformer { //Lena
+public class PhotoTransformer {
 
     public static List<PhotoWrapper> wrap(List<WebElement> elements, WebDriver driver) {
         if (elements.isEmpty()) {

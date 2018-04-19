@@ -12,7 +12,7 @@ public class PhotoWrapper {
     private WebElement element;
     private WebDriver driver;
 
-    public PhotoWrapper(WebElement element, WebDriver driver) { //Lena
+    public PhotoWrapper(WebElement element, WebDriver driver) {
         this.driver = driver;
         this.element = element;
     }
