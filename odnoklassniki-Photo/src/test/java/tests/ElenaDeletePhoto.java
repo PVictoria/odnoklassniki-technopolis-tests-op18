@@ -12,15 +12,19 @@ import static java.lang.Thread.sleep;
  */
 public class ElenaDeletePhoto extends TestBase {
 
+    String pathname = "C:/Users/User/Desktop/bo.jpg";
+    TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String id;
     @Before
     public void beforeDelPhoto(){
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        id = HelperTest.loadPhoto(driver,testBot,pathname);
+        /*new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         String pathname = "C:/Users/User/Desktop/bo.jpg";
         id = photoMainPage.addPhoto(pathname);
-        userMainPage.clickLogout();
+        userMainPage.clickLogout();*/
+
     }
     @Test
     public void deletePhoto() throws Exception{

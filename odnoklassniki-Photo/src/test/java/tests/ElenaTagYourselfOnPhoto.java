@@ -33,12 +33,9 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         PhotoMainPage photoMainPage  = userMainPage.clickPhotosOnToolbar();
 
         String idImg = "__plpcte_target";
-<<<<<<< HEAD
         photoMainPage.openPhotoById(id); //метод один айди передаем как параметр
-=======
         String selfId = "plpp_markSelf";
         photoMainPage.openPhotoId(id);
->>>>>>> Lena
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickMarkFriends();
 <<<<<<< HEAD
