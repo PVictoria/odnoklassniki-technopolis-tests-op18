@@ -33,41 +33,15 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         PhotoMainPage photoMainPage  = userMainPage.clickPhotosOnToolbar();
 
         String idImg = "__plpcte_target";
-        photoMainPage.openPhotoId(id); //метод один айди передаем как параметр
+        String selfId = "plpp_markSelf";
+        photoMainPage.openPhotoId(id);
         PhotoPage photoPage = new PhotoPage(driver);
-        sleep(1000);
-        System.out.println("1");
         photoPage.clickMarkFriends();
-<<<<<<< HEAD
-
-        photoPage.clickBy(id, 300,200);
-        sleep(1000);
-        System.out.println("3");
-        // photoPage1.clickOnMarkMessage();
-        sleep(5000);
-        System.out.println("4");
-       // photoPage.clickBy();
-        //photoPage.clickOnPhoto();//
-        System.out.println("5");
-        sleep(500);
-
-
-        sleep(1000);
-        System.out.println("2");
-        photoPage.clickBy(id, 400,150);
-=======
-        sleep(1000);
-        photoPage.clickBy(idImg, 400,150);
->>>>>>> Lena
-        sleep(1000);
-        System.out.println("3");
-        photoPage.clickOnSelf();
-        sleep(1000);
+        photoPage.clickBy(idImg);
+        photoPage.clickBy(selfId);
         photoPage.clickDone();
-        sleep(1000);
         Assert.assertTrue("Пользователь не отмечен", photoPage.isMarkSelf(fio));
         photoPage.closePhoto();
         userMainPage.clickLogout();
-
     }
 }
