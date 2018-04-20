@@ -12,7 +12,11 @@ public class HelperTest {
     private HelperTest(){
 
     }
-
+/**
+ * Методы для подготовки ботов (Before)
+ * Выполнения действий, проверяется только ассертами (нет глобальных проверок
+ * тк они должны быть в других тестах)
+ */
      static void createAlbum(WebDriver driver, TestBot testBot, String albumName) {
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
@@ -23,4 +27,15 @@ public class HelperTest {
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumName));
         userMainPage.clickLogout();
     }
+
+    static void loadPhoto(WebDriver driver, TestBot testBot, String pathName, String photoId) {
+        new LoginMainPage(driver).doLogin(testBot);
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+
+        photoId = photoMainPage.addPhoto(pathName);
+        //проверка, что фото добавлено
+        userMainPage.clickLogout();
+    }
+
 }
