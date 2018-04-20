@@ -7,10 +7,7 @@ import org.junit.Test;
 /**
  * Created by User on 18.04.2018.
  */
-
 import org.junit.Assert;
-
-import static java.lang.Thread.sleep;
 
 public class ElenaAddDescription extends TestBase{
     String id;

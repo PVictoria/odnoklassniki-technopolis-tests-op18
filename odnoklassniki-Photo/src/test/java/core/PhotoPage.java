@@ -2,6 +2,7 @@ package core;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,7 +24,6 @@ public class PhotoPage extends HelperBase {
     private static final By CLICK_LIKE = By.xpath("//*[contains(@class,'photo-layer_klass_link')]");
 
     private static final By MARK_FRIENDS = By.xpath(".//*[text() = 'Отметить друзей']"); //Lena
-    //private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']"); //Lena
     private static final By CHOOSE_SELF = By.xpath(".//*[@id = 'plpp_markSelf']"); //Lena
     private static final By DONE = By.xpath(".//*[@class = 'js-cancelEditMode button-pro']"); //Lena
 
@@ -86,10 +86,13 @@ public class PhotoPage extends HelperBase {
         final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + fio + "' ]");
         return isElementPresent(MARK_SELF_CREATED);
     }
-    public void clickBy(String id, int xOffSet, int yOffSet) { //for me
+    public void clickBy(String id) { //Lena
         WebElement webElement = driver.findElement(By.xpath(".//*[@id = '" + id + "']"));
+        Dimension size = webElement.getSize();
+        int x = (int)(size.width * 0.9);
+        int y = (int)(size.height * 0.5);
         Actions builder = new Actions(driver);
-        builder.moveToElement(webElement, xOffSet, yOffSet).click().build().perform();
+        builder.moveToElement(webElement, x, y).click().build().perform();
     }
 
     public void setAddComment(String comText){ //Таня
