@@ -104,21 +104,22 @@ public class PhotoMainPage extends HelperBase {
     }
 
     public AlbumWrapper findAlbumByName(List<AlbumWrapper> albums, String albumName) {
-        for (AlbumWrapper album : albums) {
-            if (album.getAlbumName().equals(albumName)) {
-                return album;
+            for (AlbumWrapper album : albums) {
+                if (album.getAlbumName().equals(albumName)) {
+                    return album;
+                }
             }
-        }
-        Assert.assertNotNull("Альбом " + albumName + " не найден", null);
+
+        //Assert.assertNotNull("Альбом " + albumName + " не найден", null);
         return null;
     }
 
-    public AlbumPage clickOnAlbum(String albumName) {
+    public AlbumPage clickOnAlbum(AlbumWrapper albumWrapper) {
         //враппер
-        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
-        AlbumWrapper album = findAlbumByName(albums, albumName);
-        Assert.assertTrue("Альбом " + albumName + " не найден", album.isExist());
-        album.clickAlbum();
+//        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+//        AlbumWrapper album = findAlbumByName(albums, albumName);
+//        Assert.assertTrue("Альбом " + albumName + " не найден", album.isExist());
+        albumWrapper.clickAlbum();
         return new AlbumPage(driver);
     }
 

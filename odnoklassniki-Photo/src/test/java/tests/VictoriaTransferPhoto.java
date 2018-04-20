@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class VictoriaTransferPhoto extends TestBase{
     String albumNameFrom = "From";
@@ -57,18 +60,30 @@ public class VictoriaTransferPhoto extends TestBase{
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
 
-        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumNameFrom); //должен возвращать albumPage
+        //Поиск альбома по имени изменен в соответствии с пожеланиями Эмилии
+        List<AlbumWrapper> albums = photoMainPage.getAllAlbums();
+        AlbumWrapper albumFrom = photoMainPage.findAlbumByName(albums, albumNameFrom);
+        Assert.assertNotNull("Альбом " + albumNameFrom + " не найден", albumFrom);
+        //метод clickOnAlbum(album) теперь принимает AlbumWrapper в качестве аргумента
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumFrom);
+
         //AlbumPage albumPage = new AlbumPage(driver);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickOnPhoto();
 
-        editAlbumPage.choseTargetAlbum(albumNameTo);
+        //editAlbumPage.choseTargetAlbum(albumNameTo);
+        editAlbumPage.clickDropdownAlbumList();
+        List<WebElement> albumList = editAlbumPage.listAllTargetAlbums();
+        WebElement albumTo = editAlbumPage.choseAlbumFromList(albumList, albumNameTo);
+        albumTo.click();
         editAlbumPage.clickMoveButton();
         Assert.assertTrue("Фото не перенесены", editAlbumPage.isPhotoMoved(albumNameTo)); //проверить сам текст
+
+
         //проверка по айди фоотографии
         // проверка
 
-        userMainPage.clickLogout();
+      //  userMainPage.clickLogout();
 
 
     }

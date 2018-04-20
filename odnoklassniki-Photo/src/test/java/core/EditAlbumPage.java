@@ -49,11 +49,18 @@ public class EditAlbumPage  extends HelperBase  {
         Assert.assertNotNull("Альбом " + albumName + " не найден", null);
         return null;
     }
-    public void choseTargetAlbum(String albumName){
+    public List<WebElement> listAllTargetAlbums(){
+        return driver.findElements(TARGET_ALBUM);
+    }
+//    public void choseTargetAlbum(String albumName){
+//        click(DROP_DOWN_LIST_ALBUMS);
+//        List<WebElement> albumList = driver.findElements(TARGET_ALBUM);
+//        WebElement album = choseAlbumFromList(albumList, albumName);
+//        album.click();
+
+//    }
+    public void clickDropdownAlbumList(){
         click(DROP_DOWN_LIST_ALBUMS);
-        List<WebElement> albumList = driver.findElements(TARGET_ALBUM);
-        WebElement album = choseAlbumFromList(albumList, albumName);
-        album.click();
     }
     public void clickMoveButton() {
         click(MOVE_BUTTON);

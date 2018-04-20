@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static core.AlbumPage.newAlbumName;
 import static core.PhotoMainPage.OPEN_ALBUM;
 
@@ -43,11 +45,18 @@ public class TatyanaChangeAlbumsName extends TestBase{
 //        Assert.assertTrue("Имя альбома не изменено", albumPage.isChangeAlbumsName(newAlbumName));
 
         //При открытии нового пейджа методдолжен его возвращать
+
+
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
-        AlbumPage albumPage = photoMainPage.clickOnAlbum(oldAlbumName);
+        //Поиск альбома по имени изменен в соответствии с пожеланиями Эмилии
+        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+        AlbumWrapper album = photoMainPage.findAlbumByName(albums, oldAlbumName);
+        Assert.assertNotNull("Альбом " + oldAlbumName + " не найден", album);
+        //метод clickOnAlbum(album) теперь принимает AlbumWrapper в качестве аргумента
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
 
         EditAlbumPage editAlbumPage = albumPage.clickEdit(); //эти методы теперь в EditAlbumPage
         editAlbumPage.editAlbumName();

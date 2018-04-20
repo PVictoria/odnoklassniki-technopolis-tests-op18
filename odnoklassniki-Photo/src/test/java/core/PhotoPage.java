@@ -65,6 +65,9 @@ public class PhotoPage extends HelperBase {
     }
 
     public void closePhoto(){ //Lena
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(CLOSE_PHOTO))),
+                        10, 500) );
         driver.findElement(CLOSE_PHOTO).click();
     }
 
@@ -135,7 +138,7 @@ public class PhotoPage extends HelperBase {
         click(By.xpath(".//*[text() = 'Сделать главной']"));
         By SET = By.xpath(".//*[text() = 'Установить']");
 
-        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+        Assert.assertTrue("Кнопка \"Установить\" не найдена",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
                         10, 500) );
         //click(MAKE_PHOTO_MAIN);
