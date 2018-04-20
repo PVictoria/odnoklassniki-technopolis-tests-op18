@@ -11,9 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
 
-    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']"); //Lena
+    //private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
     private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@id, 'plp_descrChgLnk')]");
-    //private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
+    private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 
     public DescPresentPage(WebDriver driver) {
         super(driver);
@@ -21,17 +21,11 @@ public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
 
     protected void check() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
+                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
     }
 
-    public boolean isDescEmpty() { // ??????
-//        if (!isElementPresent(CLEAR_DESC)){
-//            return true;
-//        }
-           return false;
-    }
-
-    public void clickAddDescription() { //Lena
+    @Override
+    public void clickAddDescription() {
         Assert.assertTrue("Не найдено описания", isElementPresent(ADD_DESCRIPTION));
         driver.findElement(ADD_DESCRIPTION).click();
     }

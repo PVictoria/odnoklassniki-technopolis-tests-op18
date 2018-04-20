@@ -17,7 +17,7 @@ public class ElenaDeletePhoto extends TestBase {
     String id;
     @Before
     public void beforeDelPhoto(){
-        id = HelperTest.loadPhoto(driver,testBot,pathname);
+        id = HelperTest.loadPhoto(driver, testBot, pathname);
         /*new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -28,7 +28,7 @@ public class ElenaDeletePhoto extends TestBase {
     }
     @Test
     public void deletePhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 

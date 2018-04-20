@@ -1,9 +1,6 @@
 package tests;
 
-import core.HelperBase;
-import core.LoginMainPage;
-import core.PhotoMainPage;
-import core.UserMainPage;
+import core.*;
 import model.TestBot;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +14,7 @@ public class HelperTest {
  * Выполнения действий, проверяется только ассертами (нет глобальных проверок
  * тк они должны быть в других тестах)
  */
-     static void createAlbum(WebDriver driver, TestBot testBot, String albumName) {
+     public static void createAlbum(WebDriver driver, TestBot testBot, String albumName) {
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -26,9 +23,9 @@ public class HelperTest {
         photoMainPage.clickCreateButton();
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(albumName));
         userMainPage.clickLogout();
-    }
+     }
 
-    static String loadPhoto(WebDriver driver, TestBot testBot, String pathName) {
+    public static String loadPhoto(WebDriver driver, TestBot testBot, String pathName) {
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -38,4 +35,15 @@ public class HelperTest {
         return photoId;
     }
 
+    public static void deletePhoto(WebDriver driver, TestBot testBot, String id){
+        new LoginMainPage(driver).doLogin(testBot);
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+
+        photoMainPage.clickPersonalPhoto();
+        AlbumPage albumPage = new AlbumPage(driver);
+        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+        editAlbumPage.clickDelete(id);
+        editAlbumPage.isDeleted();
+    }
 }

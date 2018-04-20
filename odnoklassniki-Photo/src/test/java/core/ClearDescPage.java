@@ -10,8 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ClearDescPage extends PhotoPage implements DescInterface { //Lena
 
-    private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
-    private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
+    //private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
+    private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 
     ClearDescPage(WebDriver driver) {
         super(driver);
@@ -19,13 +19,6 @@ public class ClearDescPage extends PhotoPage implements DescInterface { //Lena
 
     protected void check() {
         (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(MARK_FRIENDS));
-    }
-
-    public boolean isDescEmpty() {
-        if (isElementPresent(CLEAR_DESC)){
-            return true;
-        }
-        return false;
+                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
     }
 }

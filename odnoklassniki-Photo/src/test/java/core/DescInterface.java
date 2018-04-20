@@ -5,8 +5,6 @@ package core;
  */
 public interface DescInterface { //Lena
 
-    boolean isDescEmpty();
-
     void clickAddDescription();
 
     void typeDescrName(String description);

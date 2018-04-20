@@ -87,7 +87,11 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(MARK_SELF_CREATED);
     }
     public void clickBy(String id) { //Lena
-        WebElement webElement = driver.findElement(By.xpath(".//*[@id = '" + id + "']"));
+        By strId = By.xpath(".//*[@id = '" + id + "']");
+       // WebElement webElement = driver.findElement(By.xpath(".//*[@id = '" + id + "']"));
+        (new WebDriverWait(driver, 15))
+                .until(ExpectedConditions.visibilityOfElementLocated(strId));
+        WebElement webElement = driver.findElement(strId);
         Dimension size = webElement.getSize();
         int x = (int)(size.width * 0.9);
         int y = (int)(size.height * 0.5);

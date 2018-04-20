@@ -2,6 +2,7 @@ package tests;
 
 import core.*;
 import model.TestBot;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 /**
@@ -10,21 +11,26 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class ElenaAddDescription extends TestBase{
+
+    String pathname = "C:/Users/User/Desktop/car.jpg";
+    TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String id;
+    String description = "Описание...";
+
     @Before
     public void beforeAddDescription() throws InterruptedException {
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        id = HelperTest.loadPhoto(driver, testBot, pathname);
+       /* new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         String pathname = "C:/Users/User/Desktop/car.jpg";
         id = photoMainPage.addPhoto(pathname);
-        userMainPage.clickLogout();
+        userMainPage.clickLogout();*/
     }
-    String description = "Описание...";
 
     @Test
     public void addDescription() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
+        new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(id);
@@ -37,5 +43,10 @@ public class ElenaAddDescription extends TestBase{
         Assert.assertTrue( "Описание не добавлено", photoPage.isAddDescription(description));
         photoPage.closePhoto();
         userMainPage.clickLogout();
+    }
+
+    @After
+    public void deletePhotoAfterTest(){
+        HelperTest.deletePhoto(driver, testBot, id);
     }
 }
