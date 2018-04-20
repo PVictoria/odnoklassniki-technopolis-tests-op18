@@ -32,7 +32,7 @@ public class TatyanaAddComment extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openPhotoId(myId);
+        photoMainPage.openPhotoById(myId);
         String com = "New comment20";
         PhotoPage photopage = new PhotoPage(driver);
         photopage.setAddComment(com);

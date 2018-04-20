@@ -30,7 +30,7 @@ public class ElenaAddDescription extends TestBase{
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        PhotoPage photoPage = photoMainPage.openPhotoId(id);
+        PhotoPage photoPage = photoMainPage.openPhotoById(id);
 
         DescInterface photoInterface = new DescFactory().getPage(driver);
         photoInterface.clickAddDescription();

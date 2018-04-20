@@ -34,7 +34,7 @@ public class PhotoPage extends HelperBase {
     private static final By DELETE_COM = By.xpath("(//a[@title='Удалить'])[last()]");
     private static final By WAIT_FOR_DEL_COM = By.xpath("(//*[@class='photo-layer_bottom_l'])");
 
-    private static final By MAKE_PHOTO_MAIN =By.xpath("(.//*[@class='u-menu']/descendant::span[@class='tico'])[3]");
+//    private static final By MAKE_PHOTO_MAIN =By.xpath("(.//*[@class='u-menu']/descendant::span[@class='tico'])[3]");
 
     public PhotoPage(WebDriver driver) {
         super(driver);
@@ -129,13 +129,11 @@ public class PhotoPage extends HelperBase {
         By SET = By.xpath(".//*[text() = 'Установить']");
 
         Assert.assertTrue("Не дождались прогрузки раздела Фото",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
                         10, 500) );
-        click(MAKE_PHOTO_MAIN);
-       // Assert.assertTrue("Не дождались прогрузки раздела Фото",
-         //       explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
-           //             10, 500) );
-       // click(SET);
+        //click(MAKE_PHOTO_MAIN);
+        click(SET);
+
 
 
     }
