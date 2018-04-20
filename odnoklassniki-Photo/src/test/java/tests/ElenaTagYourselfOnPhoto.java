@@ -39,8 +39,13 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         System.out.println("1");
         photoPage.clickMarkFriends();
 
+<<<<<<< HEAD
 
         photoPage.clickBy(id, 300,200);
+=======
+        photoPage.clickBy(id, 300,200);
+
+>>>>>>> vikaP
         sleep(1000);
         System.out.println("3");
         // photoPage1.clickOnMarkMessage();
@@ -51,11 +56,14 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         System.out.println("5");
         sleep(500);
 
+<<<<<<< HEAD
 
         sleep(1000);
         System.out.println("2");
         photoPage.clickBy(id, 400,150);
         System.out.println("3");
+=======
+>>>>>>> vikaP
         photoPage.clickOnSelf();
         sleep(1000);
         photoPage.clickDone();

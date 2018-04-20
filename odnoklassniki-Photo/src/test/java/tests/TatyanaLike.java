@@ -30,7 +30,11 @@ public class TatyanaLike extends TestBase {
         new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
         new UserMainPage(driver).clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
+<<<<<<< HEAD
         photoMainPage.openPhotoId(myId);
+=======
+        photoMainPage.openPhotoById(id);
+>>>>>>> vikaP
         PhotoPage photoPage = new PhotoPage(driver);
         photoPage.clickLike();
         new ClickLikePromise(driver, photoPage).SetClickType(); //убрать сетклик , клик возвращает промис и вызываем нужный нам метод сами

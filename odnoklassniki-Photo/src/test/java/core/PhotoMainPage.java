@@ -144,7 +144,7 @@ public class PhotoMainPage extends HelperBase {
         return id;
     }
 
-    public PhotoPage openPhotoId(String id){
+    public PhotoPage openPhotoById(String id){
         By OPEN = By.xpath(".//*[contains(@id, '" + id + "')]");
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
         click(OPEN);
