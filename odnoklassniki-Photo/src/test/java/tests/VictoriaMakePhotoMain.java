@@ -29,7 +29,7 @@ public class VictoriaMakePhotoMain extends TestBase {
     @Before
     public void prepareForMakePhotoMain(){
         //HelperTest.deleteAllPhotos(driver, testBot, albumName);
-        HelperTest.loadPhoto(driver, testBot, pathName, photoId);
+        photoId = HelperTest.loadPhoto(driver, testBot, pathName);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class VictoriaMakePhotoMain extends TestBase {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
 
-        PhotoPage photoPage = albumPage.openPhotoById("img_866280278557"); //внутри эдита
+        PhotoPage photoPage = albumPage.openPhotoById(photoId); //внутри эдита
         photoPage.makePhotoMain();
         photoPage.closePhoto();
         //переход на главную страницу

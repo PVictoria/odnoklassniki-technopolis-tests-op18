@@ -28,14 +28,14 @@ public class HelperTest {
         userMainPage.clickLogout();
     }
 
-    static void loadPhoto(WebDriver driver, TestBot testBot, String pathName, String photoId) {
+    static String loadPhoto(WebDriver driver, TestBot testBot, String pathName) {
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-
-        photoId = photoMainPage.addPhoto(pathName);
-        //проверка, что фото добавлено
+        String photoId = photoMainPage.addPhoto(pathName);
+        //проверка, что фото добавлено не нужна тк это метод before, а не теста
         userMainPage.clickLogout();
+        return photoId;
     }
 
 }

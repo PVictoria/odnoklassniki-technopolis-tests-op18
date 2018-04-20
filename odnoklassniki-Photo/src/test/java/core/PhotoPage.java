@@ -158,8 +158,18 @@ public class PhotoPage extends HelperBase {
 
     }
     public void makePhotoMain(){
-        click(By.xpath(".//*[@class, 'u-menu']/descendent::[@class, 'tico']"));
+        click(By.xpath(".//*[text() = 'Сделать главной']"));
+        By SET = By.xpath(".//*[text() = 'Установить']");
+
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),
+                        10, 500) );
         click(MAKE_PHOTO_MAIN);
+       // Assert.assertTrue("Не дождались прогрузки раздела Фото",
+         //       explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
+           //             10, 500) );
+       // click(SET);
+
 
     }
 

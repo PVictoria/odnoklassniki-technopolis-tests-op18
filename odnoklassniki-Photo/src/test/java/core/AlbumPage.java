@@ -73,8 +73,9 @@ public class AlbumPage extends HelperBase {
     //$x(".//a[@class = 'photo-card_cnt']")
     public PhotoPage openPhotoById(String photoId) {
         By OPEN = By.xpath(".//*[contains(@id, '" + photoId + "')]");
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
+        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN) && driver.findElement(OPEN).isDisplayed());
         click(OPEN);
+
         return new PhotoPage(driver);
     }
 
