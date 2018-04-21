@@ -51,11 +51,10 @@ public class VictoriaMakePhotoMain extends TestBase {
         PhotoPage photoPage = albumPage.openPhotoById(photoId); //внутри эдита
         photoPage.makePhotoMain();
         photoPage.closePhoto();
-
-        //переход на главную страницу
-        //сравниваем id фотки
-
-       // PhotoPage photoPage = albumPage.clickOnPhoto(photoId); //внутри эдита
+        photoMainPage.openUserMainPage();
+        String mainPhotoId = userMainPage.getMainPhoto();
+        Assert.assertFalse("Фото не утановлено", photoId.equals(mainPhotoId));
+        userMainPage.clickLogout();
 
 
     }

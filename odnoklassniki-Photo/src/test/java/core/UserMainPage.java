@@ -13,6 +13,8 @@ public class UserMainPage extends HelperBase{
     public static final By LOGOFF = By.id("hook_FormButton_logoff.confirm_not_decorate");
     public static final By PHOTOS = By.xpath(".//*[contains(@data-l,'userPhotos')]");
     public static final By FIO = By.xpath(".//*[contains(@class, 'nav-side_i ellip __with-ic')]/child::*[@class = 'tico']");
+    public static final By SHOW_MORE = By.xpath(".//*[text() = 'Показать ещё']");
+    public static final By MAIN_PHOTO = By.xpath(".//*[@class = 'entity-avatar']/descendant::a");
 
     public UserMainPage(WebDriver driver) {
         super(driver);
@@ -24,9 +26,18 @@ public class UserMainPage extends HelperBase{
     }
 
     public PhotoMainPage clickPhotosOnToolbar() {
-        if (isElementVisible(PHOTOS)){
+        Assert.assertTrue("Не дождались прогрузки кнопки \"Фто\"",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(driver.findElement(PHOTOS))),
+                        15, 500) );
             click(PHOTOS);
-        }
+
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(SHOW_MORE));
+//        Assert.assertTrue("Не дождались прогрузки кнопки \"Показать ещё\"",
+//                explicitWait( ( ExpectedConditions.elementToBeClickable(driver.findElement(SHOW_MORE))),
+//                        15, 500) );
+        click(SHOW_MORE);
+
         return new PhotoMainPage(driver);
     }
 
@@ -52,5 +63,9 @@ public class UserMainPage extends HelperBase{
         String fio;
         fio = driver.findElement(FIO).getText();
         return fio;
+    }
+    public String getMainPhoto(){
+        String mainPhotoId = driver.findElement(MAIN_PHOTO).getAttribute("href");
+        return mainPhotoId;
     }
 }
