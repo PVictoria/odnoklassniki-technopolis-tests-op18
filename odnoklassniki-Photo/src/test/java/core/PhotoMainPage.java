@@ -128,21 +128,26 @@ public class PhotoMainPage extends HelperBase {
         return false;
     }
 
-    public String addPhoto(String pathname) {
-        driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathname);
+    public String addPhoto(String pathName) {
+        driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathName);
         Assert.assertTrue("Фото не загружено", isElementPresent(LOADED_PHOTO));
         String id = driver.findElement(LOADED_PHOTO).getAttribute("id");
         return id;
     }
 
     public PhotoPage openPhotoById(String photoId){
-        By OPEN = By.xpath(".//*[contains(@id, '" + photoId + "')]");
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
-        click(OPEN);
+        By PHOTO = By.xpath(".//*[contains(@id, '" + photoId + "')]");
+        Assert.assertTrue("Не найдено фото", isElementPresent(PHOTO));
+        click(PHOTO);
         return new PhotoPage(driver);
     }
     public void openUserMainPage(){
         Assert.assertTrue("Нет найдена кнопка  \"Одноклассники\"", isElementPresent(USER_MAIN_PAGE));
         click(USER_MAIN_PAGE);
+    }
+    public boolean isPhotoPresent(String photoId){
+        By PHOTO = By.xpath(".//*[contains(@id, '" + photoId + "')]");
+        return isElementPresent(PHOTO);
+
     }
 }

@@ -2,12 +2,16 @@ package tests;
 
 import core.*;
 import model.TestBot;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import java.util.List;
+
+import static tests.HelperTest.deletePhoto;
 
 public class VictoriaMakePhotoMain extends TestBase {
 
@@ -47,7 +51,6 @@ public class VictoriaMakePhotoMain extends TestBase {
         Assert.assertNotNull("Альбом " + albumName + " не найден", album);
         //метод clickOnAlbum(album) теперь принимает AlbumWrapper в качестве аргумента
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
-
         PhotoPage photoPage = albumPage.openPhotoById(photoId); //внутри эдита
         photoPage.makePhotoMain();
         photoPage.closePhoto();
@@ -57,6 +60,10 @@ public class VictoriaMakePhotoMain extends TestBase {
         userMainPage.clickLogout();
 
 
+    }
+    @After
+    public void deleteLoadedPhotoes(){
+        HelperTest.deletePhoto(driver, testBot, photoId);
     }
 
 }

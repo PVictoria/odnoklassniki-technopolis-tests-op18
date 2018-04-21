@@ -35,15 +35,19 @@ public class HelperTest {
         return photoId;
     }
 
-    public static void deletePhoto(WebDriver driver, TestBot testBot, String id){
+    public static void deletePhoto(WebDriver driver, TestBot testBot, String photoId){
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+        PhotoPage photoPage = photoMainPage.openPhotoById(photoId);
+        photoPage.deletePhoto();
+        photoPage.closePhoto();
+        Assert.assertTrue("Фото не удалено", photoMainPage.isPhotoPresent(photoId));
 
-        photoMainPage.clickPersonalPhoto();
-        AlbumPage albumPage = new AlbumPage(driver);
-        EditAlbumPage editAlbumPage = albumPage.clickEdit();
-        editAlbumPage.clickDelete(id);
-        editAlbumPage.isDeleted();
+//        photoMainPage.clickPersonalPhoto();
+//        AlbumPage albumPage = new AlbumPage(driver);
+//        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+//        editAlbumPage.clickDelete(id);
+//        editAlbumPage.isDeleted();
     }
 }

@@ -33,6 +33,9 @@ public class PhotoPage extends HelperBase {
     private static final By CHECK_LIKE = By.xpath("//*[contains(@class, 'photo-layer_klass __active __anim')]");
     private static final By DELETE_COM = By.xpath("(//a[@title='Удалить'])[last()]");
     private static final By WAIT_FOR_DEL_COM = By.xpath("(//*[@class='photo-layer_bottom_l'])");
+    private static final By MAKE_PHOTO_MAIN = By.xpath(".//*[text() = 'Сделать главной']");
+    private static final By SET = By.xpath(".//*[text() = 'Установить']");
+    private static final By DELETE_PHOTO = By.xpath(".//*[text() = 'Удалить фотографию']");
 
 //    private static final By MAKE_PHOTO_MAIN =By.xpath("(.//*[@class='u-menu']/descendant::span[@class='tico'])[3]");
 
@@ -136,20 +139,26 @@ public class PhotoPage extends HelperBase {
 
     }
     public void makePhotoMain(){
-        click(By.xpath(".//*[text() = 'Сделать главной']"));
-        By SET = By.xpath(".//*[text() = 'Установить']");
+        Assert.assertTrue("Кнопка \"Установить\" не найдена",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),
+                        10, 500) );
+        click(MAKE_PHOTO_MAIN);
+
 
         Assert.assertTrue("Кнопка \"Установить\" не найдена",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
                         10, 500) );
-        //click(MAKE_PHOTO_MAIN);
         click(SET);
 
 
 
     }
-
-
+    public void deletePhoto(){
+        Assert.assertTrue("Кнопка \"Установить\" не найдена",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(DELETE_PHOTO))),
+                        10, 500) );
+        click(DELETE_PHOTO);
+    }
 
 }
 
