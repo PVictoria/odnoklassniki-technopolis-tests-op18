@@ -83,7 +83,7 @@ public class VictoriaTransferPhoto extends TestBase{
         //проверка по айди фоотографии
         // проверка
 
-      //  userMainPage.clickLogout();
+        userMainPage.clickLogout();
 
 
     }

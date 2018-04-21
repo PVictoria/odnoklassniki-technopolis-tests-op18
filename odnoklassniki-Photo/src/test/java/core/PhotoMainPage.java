@@ -29,7 +29,7 @@ public class PhotoMainPage extends HelperBase {
             //By.xpath(".//input[@type = 'file' and @name = 'photo']");
 
     private static final By LOADED_PHOTO =  By.xpath("(.//span[@class = 'photo-card_cnt']/img)");
-
+    private static final By USER_MAIN_PAGE = By.id("topPanelLeftCorner");
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -150,5 +150,9 @@ public class PhotoMainPage extends HelperBase {
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
         click(OPEN);
         return new PhotoPage(driver);
+    }
+    public void openUserMainPage(){
+        Assert.assertTrue("Нет найдена кнопка  \"Одноклассники\"", isElementPresent(USER_MAIN_PAGE));
+        click(USER_MAIN_PAGE);
     }
 }
