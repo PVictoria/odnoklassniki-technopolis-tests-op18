@@ -15,12 +15,12 @@ public class VictoriaDeleteAlbum extends TestBase {
     //тест-кейс 6  Виктория
     // Удаление албома
     //У бота должен быть хотя бы один альбом помимо личных фотографий
-    String albumName = "nnn";
+    String albumName = "d";
     TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
 
     @Before
     public void prepareForDeletingAlbum(){
-    //    HelperTest.createAlbum(driver, testBot, albumName);
+        HelperTest.createAlbum(driver, testBot, albumName);
 
     }
 
@@ -52,7 +52,9 @@ public class VictoriaDeleteAlbum extends TestBase {
         editAlbumPage.clickDeleteButton();
         editAlbumPage.confirmAlbumDeletion();
         photoMainPage  = new ToolBar(driver).openPhotoMainPage();
-        Assert.assertTrue("Альбом не удален или cуществует еще один с таким же именем", photoMainPage.isAlbumExist(albumName));
+        albums = new PhotoMainPage(driver).getAllAlbums();
+        Assert.assertNull("Альбом не удален или cуществует еще один с таким же именем",
+                            photoMainPage.findAlbumByName(albums, albumName));
         userMainPage.clickLogout();
 
 

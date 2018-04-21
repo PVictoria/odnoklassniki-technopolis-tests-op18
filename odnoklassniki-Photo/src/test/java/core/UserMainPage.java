@@ -46,9 +46,6 @@ public class UserMainPage extends HelperBase{
 //        (new WebDriverWait(driver, 10))
 //                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
 
-        Assert.assertTrue("Не дождались прогрузки кнопки выхода",
-                explicitWait( ( ExpectedConditions.elementToBeClickable(driver.findElement(TOOLBAR_USER_DROPDOWN))),
-                        15, 500) );
 
 
         click(TOOLBAR_USER_DROPDOWN);

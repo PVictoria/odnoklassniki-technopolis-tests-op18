@@ -67,7 +67,8 @@ public class PhotoMainPage extends HelperBase {
 
     public void clickCreateAlbum() {
         Assert.assertTrue("Не найден элемент создания альбома", isElementPresent(CREATE_NEW_ALBUM));
-        driver.findElement(CREATE_NEW_ALBUM).click();
+        //driver.findElement(CREATE_NEW_ALBUM).click();
+        click(CREATE_NEW_ALBUM);
     }
 
     public PhotoPage clickOpenPhotoLena() {  //Lena
@@ -75,7 +76,8 @@ public class PhotoMainPage extends HelperBase {
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO));
         Assert.assertTrue("Не отображается фото", isElementVisible(OPEN_PHOTO));
-        driver.findElement(OPEN_PHOTO).click();
+       // driver.findElement(OPEN_PHOTO).click();
+        click(OPEN_PHOTO);
         return new PhotoPage(driver);
     }
 
