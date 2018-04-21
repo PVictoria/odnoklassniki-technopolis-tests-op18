@@ -20,7 +20,7 @@ public class TatyanaLike extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         userMainPage.clickPhotosOnToolbar();
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String pathname = "C:/JavaProjects/myPhoto.jpg";
+        String pathname = "C:/Users/таня/Pictures/reload_refresh.png";
         myId = photoMainPage.addPhoto(pathname);
         userMainPage.clickLogout();
     }
@@ -32,11 +32,8 @@ public class TatyanaLike extends TestBase {
         PhotoMainPage photoMainPage = new PhotoMainPage(driver);
         photoMainPage.openPhotoById(myId);
         PhotoPage photoPage = new PhotoPage(driver);
-        photoPage.clickLike();
-        new ClickLikePromise(driver, photoPage).SetClickType(); //убрать сетклик , клик возвращает промис и вызываем нужный нам метод сами
-        //photoPage.closePhoto();
-        //photoMainPage.clickOpenPhotoForLike();
-        //photoPage.clickLike();
-        //new ClickLikePromise(driver, photoPage).SetClickType();
+        ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
+        //new ClickLikePromise(driver, photoPage).SetClickType(); //убрать сетклик , клик возвращает промис и вызываем нужный нам метод сами
+        clickLikePromise.andClickLikeOn();
     }
 }

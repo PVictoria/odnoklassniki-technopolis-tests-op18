@@ -2,15 +2,14 @@ package core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.logging.Logger;
 
 /**
  * Created by таня on 18.04.2018.
  */
-public class ClickLikePromise {
-    //private Logger LOGGER;// = Logger.getLogger(ClickLikePromise);
-    //public static final By =;
+public class ClickLikePromise{
     private final WebDriver driver;
     private  final PhotoPage photoPage;
     public static final By CHECK_LIKE = By.xpath("//*[contains(@class, 'photo-layer_klass __active __anim')]");
@@ -22,22 +21,14 @@ public class ClickLikePromise {
     }
 
     public PhotoPage andClickLikeOn(){
+        org.junit.Assert.assertTrue("Лайк не активен", photoPage.isElementPresent(CHECK_LIKE));
         System.out.println("Лайк был поставлен"); // обавить ожидание или ассерт
         return new PhotoPage(driver);
     }
 
     public PhotoPage andClickLikeOff(){
+        org.junit.Assert.assertFalse("Лайк активен", photoPage.isElementPresent(CHECK_LIKE));
         System.out.println("Лайк был снят");
         return new PhotoPage(driver);
     }
-
-    public PhotoPage SetClickType(){ //убрать блок
-        if(photoPage.isElementPresent(CHECK_LIKE)){
-            return new ClickLikePromise(driver, photoPage).andClickLikeOn();
-        }
-        else {
-            return new ClickLikePromise(driver, photoPage).andClickLikeOff();
-        }
-    }
-
 }

@@ -79,16 +79,6 @@ public class PhotoMainPage extends HelperBase {
         return new PhotoPage(driver);
     }
 
-    public void clickOpenPhotoForCom() {
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_COM));
-        click(OPEN_PHOTO_FOR_COM);
-    }
-
-    public void clickOpenPhotoForLike() {
-        Assert.assertTrue("Не найдено фото", isElementPresent(OPEN_PHOTO_FOR_LIKE));
-        click(OPEN_PHOTO_FOR_LIKE);
-    }
-
     public boolean isCreationAlbum(String name) {
         final By ALBUM_PRESENT = By.xpath(".//*[text() = '" + name + "' ]");
         //  Assert.assertTrue("Альбом не создан", isElementPresent(ALBUM_PRESENT));
@@ -145,8 +135,8 @@ public class PhotoMainPage extends HelperBase {
         return id;
     }
 
-    public PhotoPage openPhotoById(String id){
-        By OPEN = By.xpath(".//*[contains(@id, '" + id + "')]");
+    public PhotoPage openPhotoById(String photoId){
+        By OPEN = By.xpath(".//*[contains(@id, '" + photoId + "')]");
         Assert.assertTrue("Не найдено фото", isElementPresent(OPEN));
         click(OPEN);
         return new PhotoPage(driver);

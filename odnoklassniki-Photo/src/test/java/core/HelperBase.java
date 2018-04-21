@@ -34,7 +34,7 @@ public abstract class HelperBase {
         builder.moveToElement(webElement, xOffSet, yOffSet).click().build().perform();
     }*/
 
-    protected boolean isElementPresent(By by) {
+    public boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;

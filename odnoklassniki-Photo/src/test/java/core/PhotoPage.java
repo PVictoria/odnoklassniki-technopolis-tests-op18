@@ -116,9 +116,10 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(COMMENT_CREATED);
     }
 
-    public void clickLike(){
+    public ClickLikePromise clickLike(WebDriver driver, PhotoPage photoPage){
         Assert.assertTrue("Не найдена кнопка лайка", isElementPresent(CLICK_LIKE));
         click(CLICK_LIKE);
+        return new ClickLikePromise(driver, photoPage);
     }
 
     public boolean isLike(){
