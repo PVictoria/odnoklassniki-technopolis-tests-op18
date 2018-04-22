@@ -144,13 +144,13 @@ public class PhotoPage extends HelperBase {
     }
     public void makePhotoMain(){
         Assert.assertTrue("Кнопка \"Сделать главной\" не найдена",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),
+                explicitWait( ( ExpectedConditions.elementToBeClickable(MAKE_PHOTO_MAIN)),
                         10, 500) );
         click(MAKE_PHOTO_MAIN);
 
 
         Assert.assertTrue("Кнопка \"Установить\" не найдена",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(SET))),
+                explicitWait( ( ExpectedConditions.elementToBeClickable(SET)),
                         10, 500) );
         click(SET);
 
@@ -159,7 +159,7 @@ public class PhotoPage extends HelperBase {
     }
     public void deletePhoto(){
         Assert.assertTrue("Кнопка \"Удалить фотографию\" не найдена",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(DELETE_PHOTO))),
+                explicitWait( ( ExpectedConditions.elementToBeClickable(DELETE_PHOTO)),
                         10, 500) );
         click(DELETE_PHOTO);
     }

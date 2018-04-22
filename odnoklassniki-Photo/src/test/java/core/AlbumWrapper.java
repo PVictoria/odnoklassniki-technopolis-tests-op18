@@ -23,16 +23,6 @@ public class AlbumWrapper {
         this.element = element;
     }
 
-    /**
-     * Возвращает true если альбом отображается
-     */
-//    public boolean isExist() {
-//        try {
-//            return element.isDisplayed();
-//        } catch (NoSuchElementException e) {
-//            return false;
-//        }
-//    }
 
     public void clickAlbum(){
         element.click();
