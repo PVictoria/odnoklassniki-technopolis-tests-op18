@@ -44,8 +44,11 @@ public class PhotoPage extends HelperBase {
     }
 
     protected void check() { //Lena
-        (new WebDriverWait(driver, 15))
-                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
+        Assert.assertTrue("Не дождались прогрузки страницы Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(PHOTO))),
+                        5, 500) );
+        /*(new WebDriverWait(driver, 15))
+                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));*/
     }
 
     public void clickAddDescription() { //Lena
@@ -95,7 +98,7 @@ public class PhotoPage extends HelperBase {
     }
     public void clickBy(String id) { //Lena
         By strId = By.xpath(".//*[@id = '" + id + "']");
-       // WebElement webElement = driver.findElement(By.xpath(".//*[@id = '" + id + "']"));
+        Assert.assertTrue("Не найден элемент", isElementPresent(strId));
         (new WebDriverWait(driver, 15))
                 .until(ExpectedConditions.visibilityOfElementLocated(strId));
         WebElement webElement = driver.findElement(strId);

@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class ClearDescPage extends PhotoPage implements DescInterface { //Lena
 
-    //private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
     private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 
     ClearDescPage(WebDriver driver) {
@@ -18,7 +18,12 @@ public class ClearDescPage extends PhotoPage implements DescInterface { //Lena
     }
 
     protected void check() {
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
+
+        Assert.assertTrue("Не дождались прогрузки страницы Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(PHOTO))),
+                        5, 500) );
+
+       /* (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));*/
     }
 }

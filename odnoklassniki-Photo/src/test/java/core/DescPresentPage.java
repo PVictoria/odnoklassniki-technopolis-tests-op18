@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
 
-    //private static final By MARK_FRIENDS = By.xpath(".//*[@id = 'hook_Block_CreatePinsLinkPLRB']");
     private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@id, 'plp_descrChgLnk')]");
     private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 
@@ -20,8 +19,11 @@ public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
     }
 
     protected void check() {
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));
+        Assert.assertTrue("Не дождались прогрузки страницы Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(PHOTO))),
+                        5, 500) );
+        /*(new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));*/
     }
 
     @Override
