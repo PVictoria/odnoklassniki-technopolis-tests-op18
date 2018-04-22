@@ -14,7 +14,7 @@ import static java.lang.Thread.sleep;
  * Created by таня on 18.04.2018.
  */
 public class TatyanaAddComment extends TestBase{
-    String pathname = "C:/Users/таня/Pictures/Penguins.jpg";
+    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
     String idPhoto;
     String com = "Новый коммент";

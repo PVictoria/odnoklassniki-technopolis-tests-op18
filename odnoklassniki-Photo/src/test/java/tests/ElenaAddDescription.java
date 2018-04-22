@@ -20,12 +20,6 @@ public class ElenaAddDescription extends TestBase{
     @Before
     public void beforeAddDescription() throws InterruptedException {
         idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
-       /* new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
-        UserMainPage userMainPage = new UserMainPage(driver);
-        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        String pathname = "C:/Users/User/Desktop/car.jpg";
-        id = photoMainPage.addPhoto(pathname);
-        userMainPage.clickLogout();*/
     }
 
     @Test
@@ -35,7 +29,7 @@ public class ElenaAddDescription extends TestBase{
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
 
-        DescInterface photoInterface = new DescFactory().getPage(driver);
+        DescriptionInterface photoInterface = new DescriptionFactory().getPage(driver);
         photoInterface.clickAddDescription();
         photoInterface.typeDescrName(description);
         photoInterface.clickSaveDescription();

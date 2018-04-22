@@ -4,17 +4,16 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by User on 18.04.2018.
  */
-public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
+public class DescriptionPresentPage extends PhotoPage implements DescriptionInterface { //Lena
 
     private static final By ADD_DESCRIPTION = By.xpath(".//*[contains(@id, 'plp_descrChgLnk')]");
     private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 
-    public DescPresentPage(WebDriver driver) {
+    public DescriptionPresentPage(WebDriver driver) {
         super(driver);
     }
 
