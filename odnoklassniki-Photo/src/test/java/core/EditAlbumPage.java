@@ -108,4 +108,9 @@ public class EditAlbumPage  extends HelperBase  {
         type(newAlbumName,FIND_ALBUM_NAME);
 
     }
+
+    public ToolBar returnToPhoto() {
+        click(RETERN_TO_PHOTO_FROM_EDIT);
+        return new ToolBar(driver);
+    }
 }

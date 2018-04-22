@@ -5,6 +5,8 @@ import model.TestBot;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
 public class HelperTest {
     private HelperTest(){
 
@@ -49,5 +51,17 @@ public class HelperTest {
 //        EditAlbumPage editAlbumPage = albumPage.clickEdit();
 //        editAlbumPage.clickDelete(id);
 //        editAlbumPage.isDeleted();
+    }
+    public static void deleteAlbum(WebDriver driver, TestBot testBot, String albumName) {
+        new LoginMainPage(driver).doLogin(testBot);
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+        AlbumWrapper album = photoMainPage.findAlbumByName(albums, albumName);
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
+        EditAlbumPage editAlbumPage = albumPage.clickEdit();
+        editAlbumPage.clickDeleteButton();
+        editAlbumPage.confirmAlbumDeletion();
+        userMainPage.clickLogout();
     }
 }

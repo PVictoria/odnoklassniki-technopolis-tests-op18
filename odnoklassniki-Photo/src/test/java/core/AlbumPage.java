@@ -20,7 +20,7 @@ public class AlbumPage extends HelperBase {
     public static final String newAlbumName = "NewName";
 
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
-    public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
+   // public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
     public static final By EDIT_ALBUM_LOCATOR = By.xpath("//*[contains(@class,'tico_img ic12')]/parent::span[@class='tico tico__12']/parent::a");
     public static final By MIDDLE_PART_OF_PAGE = By.xpath(".//*[@id= 'hook_Block_MiddleColumn']");
 
@@ -49,11 +49,6 @@ public class AlbumPage extends HelperBase {
         Assert.assertTrue("Не найдено редактировать", isElementPresent(EDIT_ALBUM));
         driver.findElement(EDIT_ALBUM).click();
         return new EditAlbumPage(driver);
-    }
-
-
-    public void returnToPhoto() {
-        click(RETERN_TO_PHOTO_FROM_EDIT);
     }
 
     public void clickEditAlbum() {
