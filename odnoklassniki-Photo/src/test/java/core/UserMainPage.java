@@ -45,8 +45,8 @@ public class UserMainPage extends HelperBase{
 
     public void clickLogout(){
 //
-//        (new WebDriverWait(driver, 10))
-//                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
 
 
 
