@@ -82,10 +82,10 @@ public class PhotoPage extends HelperBase {
         //click(MARK_FRIENDS);
         driver.findElement(MARK_FRIENDS).click();
     }
-    public void clickOnSelf() { //Lena
-        Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_SELF));
-        driver.findElement(CHOOSE_SELF).click();
-    }
+//    public void clickOnSelf() { //Lena
+//        Assert.assertTrue("Не найдено отметить себя", isElementPresent(CHOOSE_SELF));
+//        driver.findElement(CHOOSE_SELF).click();
+//    }
     public void clickDone() { //Lena
         Assert.assertTrue("Не найдено готово", isElementPresent(DONE));
         driver.findElement(DONE).click();
@@ -143,7 +143,7 @@ public class PhotoPage extends HelperBase {
 
     }
     public void makePhotoMain(){
-        Assert.assertTrue("Кнопка \"Установить\" не найдена",
+        Assert.assertTrue("Кнопка \"Сделать главной\" не найдена",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),
                         10, 500) );
         click(MAKE_PHOTO_MAIN);
@@ -158,7 +158,7 @@ public class PhotoPage extends HelperBase {
 
     }
     public void deletePhoto(){
-        Assert.assertTrue("Кнопка \"Установить\" не найдена",
+        Assert.assertTrue("Кнопка \"Удалить фотографию\" не найдена",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(DELETE_PHOTO))),
                         10, 500) );
         click(DELETE_PHOTO);

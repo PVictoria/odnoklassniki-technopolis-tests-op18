@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -34,6 +36,8 @@ public class EditAlbumPage  extends HelperBase  {
     }
     public void check(){
         //
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE));
     }
 
     public void clickOnPhoto(){
@@ -60,9 +64,15 @@ public class EditAlbumPage  extends HelperBase  {
 
 //    }
     public void clickDropdownAlbumList(){
+        Assert.assertTrue("Страница не прогрузилась полностью",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(DROP_DOWN_LIST_ALBUMS)),
+                        5, 500) );
         click(DROP_DOWN_LIST_ALBUMS);
     }
     public void clickMoveButton() {
+        Assert.assertTrue("Страница не прогрузилась полностью",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(MOVE_BUTTON)),
+                        5, 500) );
         click(MOVE_BUTTON);
     }
 
@@ -70,7 +80,6 @@ public class EditAlbumPage  extends HelperBase  {
     public boolean isPhotoMoved(String albumName){
         if ( isElementPresent(INFO_PHOTO_MOVED)) {
             WebElement info = driver.findElement(INFO_PHOTO_MOVED);
-            //   if (info.getText().equals("Фото перенесены в альбом\""+albumName+"\"")){
             if (info.getText().contains("Фото перенесены в")){
                 return true;
             }
@@ -80,10 +89,16 @@ public class EditAlbumPage  extends HelperBase  {
 
 
     public  void clickDeleteButton (){
+        Assert.assertTrue("Страница не прогрузилась полностью",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(DELETE_ALBUM)),
+                        5, 500) );
         click(DELETE_ALBUM);
 
     }
     public void confirmAlbumDeletion(){
+        Assert.assertTrue("Страница не прогрузилась полностью",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_ALBUM)),
+                        5, 500) );
         click(CONFIRM_DELETE_ALBUM);
     }
 

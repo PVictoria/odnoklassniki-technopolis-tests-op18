@@ -28,7 +28,7 @@ public class DescPresentPage extends PhotoPage implements DescInterface{ //Lena
 
     @Override
     public void clickAddDescription() {
-        Assert.assertTrue("Не найдено описания", isElementPresent(ADD_DESCRIPTION));
+        Assert.assertTrue("Не найдено описание", isElementPresent(ADD_DESCRIPTION));
         driver.findElement(ADD_DESCRIPTION).click();
     }
 }

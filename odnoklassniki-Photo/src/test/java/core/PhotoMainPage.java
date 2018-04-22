@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PhotoMainPage extends HelperBase {
+    private static final By CREATE_ALBUM_BUTTON = By.id("hook_FormButton_button_album_create");
 
     // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
     private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@class, 'portlet_h_ac' )]");
@@ -57,7 +58,10 @@ public class PhotoMainPage extends HelperBase {
 
     public void clickCreateButton() {
         //click(By.id("hook_FormButton_button_create"));
-        click(By.id("hook_FormButton_button_album_create"));
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(ALL_ALBUMS)),
+                        5, 500) );
+        click(CREATE_ALBUM_BUTTON);
     }
 
 
@@ -116,20 +120,20 @@ public class PhotoMainPage extends HelperBase {
         return new AlbumPage(driver);
     }
 
-    public void clickPersonalPhoto() {  //Lena
-        Assert.assertTrue("Не найдены личные фотографии", isElementPresent(PERSONAL_PHOTO));
-        driver.findElement(PERSONAL_PHOTO).click();
-    }
-
-    public void openAlbum(By openAlbumLocator) {
-        Assert.assertTrue("Не найден альбом", isElementPresent(openAlbumLocator));
-        click(openAlbumLocator);
-    }
-
-    public boolean isAlbumExist(String albumName) {
-        //делать этот метод тут или на другом пэйдже???
-        return false;
-    }
+//    public void clickPersonalPhoto() {  //Lena
+//        Assert.assertTrue("Не найдены личные фотографии", isElementPresent(PERSONAL_PHOTO));
+//        driver.findElement(PERSONAL_PHOTO).click();
+//    }
+//
+//    public void openAlbum(By openAlbumLocator) {
+//        Assert.assertTrue("Не найден альбом", isElementPresent(openAlbumLocator));
+//        click(openAlbumLocator);
+//    }
+//
+//    public boolean isAlbumExist(String albumName) {
+//        //делать этот метод тут или на другом пэйдже???
+//        return false;
+//    }
 
     public String addPhoto(String pathName) {
         driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathName);

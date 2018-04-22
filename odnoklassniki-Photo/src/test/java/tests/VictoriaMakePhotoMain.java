@@ -62,7 +62,7 @@ public class VictoriaMakePhotoMain extends TestBase {
 
     }
     @After
-    public void deleteLoadedPhotoes(){
+    public void deleteLoadedPhotos(){
         HelperTest.deletePhoto(driver, testBot, photoId);
     }
 

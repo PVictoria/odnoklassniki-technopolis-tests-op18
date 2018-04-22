@@ -2,7 +2,7 @@ package core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.junit.Assert;
 
 import java.util.logging.Logger;
 
@@ -21,13 +21,13 @@ public class ClickLikePromise{
     }
 
     public PhotoPage andClickLikeOn(){
-        org.junit.Assert.assertTrue("Лайк не активен", photoPage.isElementPresent(CHECK_LIKE));
+        Assert.assertTrue("Лайк не активен", photoPage.isElementPresent(CHECK_LIKE));
         System.out.println("Лайк был поставлен"); // обавить ожидание или ассерт
         return new PhotoPage(driver);
     }
 
     public PhotoPage andClickLikeOff(){
-        org.junit.Assert.assertFalse("Лайк активен", photoPage.isElementPresent(CHECK_LIKE));
+        Assert.assertFalse("Лайк активен", photoPage.isElementPresent(CHECK_LIKE));
         System.out.println("Лайк был снят");
         return new PhotoPage(driver);
     }
