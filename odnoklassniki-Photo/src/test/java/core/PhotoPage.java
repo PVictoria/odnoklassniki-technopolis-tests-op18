@@ -110,11 +110,12 @@ public class PhotoPage extends HelperBase {
     }
 
     public void setAddComment(String comText){ //Таня
+        Assert.assertTrue("Не найдено поле добавления коммента", isElementPresent(ADD_COMMENT));
         type(comText,ADD_COMMENT);
     }
 
     public void clickSetAddComment(){ // Таня
-        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
+        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(CLICK_ADD_COMMENT));
         click(CLICK_ADD_COMMENT);
     }
 
@@ -129,19 +130,6 @@ public class PhotoPage extends HelperBase {
         return new ClickLikePromise(driver, photoPage);
     }
 
-    public boolean isLike(){
-        return isElementPresent(CHECK_LIKE);
-    }
-
-    public  void delAllCom(){
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(WAIT_FOR_DEL_COM));
-        Assert.assertTrue("Не найдена кнопка удалить", isElementPresent(DELETE_COM));
-        Actions builder;
-        builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(DELETE_COM)).click().build().perform();
-
-    }
     public void makePhotoMain(){
         Assert.assertTrue("Кнопка \"Установить\" не найдена",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MAKE_PHOTO_MAIN))),

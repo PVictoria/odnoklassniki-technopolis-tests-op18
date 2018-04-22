@@ -17,8 +17,8 @@ import static core.PhotoMainPage.OPEN_ALBUM;
  */
 public class TatyanaChangeAlbumsName extends TestBase{
     TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
-    String oldName = "Old Album!";
-    String newName = "New Album!";
+    String oldName = "Старое имя";
+    String newName = "Новое имя";
 
     @Before
     public void beforeChangeAlbumsName(){
@@ -37,12 +37,12 @@ public class TatyanaChangeAlbumsName extends TestBase{
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.editAlbumName(newName);
         albumPage = editAlbumPage.returnToPhoto();
-        Assert.assertTrue("Имя альбома не изменено", editAlbumPage.isChangeAlbumsName(newAlbumName));
+        Assert.assertTrue("Имя альбома не изменено", editAlbumPage.isChangeAlbumsName(newName));
         userMainPage.clickLogout();
     }
 
     @After
     public void afterChangeAlbumsName() throws Exception{
-        HelperTest.deleteAlbum(driver, testBot,newAlbumName);
+        HelperTest.deleteAlbum(driver, testBot,newName);
     }
 }

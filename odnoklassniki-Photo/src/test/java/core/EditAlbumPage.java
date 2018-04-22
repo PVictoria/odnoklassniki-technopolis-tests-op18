@@ -14,8 +14,6 @@ public class EditAlbumPage  extends HelperBase  {
     private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
     private static final By RECOVERY_PHOTO = By.xpath(".//*[text() = 'Восстановить']"); //Lena
 
-    public static final String newAlbumName = "NewName";
-
     public static final By FIND_ALBUM_NAME = By.xpath(".//*[contains(@class,'it_w')]//*[@data-module='PhotoEdit']");
     public static final By RETERN_TO_PHOTO_FROM_EDIT = By.xpath("//*[contains(@class,'tico_img ic12')]//parent::span[@class='tico tico__12']//parent::*[@class='al']");
     public static final By EDIT_ALBUM_LOCATOR = By.xpath("//*[contains(@class,'tico_img ic12')]/parent::span[@class='tico tico__12']/parent::a");
@@ -104,12 +102,14 @@ public class EditAlbumPage  extends HelperBase  {
     }
 
     public void editAlbumName(String newAlbumName){
+        Assert.assertTrue("Не найдено поле имени альбома", isElementPresent(FIND_ALBUM_NAME));
         click(FIND_ALBUM_NAME);
         type(newAlbumName,FIND_ALBUM_NAME);
 
     }
 
     public AlbumPage returnToPhoto() {
+        Assert.assertTrue("Не найдена кнопка назад", isElementPresent(RETERN_TO_PHOTO_FROM_EDIT));
         click(RETERN_TO_PHOTO_FROM_EDIT);
         return new AlbumPage(driver);
     }
