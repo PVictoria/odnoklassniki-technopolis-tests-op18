@@ -123,7 +123,7 @@ public abstract class HelperBase {
         new Actions(driver).moveToElement(webElement).build().perform();
     }
 
-    public void clickBy(String id) { //Lena
+    protected void clickBy(String id) { //Lena
         By strId = By.xpath(".//*[@id = '" + id + "']");
         (new WebDriverWait(driver, 15))
                 .until(ExpectedConditions.elementToBeClickable(strId));
