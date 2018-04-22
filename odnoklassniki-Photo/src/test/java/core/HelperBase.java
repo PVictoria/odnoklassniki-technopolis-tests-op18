@@ -1,9 +1,11 @@
 package core;
 
 import com.google.common.base.Preconditions;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -119,5 +121,18 @@ public abstract class HelperBase {
 
     public void moveToElement(WebElement webElement){
         new Actions(driver).moveToElement(webElement).build().perform();
+    }
+
+    public void clickBy(String id) { //Lena
+        By strId = By.xpath(".//*[@id = '" + id + "']");
+        (new WebDriverWait(driver, 15))
+                .until(ExpectedConditions.elementToBeClickable(strId));
+        Assert.assertTrue("Не найден элемент", isElementPresent(strId));
+        WebElement webElement = driver.findElement(strId);
+        Dimension size = webElement.getSize();
+        int x = (int)(size.width * 0.5);
+        int y = (int)(size.height * 0.2);
+        Actions builder = new Actions(driver);
+        builder.moveToElement(webElement, x, y).click().build().perform();
     }
 }

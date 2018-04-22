@@ -16,21 +16,16 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
 
     String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/man.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
+    final String idImg = "__plpcte_target";
+    final String selfId = "plpp_markSelf";
     String fio;
     String idPhoto;
+
     @Before
     public void beforeTagYourself(){
         idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
-        /*new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
-        UserMainPage userMainPage = new UserMainPage(driver);
-        fio = userMainPage.getFIO();
-        System.out.println(fio);
-        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        String pathname = "C:/Users/User/Desktop/man.jpg";
-        id = photoMainPage.addPhoto(pathname);
-        userMainPage.clickLogout();*/
-
     }
+
     @Test
     public void tagYourself() throws Exception{
         new LoginMainPage(driver).doLogin(testBot);
@@ -38,8 +33,6 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         fio = userMainPage.getFIO();
         PhotoMainPage photoMainPage  = userMainPage.clickPhotosOnToolbar();
 
-        String idImg = "__plpcte_target";
-        String selfId = "plpp_markSelf";
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
         photoPage.clickMarkFriends();
         photoPage.clickBy(idImg);
