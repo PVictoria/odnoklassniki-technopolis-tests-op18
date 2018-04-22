@@ -5,19 +5,19 @@ import model.TestBot;
 import org.junit.Before;
 import org.junit.Test;
 
-import static java.lang.Thread.sleep;
 
 /**
  * Created by User on 18.04.2018.
  */
 public class ElenaDeletePhoto extends TestBase {
 
-    String pathname = "C:/Users/User/Desktop/bo.jpg";
+    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
-    String id;
+    String idPhoto;
+    String albumName = "Личные фото";
     @Before
     public void beforeDelPhoto(){
-        id = HelperTest.loadPhoto(driver, testBot, pathname);
+        idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
         /*new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -32,10 +32,9 @@ public class ElenaDeletePhoto extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
-        photoMainPage.clickPersonalPhoto();
-        AlbumPage albumPage = new AlbumPage(driver);
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
-        editAlbumPage.clickDelete(id);
+        editAlbumPage.clickDelete(idPhoto);
         editAlbumPage.isDeleted();
     }
 }

@@ -12,14 +12,14 @@ import org.junit.Assert;
 
 public class ElenaAddDescription extends TestBase{
 
-    String pathname = "C:/Users/User/Desktop/car.jpg";
+    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/car.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
-    String id;
+    String idPhoto;
     String description = "Описание...";
 
     @Before
     public void beforeAddDescription() throws InterruptedException {
-        id = HelperTest.loadPhoto(driver, testBot, pathname);
+        idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
        /* new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -33,7 +33,7 @@ public class ElenaAddDescription extends TestBase{
         new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        PhotoPage photoPage = photoMainPage.openPhotoById(id);
+        PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
 
         DescInterface photoInterface = new DescFactory().getPage(driver);
         photoInterface.clickAddDescription();
@@ -47,6 +47,6 @@ public class ElenaAddDescription extends TestBase{
 
     @After
     public void deletePhotoAfterTest(){
-        HelperTest.deletePhoto(driver, testBot, id);
+        HelperTest.deletePhoto(driver, testBot, idPhoto);
     }
 }
