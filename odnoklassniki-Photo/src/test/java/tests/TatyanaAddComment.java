@@ -2,6 +2,7 @@ package tests;
 
 import core.*;
 import model.TestBot;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,31 +14,31 @@ import static java.lang.Thread.sleep;
  * Created by таня on 18.04.2018.
  */
 public class TatyanaAddComment extends TestBase{
-    //тест-кейс добавление коммента Таня
-    String myId;
+    String pathname = "C:/Users/таня/Pictures/Penguins.jpg";
+    TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
+    String idPhoto;
+    String com = "Новый коммент";
 
     @Before
-    public void deleteAllComments() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
-        UserMainPage userMainPage = new UserMainPage(driver);
-        userMainPage.clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        String pathname = "C:/Users/таня/Pictures/reload_refresh.png";
-        myId = photoMainPage.addPhoto(pathname);
-        userMainPage.clickLogout();
+    public void beforeAddComments() throws Exception{
+        idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
     }
 
     @Test
     public void addCommentUnderPhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot21", "QA18testbott"));
-        new UserMainPage(driver).clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.openPhotoById(myId);
-        String com = "New comment20";
-        PhotoPage photopage = new PhotoPage(driver);
-        photopage.setAddComment(com);
-        photopage.clickSetAddComment();
-        //проверка
-        Assert.assertTrue("Коммент не добавлен", photopage.isAddComment(com));
+        new LoginMainPage(driver).doLogin(testBot);
+        UserMainPage userMainPage = new UserMainPage(driver);
+        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
+        PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
+        photoPage.setAddComment(com);
+        photoPage.clickSetAddComment();
+        Assert.assertTrue("Коммент не добавлен", photoPage.isAddComment(com));
+        photoPage.closePhoto();
+        userMainPage.clickLogout();
+    }
+
+    @After
+    public void afterAddComments() throws Exception{
+        HelperTest.deletePhoto(driver, testBot, idPhoto);
     }
 }

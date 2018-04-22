@@ -21,7 +21,6 @@ public class VictoriaDeleteAlbum extends TestBase {
     @Before
     public void prepareForDeletingAlbum(){
         HelperTest.createAlbum(driver, testBot, albumName);
-
     }
 
 
