@@ -17,11 +17,12 @@ import static core.PhotoMainPage.OPEN_ALBUM;
  */
 public class TatyanaChangeAlbumsName extends TestBase{
     TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
-    String oldAlbumName = "Old Album!";
+    String oldName = "Old Album!";
+    String newName = "New Album!";
 
     @Before
     public void beforeChangeAlbumsName(){
-        HelperTest.createAlbum(driver, testBot, oldAlbumName);
+        HelperTest.createAlbum(driver, testBot, oldName);
     }
 
     @Test
@@ -30,14 +31,13 @@ public class TatyanaChangeAlbumsName extends TestBase{
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
-        AlbumWrapper album = photoMainPage.findAlbumByName(albums, oldAlbumName);
-        Assert.assertNotNull("Альбом " + oldAlbumName + " не найден", album);
+        AlbumWrapper album = photoMainPage.findAlbumByName(albums, oldName);
+        Assert.assertNotNull("Альбом " + oldName + " не найден", album);
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
-        editAlbumPage.editAlbumName();
-        ToolBar toolBar = editAlbumPage.returnToPhoto();
+        editAlbumPage.editAlbumName(newName);
+        albumPage = editAlbumPage.returnToPhoto();
         Assert.assertTrue("Имя альбома не изменено", editAlbumPage.isChangeAlbumsName(newAlbumName));
-        //photoMainPage  = new ToolBar(driver).openPhotoMainPage();
         userMainPage.clickLogout();
     }
 

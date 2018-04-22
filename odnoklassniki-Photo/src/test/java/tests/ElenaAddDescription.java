@@ -12,7 +12,7 @@ import org.junit.Assert;
 
 public class ElenaAddDescription extends TestBase{
 
-    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/car.jpg";
+    String pathname = "C:/Users/таня/Pictures/Penguins.jpg";//"C:/Users/User/Desktop/УНИВЕР/Тестирование/car.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String idPhoto;
     String description = "Описание...";

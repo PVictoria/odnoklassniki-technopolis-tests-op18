@@ -103,14 +103,14 @@ public class EditAlbumPage  extends HelperBase  {
         driver.findElement(DELETE_DONE);
     }
 
-    public void editAlbumName(){
+    public void editAlbumName(String newAlbumName){
         click(FIND_ALBUM_NAME);
         type(newAlbumName,FIND_ALBUM_NAME);
 
     }
 
-    public ToolBar returnToPhoto() {
+    public AlbumPage returnToPhoto() {
         click(RETERN_TO_PHOTO_FROM_EDIT);
-        return new ToolBar(driver);
+        return new AlbumPage(driver);
     }
 }

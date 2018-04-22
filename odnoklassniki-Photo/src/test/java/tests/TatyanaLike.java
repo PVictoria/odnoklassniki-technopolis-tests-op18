@@ -28,8 +28,9 @@ public class TatyanaLike extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
-        ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
-        photoPage = clickLikePromise.andClickLikeOn();
+        photoPage.clickLike(driver, photoPage).andClickLikeOn();
+        //ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
+        //photoPage = clickLikePromise.andClickLikeOn();
         photoPage.closePhoto();
         userMainPage.clickLogout();
     }
