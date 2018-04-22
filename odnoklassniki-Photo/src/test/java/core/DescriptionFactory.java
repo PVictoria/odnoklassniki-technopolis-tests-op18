@@ -1,21 +1,19 @@
 package core;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 /**
  * Created by User on 18.04.2018.
  */
-public class DescFactory { //Lena
+public class DescriptionFactory { //Lena
 
     private final static By CLEAR_DESC =  By.xpath(".//*[text() = 'Добавить описание']");
-    public DescInterface getPage(WebDriver driver) {
+    public DescriptionInterface getPage(WebDriver driver) {
         if (isDescEmpty(driver)) {
-            return new ClearDescPage(driver);
+            return new ClearDescriptionPage(driver);
         } else {
-            return new DescPresentPage(driver);
+            return new DescriptionPresentPage(driver);
         }
     }
 

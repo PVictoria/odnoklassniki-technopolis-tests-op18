@@ -45,10 +45,8 @@ public class PhotoPage extends HelperBase {
 
     protected void check() { //Lena
         Assert.assertTrue("Не дождались прогрузки страницы Фото",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(PHOTO))),
+                explicitWait( ( ExpectedConditions.visibilityOfElementLocated(PHOTO)),
                         5, 500) );
-        /*(new WebDriverWait(driver, 15))
-                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));*/
     }
 
     public void clickAddDescription() { //Lena
@@ -56,8 +54,8 @@ public class PhotoPage extends HelperBase {
         driver.findElement(ADD_DESCRIPTION).click();
     }
 
-    public void typeDescrName(String descroption) { //Lena
-        type(descroption, By.id(INPUT_DESCRIPTION));
+    public void typeDescrName(String description) { //Lena
+        type(description, By.id(INPUT_DESCRIPTION));
     }
 
     public void clickSaveDescription() { //Lena
@@ -78,8 +76,9 @@ public class PhotoPage extends HelperBase {
     }
 
     public void clickMarkFriends() { //Lena
-        Assert.assertTrue("Не найдена кнопка отметить друзей", isElementPresent(MARK_FRIENDS));
-        //click(MARK_FRIENDS);
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.elementToBeClickable(MARK_FRIENDS)),
+                        10, 500) );
         driver.findElement(MARK_FRIENDS).click();
     }
 //    public void clickOnSelf() { //Lena
@@ -93,28 +92,16 @@ public class PhotoPage extends HelperBase {
 
     public boolean isMarkSelf(String fio) { //Lena
         final By MARK_SELF_CREATED = By.xpath(("//*[contains(@class, 'tag')]//child::*[contains(text(), '" + fio + "')]"));
-        //final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + fio + "' ]");
         return isElementPresent(MARK_SELF_CREATED);
-    }
-    public void clickBy(String id) { //Lena
-        By strId = By.xpath(".//*[@id = '" + id + "']");
-        Assert.assertTrue("Не найден элемент", isElementPresent(strId));
-        (new WebDriverWait(driver, 15))
-                .until(ExpectedConditions.visibilityOfElementLocated(strId));
-        WebElement webElement = driver.findElement(strId);
-        Dimension size = webElement.getSize();
-        int x = (int)(size.width * 0.9);
-        int y = (int)(size.height * 0.5);
-        Actions builder = new Actions(driver);
-        builder.moveToElement(webElement, x, y).click().build().perform();
     }
 
     public void setAddComment(String comText){ //Таня
+        Assert.assertTrue("Не найдено поле добавления коммента", isElementPresent(ADD_COMMENT));
         type(comText,ADD_COMMENT);
     }
 
     public void clickSetAddComment(){ // Таня
-        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(ADD_COMMENT));
+        Assert.assertTrue("Не найдена кнопка добавления коммента", isElementPresent(CLICK_ADD_COMMENT));
         click(CLICK_ADD_COMMENT);
     }
 
@@ -129,19 +116,6 @@ public class PhotoPage extends HelperBase {
         return new ClickLikePromise(driver, photoPage);
     }
 
-    public boolean isLike(){
-        return isElementPresent(CHECK_LIKE);
-    }
-
-    public  void delAllCom(){
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(WAIT_FOR_DEL_COM));
-        Assert.assertTrue("Не найдена кнопка удалить", isElementPresent(DELETE_COM));
-        Actions builder;
-        builder = new Actions(driver);
-        builder.moveToElement(driver.findElement(DELETE_COM)).click().build().perform();
-
-    }
     public void makePhotoMain(){
         Assert.assertTrue("Кнопка \"Сделать главной\" не найдена",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(MAKE_PHOTO_MAIN)),
@@ -153,9 +127,6 @@ public class PhotoPage extends HelperBase {
                 explicitWait( ( ExpectedConditions.elementToBeClickable(SET)),
                         10, 500) );
         click(SET);
-
-
-
     }
     public void deletePhoto(){
         Assert.assertTrue("Кнопка \"Удалить фотографию\" не найдена",
@@ -163,6 +134,5 @@ public class PhotoPage extends HelperBase {
                         10, 500) );
         click(DELETE_PHOTO);
     }
-
 }
 

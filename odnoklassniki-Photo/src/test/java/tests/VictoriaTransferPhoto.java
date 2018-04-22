@@ -15,7 +15,7 @@ public class VictoriaTransferPhoto extends TestBase{
     TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
     String albumNameFrom = "Личные фото";
     String albumNameTo = "Target";
-    String pathName = "C:/JavaProjects/myPhoto.jpg";
+    String pathName = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     String photoId;
 
     @Before
