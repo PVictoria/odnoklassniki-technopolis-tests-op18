@@ -14,13 +14,13 @@ import static java.lang.Thread.sleep;
  */
 public class ElenaTagYourselfOnPhoto extends TestBase{
 
-    String pathname = "C:/Users/User/Desktop/man.jpg";
+    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/man.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String fio;
-    String id;
+    String idPhoto;
     @Before
     public void beforeTagYourself(){
-        id = HelperTest.loadPhoto(driver, testBot, pathname);
+        idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
         /*new LoginMainPage(driver).doLogin(new TestBot("QA18testbot9 ", "QA18testbot"));
         UserMainPage userMainPage = new UserMainPage(driver);
         fio = userMainPage.getFIO();
@@ -40,7 +40,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
 
         String idImg = "__plpcte_target";
         String selfId = "plpp_markSelf";
-        PhotoPage photoPage = photoMainPage.openPhotoById(id);
+        PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
         photoPage.clickMarkFriends();
         photoPage.clickBy(idImg);
         photoPage.clickBy(selfId);
@@ -52,6 +52,6 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
 
     @After
     public void deletePhotoAfterTest(){
-        HelperTest.deletePhoto(driver, testBot, id);
+        HelperTest.deletePhoto(driver, testBot, idPhoto);
     }
 }
