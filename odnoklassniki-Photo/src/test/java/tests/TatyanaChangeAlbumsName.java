@@ -23,18 +23,7 @@ public class TatyanaChangeAlbumsName extends TestBase{
     public void beforeChangeAlbumsName(){
         HelperTest.createAlbum(driver, testBot, oldAlbumName);
     }
-    /*public void createAlbum() {
-        new LoginMainPage(driver).doLogin(new TestBot("QA18testbot20", "QA18testbot1"));
-        UserMainPage userMainPage = new UserMainPage(driver);
-        userMainPage.clickPhotosOnToolbar();
-        PhotoMainPage photoMainPage = new PhotoMainPage(driver);
-        photoMainPage.clickCreateAlbum();
-        photoMainPage.typeAlbumName(oldAlbumName);
-        photoMainPage.clickCreateButton();
-        Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(oldAlbumName));
-        userMainPage.clickLogout();
 
-    }*/
     @Test
     public void changeAlbumsName() throws Exception{
         new LoginMainPage(driver).doLogin(testBot);
@@ -46,6 +35,7 @@ public class TatyanaChangeAlbumsName extends TestBase{
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.editAlbumName();
+        ToolBar toolBar = editAlbumPage.returnToPhoto();
         Assert.assertTrue("Имя альбома не изменено", editAlbumPage.isChangeAlbumsName(newAlbumName));
         //photoMainPage  = new ToolBar(driver).openPhotoMainPage();
         userMainPage.clickLogout();
@@ -53,6 +43,6 @@ public class TatyanaChangeAlbumsName extends TestBase{
 
     @After
     public void afterChangeAlbumsName() throws Exception{
-
+        HelperTest.deleteAlbum(driver, testBot,newAlbumName);
     }
 }

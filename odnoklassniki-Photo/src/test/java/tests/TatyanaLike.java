@@ -18,7 +18,7 @@ public class TatyanaLike extends TestBase {
     String idPhoto;
 
     @Before
-    public void beforeAddComments() throws Exception{
+    public void beforeLike() throws Exception{
         idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
     }
 
@@ -35,7 +35,7 @@ public class TatyanaLike extends TestBase {
     }
 
     @After
-    public void afterAddComments() throws Exception{
+    public void afterLike() throws Exception{
         HelperTest.deletePhoto(driver, testBot, idPhoto);
     }
 }
