@@ -111,6 +111,7 @@ public class PhotoMainPage extends HelperBase {
 //        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
 //        AlbumWrapper album = findAlbumByName(albums, albumName);
 //        Assert.assertTrue("Альбом " + albumName + " не найден", album.isExist());
+
         albumWrapper.clickAlbum();
         return new AlbumPage(driver);
     }

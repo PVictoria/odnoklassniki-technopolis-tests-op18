@@ -78,5 +78,10 @@ public class AlbumPage extends HelperBase {
 
         return new PhotoPage(driver);
     }
+    public boolean isPhotoPresent(String photoId){
+        By PHOTO = By.xpath(".//*[contains(@id, '" + photoId + "')]");
+        return isElementPresent(PHOTO);
+
+    }
 
 }
