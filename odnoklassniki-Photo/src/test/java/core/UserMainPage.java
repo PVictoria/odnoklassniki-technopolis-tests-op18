@@ -27,16 +27,18 @@ public class UserMainPage extends HelperBase{
 
     public PhotoMainPage clickPhotosOnToolbar() {
         Assert.assertTrue("Не дождались прогрузки кнопки \"Фто\"",
-                explicitWait( ( ExpectedConditions.elementToBeClickable(driver.findElement(PHOTOS))),
-                        15, 500) );
-            click(PHOTOS);
+                explicitWait((ExpectedConditions.elementToBeClickable(driver.findElement(PHOTOS))),
+                        15, 500));
+        click(PHOTOS);
 
+    if ( isElementPresent(SHOW_MORE)){
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(SHOW_MORE));
 //        Assert.assertTrue("Не дождались прогрузки кнопки \"Показать ещё\"",
 //                explicitWait( ( ExpectedConditions.elementToBeClickable(driver.findElement(SHOW_MORE))),
 //                        15, 500) );
         click(SHOW_MORE);
+    }
 
         return new PhotoMainPage(driver);
     }

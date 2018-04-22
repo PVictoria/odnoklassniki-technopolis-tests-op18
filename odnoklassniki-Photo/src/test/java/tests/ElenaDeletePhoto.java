@@ -2,8 +2,11 @@ package tests;
 
 import core.*;
 import model.TestBot;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 
 /**
@@ -32,7 +35,10 @@ public class ElenaDeletePhoto extends TestBase {
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
-        AlbumPage albumPage = photoMainPage.clickOnAlbum(albumName);
+        List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
+        AlbumWrapper album = photoMainPage.findAlbumByName(albums, albumName);
+        Assert.assertNotNull("Альбом " + albumName + " не найден", album);
+        AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDelete(idPhoto);
         editAlbumPage.isDeleted();
