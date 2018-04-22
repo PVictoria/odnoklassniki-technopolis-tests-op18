@@ -89,7 +89,8 @@ public class PhotoPage extends HelperBase {
     }
 
     public boolean isMarkSelf(String fio) { //Lena
-        final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + fio + "' ]");
+        final By MARK_SELF_CREATED = By.xpath(("//*[contains(@class, 'tag')]//child::*[contains(text(), '" + "')]"));
+        //final By MARK_SELF_CREATED = By.xpath(".//*[text() = '" + fio + "' ]");
         return isElementPresent(MARK_SELF_CREATED);
     }
     public void clickBy(String id) { //Lena
