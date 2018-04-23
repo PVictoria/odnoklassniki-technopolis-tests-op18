@@ -26,8 +26,7 @@ public class ElenaDeletePhoto extends TestBase {
 
     @Test
     public void deletePhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
         List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();

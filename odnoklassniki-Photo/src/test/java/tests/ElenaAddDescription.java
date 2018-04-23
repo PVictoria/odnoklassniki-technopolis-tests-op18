@@ -25,8 +25,7 @@ public class ElenaAddDescription extends TestBase{
 
     @Test
     public void addDescription() throws Exception{
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
 

@@ -78,6 +78,6 @@ public class SecondTest extends TestBase {
         photoMainPage.clickCreateButton();
 
         Assert.assertTrue("Альбом не создан", photoMainPage.isCreationAlbum(pa));
-        userMainPage.clickLogout();
+      //  userMainPage.clickLogout();
     }
 }

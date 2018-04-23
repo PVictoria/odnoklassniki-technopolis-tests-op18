@@ -26,15 +26,14 @@ public class TatyanaAddComment extends TestBase{
 
     @Test
     public void addCommentUnderPhoto() throws Exception{
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
         photoPage.setAddComment(com);
         photoPage.clickSetAddComment();
         Assert.assertTrue("Коммент не добавлен", photoPage.isAddComment(com));
         //photoPage.closePhoto();
-        userMainPage.clickLogout();
+        //userMainPage.clickLogout();
     }
 
     @After

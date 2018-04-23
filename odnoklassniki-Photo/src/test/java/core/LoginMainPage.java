@@ -20,9 +20,10 @@ public class LoginMainPage extends HelperBase{
                         15, 500) );
     }
 
-    public void doLogin(TestBot testBot) {
+    public UserMainPage doLogin(TestBot testBot) {
         type(testBot.getLogin(), By.id("field_email"));
         type(testBot.getPassword(), By.id("field_password"));
         click(LOGIN);
+        return new UserMainPage(driver);
     }
 }

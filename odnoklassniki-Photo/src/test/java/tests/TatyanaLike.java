@@ -24,15 +24,15 @@ public class TatyanaLike extends TestBase {
 
     @Test
     public void likeToMyPhoto() throws Exception {
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(idPhoto);
         photoPage.clickLike(driver, photoPage).andClickLikeOn();
         //ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
         //photoPage = clickLikePromise.andClickLikeOn();
         //photoPage.closePhoto();
-        userMainPage.clickLogout();
+
+        //userMainPage.clickLogout();
     }
 
     @After

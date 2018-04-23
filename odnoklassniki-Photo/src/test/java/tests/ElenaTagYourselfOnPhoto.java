@@ -28,8 +28,7 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
 
     @Test
     public void tagYourself() throws Exception{
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         fio = userMainPage.getFIO();
         PhotoMainPage photoMainPage  = userMainPage.clickPhotosOnToolbar();
 

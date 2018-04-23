@@ -43,22 +43,22 @@ public class UserMainPage extends HelperBase{
 
         return new PhotoMainPage(driver);
     }
-
-    public void clickLogout(){
+// Больше не используется
+//    public void clickLogout(){
+////
+//        (new WebDriverWait(driver, 10))
+//                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
 //
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
-
-
-
-        click(TOOLBAR_USER_DROPDOWN);
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.elementToBeClickable(LOGOUT));
-        click(LOGOUT);
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.elementToBeClickable(LOGOFF));
-        click(LOGOFF);
-    }
+//
+//
+//        click(TOOLBAR_USER_DROPDOWN);
+//        (new WebDriverWait(driver, 10))
+//                .until(ExpectedConditions.elementToBeClickable(LOGOUT));
+//        click(LOGOUT);
+//        (new WebDriverWait(driver, 10))
+//                .until(ExpectedConditions.elementToBeClickable(LOGOFF));
+//        click(LOGOFF);
+//    }
     public String getFIO() {
         String fio;
         fio = driver.findElement(FIO).getText();

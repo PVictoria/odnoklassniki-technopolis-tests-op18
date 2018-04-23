@@ -32,16 +32,14 @@ public class VictoriaTransferPhoto extends TestBase{
     @Test
     public void transferPhotosFromAlbumToAlbum() throws Exception {
 
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-
         List<AlbumWrapper> albums = photoMainPage.getAllAlbums();
         AlbumWrapper albumFrom = photoMainPage.findAlbumByName(albums, albumNameFrom);
         Assert.assertNotNull("Альбом " + albumNameFrom + " не найден", albumFrom);
         AlbumPage albumPage = photoMainPage.clickOnAlbum(albumFrom);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
-        editAlbumPage.clickOnPhoto();
+        editAlbumPage.clickOnPhoto(photoId);
         editAlbumPage.clickDropdownAlbumList();
         List<WebElement> albumList = editAlbumPage.listAllTargetAlbums();
         WebElement albumTo = editAlbumPage.choseAlbumFromList(albumList, albumNameTo);
@@ -62,7 +60,7 @@ public class VictoriaTransferPhoto extends TestBase{
         AlbumWrapper targetAlbum = photoMainPage.findAlbumByName(albums, albumNameTo);
         albumPage = photoMainPage.clickOnAlbum(targetAlbum);
         Assert.assertTrue("Фото не перенесено",albumPage.isPhotoPresent(photoId));
-        userMainPage.clickLogout();
+        photoMainPage.topToolBar.logout();
 
 
     }

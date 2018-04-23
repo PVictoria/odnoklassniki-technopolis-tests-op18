@@ -11,7 +11,7 @@ import java.util.List;
 
 public class EditAlbumPage  extends HelperBase  {
 
-    public TopToolBar topToolBar;
+    public TopToolBar topToolBar = new TopToolBar(driver);
     private static final By EDIT_ALBUM = By.xpath(".//*[text() = 'Редактировать, изменить порядок']"); //Lena
    // private static final By DELETE_BUTTON = By.xpath(".//*[@id='hook_Block_PhotoCardV2Block867039499749']//child::*[@class = 'photo-widget __del']"); //Lena
     private static final By DELETE_DONE = By.xpath(".//*[@class = 'photo_delete va_target']"); //Lena
@@ -39,8 +39,15 @@ public class EditAlbumPage  extends HelperBase  {
                 .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE));
     }
 
-    public void clickOnPhoto(){
-        click(FIRST_PHOTO_IN_ALBUM);
+//    public void clickOnPhoto(){
+//        click(FIRST_PHOTO_IN_ALBUM);
+//    }
+    public void clickOnPhoto(String photoId) {
+        By CHOICE = By.xpath(".//*[contains(@id, '" + photoId + "')]");
+        Assert.assertTrue("Не найдено фото", isElementPresent(CHOICE) && driver.findElement(CHOICE).isDisplayed());
+        click(CHOICE);
+
+
     }
 
     public WebElement choseAlbumFromList (List<WebElement> albumList, String albumName){
@@ -94,12 +101,12 @@ public class EditAlbumPage  extends HelperBase  {
         click(DELETE_ALBUM);
 
     }
-    public AlbumsOnlyPage confirmAlbumDeletion(){
+    public AlbumsMainPage confirmAlbumDeletion(){
         Assert.assertTrue("Не найдена кнопка \"Удалить\"",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_ALBUM)),
                         5, 500) );
         click(CONFIRM_DELETE_ALBUM);
-        return new AlbumsOnlyPage(driver);
+        return new AlbumsMainPage(driver);
     }
 
     public boolean isChangeAlbumsName(String name){

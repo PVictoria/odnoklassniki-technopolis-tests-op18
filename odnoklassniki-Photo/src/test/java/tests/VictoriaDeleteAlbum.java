@@ -27,22 +27,19 @@ public class VictoriaDeleteAlbum extends TestBase {
     @Test
     public void deleteingAlbum() throws Exception {
 
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        //Поиск альбома по имени изменен в соответствии с пожеланиями Эмилии
         List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
         AlbumWrapper album = photoMainPage.findAlbumByName(albums, albumName);
         Assert.assertNotNull("Альбом " + albumName + " не найден", album);
-        //метод clickOnAlbum(album) теперь принимает AlbumWrapper в качестве аргумента
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDeleteButton();
-        AlbumsOnlyPage albumsOnlyPage = editAlbumPage.confirmAlbumDeletion();
-        albums = albumsOnlyPage.getAllAlbums();
+        AlbumsMainPage albumsMainPage = editAlbumPage.confirmAlbumDeletion();
+        albums = albumsMainPage.getAllAlbums();
         Assert.assertNull("Альбом не удален или cуществует еще один с таким же именем",
-                            albumsOnlyPage.findAlbumByName(albums, albumName));
-        userMainPage.clickLogout();
+                            albumsMainPage.findAlbumByName(albums, albumName));
+        albumsMainPage.topToolBar.logout();
 
 
     }

@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PhotoMainPage extends HelperBase {
-    public TopToolBar topToolBar;
+    public TopToolBar topToolBar = new TopToolBar(driver);
     private static final By CREATE_ALBUM_BUTTON = By.id("hook_FormButton_button_album_create");
 
     // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
@@ -154,9 +154,10 @@ public class PhotoMainPage extends HelperBase {
         click(PHOTO);
         return new PhotoPage(driver);
     }
-    public void openUserMainPage(){
+    public UserMainPage openUserMainPage(){
         Assert.assertTrue("Нет найдена кнопка  \"Одноклассники\"", isElementPresent(USER_MAIN_PAGE));
         click(USER_MAIN_PAGE);
+        return new UserMainPage(driver);
     }
     public boolean isPhotoPresent(String photoId){
         By PHOTO = By.xpath(".//*[contains(@id, '" + photoId + "')]");

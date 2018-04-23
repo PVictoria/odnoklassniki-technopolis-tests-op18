@@ -31,22 +31,19 @@ public class VictoriaMakePhotoMain extends TestBase {
     @Test
     public void makePhotoMain() {
 
-        new LoginMainPage(driver).doLogin(testBot);
-        UserMainPage userMainPage = new UserMainPage(driver);
+        UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        //Поиск альбома по имени изменен в соответствии с пожеланиями Эмилии
         List<AlbumWrapper> albums = new PhotoMainPage(driver).getAllAlbums();
         AlbumWrapper album = photoMainPage.findAlbumByName(albums, albumName);
         Assert.assertNotNull("Альбом " + albumName + " не найден", album);
-        //метод clickOnAlbum(album) теперь принимает AlbumWrapper в качестве аргумента
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
-        PhotoPage photoPage = albumPage.openPhotoById(photoId); //внутри эдита
+        PhotoPage photoPage = albumPage.openPhotoById(photoId);
         photoPage.makePhotoMain();
-        photoPage.closePhotoRetPhotoMainP();
-        photoMainPage.openUserMainPage();
+        photoMainPage = photoPage.closePhotoRetPhotoMainP();
+        userMainPage = photoMainPage.openUserMainPage();
         String mainPhotoId = userMainPage.getMainPhoto();
         Assert.assertFalse("Фото не утановлено", photoId.equals(mainPhotoId));
-        userMainPage.clickLogout();
+        userMainPage.topToolBar.logout();
 
 
     }
