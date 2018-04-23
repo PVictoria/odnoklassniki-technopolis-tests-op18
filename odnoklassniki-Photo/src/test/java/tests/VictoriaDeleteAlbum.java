@@ -16,7 +16,7 @@ public class VictoriaDeleteAlbum extends TestBase {
     // Удаление албома
     //У бота должен быть хотя бы один альбом помимо личных фотографий
     String albumName = "d";
-    TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
+    TestBot testBot = new TestBot("QA18testbot57 ", "QA18testbot");
 
     @Before
     public void prepareForDeletingAlbum(){

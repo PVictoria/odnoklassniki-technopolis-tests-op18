@@ -15,27 +15,16 @@ import static tests.HelperTest.deletePhoto;
 
 public class VictoriaMakePhotoMain extends TestBase {
 
-    TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
+    TestBot testBot = new TestBot("QA18testbot57 ", "QA18testbot");
     String albumName = "Личные фото";
-    String pathName = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+    String pathName = "C:/JavaProjects/myPhoto.jpg";
+            //"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     String photoId;
 
-//
-//    @Before
-//    public void loadPhoto() {
-//        new LoginMainPage(driver).doLogin(testBot);
-//        UserMainPage userMainPage = new UserMainPage(driver);
-//        PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-//        String pathname = "C:/JavaProjects/myPhoto.jpg";
-//        photoId = photoMainPage.addPhoto(pathname);
-//        //проверка, что фото добавлено
-//        userMainPage.clickLogout();
-//    }
 
 
     @Before
     public void prepareForMakePhotoMain(){
-        //HelperTest.deleteAllPhotos(driver, testBot, albumName);
         photoId = HelperTest.loadPhoto(driver, testBot, pathName);
     }
 

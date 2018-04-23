@@ -12,10 +12,11 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class VictoriaTransferPhoto extends TestBase{
-    TestBot testBot = new TestBot("pvikka@mail.ru", "123654v");
+    TestBot testBot = new TestBot("QA18testbot57 ", "QA18testbot");
     String albumNameFrom = "Личные фото";
     String albumNameTo = "Target";
-    String pathName = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+    String pathName = "C:/JavaProjects/myPhoto.jpg";
+            //"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     String photoId;
 
     @Before
@@ -31,7 +32,7 @@ public class VictoriaTransferPhoto extends TestBase{
     @Test
     public void transferPhotosFromAlbumToAlbum() throws Exception {
 
-        new LoginMainPage(driver).doLogin(new TestBot("pvikka@mail.ru", "123654v"));
+        new LoginMainPage(driver).doLogin(testBot);
         UserMainPage userMainPage = new UserMainPage(driver);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
 
