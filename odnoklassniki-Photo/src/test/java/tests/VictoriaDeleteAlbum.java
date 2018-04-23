@@ -38,11 +38,10 @@ public class VictoriaDeleteAlbum extends TestBase {
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDeleteButton();
-        editAlbumPage.confirmAlbumDeletion();
-        photoMainPage  = new ToolBar(driver).openPhotoMainPage();
-        albums = new PhotoMainPage(driver).getAllAlbums();
+        AlbumsOnlyPage albumsOnlyPage = editAlbumPage.confirmAlbumDeletion();
+        albums = albumsOnlyPage.getAllAlbums();
         Assert.assertNull("Альбом не удален или cуществует еще один с таким же именем",
-                            photoMainPage.findAlbumByName(albums, albumName));
+                            albumsOnlyPage.findAlbumByName(albums, albumName));
         userMainPage.clickLogout();
 
 

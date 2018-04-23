@@ -68,12 +68,21 @@ public class PhotoPage extends HelperBase {
         return isElementPresent(DESCRIPTION_CREATED);
     }
 
-    public void closePhoto(){ //Lena
+    public PhotoMainPage closePhotoRetPhotoMainP(){ //Lena
         Assert.assertTrue("Не дождались прогрузки раздела Фото",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(CLOSE_PHOTO))),
                         10, 500) );
         driver.findElement(CLOSE_PHOTO).click();
+        return new PhotoMainPage(driver);
     }
+    public AlbumPage closePhotoRetAlbumP(){ //Lena
+        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(CLOSE_PHOTO))),
+                        10, 500) );
+        driver.findElement(CLOSE_PHOTO).click();
+        return new AlbumPage(driver);
+    }
+
 
     public void clickMarkFriends() { //Lena
         Assert.assertTrue("Не дождались прогрузки раздела Фото",

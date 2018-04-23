@@ -42,7 +42,7 @@ public class VictoriaMakePhotoMain extends TestBase {
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         PhotoPage photoPage = albumPage.openPhotoById(photoId); //внутри эдита
         photoPage.makePhotoMain();
-        photoPage.closePhoto();
+        photoPage.closePhotoRetPhotoMainP();
         photoMainPage.openUserMainPage();
         String mainPhotoId = userMainPage.getMainPhoto();
         Assert.assertFalse("Фото не утановлено", photoId.equals(mainPhotoId));

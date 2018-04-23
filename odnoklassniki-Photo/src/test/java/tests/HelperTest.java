@@ -43,7 +43,7 @@ public class HelperTest {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoPage photoPage = photoMainPage.openPhotoById(photoId);
         photoPage.deletePhoto();
-        photoPage.closePhoto();
+        photoPage.closePhotoRetPhotoMainP();
         Assert.assertTrue("Фото не удалено", photoMainPage.isPhotoPresent(photoId));
 
 //        photoMainPage.clickPersonalPhoto();
