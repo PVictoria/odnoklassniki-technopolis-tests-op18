@@ -62,13 +62,13 @@ public class EditAlbumPage  extends HelperBase  {
 
 //    }
     public void clickDropdownAlbumList(){
-        Assert.assertTrue("Страница не прогрузилась полностью",
+        Assert.assertTrue("Не найден списко альбомов",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(DROP_DOWN_LIST_ALBUMS)),
                         5, 500) );
         click(DROP_DOWN_LIST_ALBUMS);
     }
     public void clickMoveButton() {
-        Assert.assertTrue("Страница не прогрузилась полностью",
+        Assert.assertTrue("Не найдена кнопка \"Перенести фотографии\"",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(MOVE_BUTTON)),
                         5, 500) );
         click(MOVE_BUTTON);
@@ -87,17 +87,18 @@ public class EditAlbumPage  extends HelperBase  {
 
 
     public  void clickDeleteButton (){
-        Assert.assertTrue("Страница не прогрузилась полностью",
+        Assert.assertTrue("Не найдена кнопка \"Удалить альбом\"",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(DELETE_ALBUM)),
                         5, 500) );
         click(DELETE_ALBUM);
 
     }
-    public void confirmAlbumDeletion(){
-        Assert.assertTrue("Страница не прогрузилась полностью",
+    public AlbumsOnlyPage confirmAlbumDeletion(){
+        Assert.assertTrue("Не найдена кнопка \"Удалить\"",
                 explicitWait( ( ExpectedConditions.elementToBeClickable(CONFIRM_DELETE_ALBUM)),
                         5, 500) );
         click(CONFIRM_DELETE_ALBUM);
+        return new AlbumsOnlyPage(driver);
     }
 
     public boolean isChangeAlbumsName(String name){

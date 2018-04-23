@@ -26,7 +26,7 @@ public class UserMainPage extends HelperBase{
     }
 
     public PhotoMainPage clickPhotosOnToolbar() {
-        Assert.assertTrue("Не дождались прогрузки кнопки \"Фто\"",
+        Assert.assertTrue("Не дождались прогрузки кнопки \"Фото\"",
                 explicitWait((ExpectedConditions.elementToBeClickable(driver.findElement(PHOTOS))),
                         15, 500));
         click(PHOTOS);

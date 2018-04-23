@@ -15,7 +15,7 @@ public class LoginMainPage extends HelperBase{
     }
 
     protected void check() {
-        Assert.assertTrue("Не дождались прогрузки старновой страницы",
+        Assert.assertTrue("Не дождались прогрузки стартовой страницы",
                 explicitWait( ( ExpectedConditions.presenceOfAllElementsLocatedBy(LOGIN_PAGE)),
                         15, 500) );
     }
