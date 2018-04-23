@@ -34,8 +34,7 @@ public class TatyanaAddComment extends TestBase{
         Assert.assertTrue("Коммент не добавлен", photoPage.isAddComment(com));
         photoMainPage = photoPage.closePhotoRetPhotoMainP();
         photoMainPage.topToolBar.logout();
-        //photoPage.closePhoto();
-        //userMainPage.clickLogout();
+
     }
 
     @After
