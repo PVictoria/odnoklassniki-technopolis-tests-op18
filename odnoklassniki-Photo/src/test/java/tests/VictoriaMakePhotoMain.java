@@ -19,6 +19,7 @@ public class VictoriaMakePhotoMain extends TestBase {
     String albumName = "Личные фото";
     String pathName = "C:/JavaProjects/myPhoto.jpg";
             //"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+            //"C:/Users/таня/Pictures/Penguins.jpg";
     String photoId;
 
 

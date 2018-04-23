@@ -17,6 +17,7 @@ public class VictoriaTransferPhoto extends TestBase{
     String albumNameTo = "Target";
     String pathName = "C:/JavaProjects/myPhoto.jpg";
             //"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+           // "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";
     String photoId;
 
     @Before

@@ -13,7 +13,7 @@ import static core.PhotoMainPage.OPEN_PHOTO_FOR_LIKE;
  * Created by таня on 18.04.2018.
  */
 public class TatyanaLike extends TestBase {
-    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+    String pathname = "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";
     TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
     String idPhoto;
 
@@ -30,8 +30,10 @@ public class TatyanaLike extends TestBase {
         photoPage.clickLike(driver, photoPage).andClickLikeOn();
         //ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
         //photoPage = clickLikePromise.andClickLikeOn();
-        //photoPage.closePhoto();
+        photoMainPage = photoPage.closePhotoRetPhotoMainP();
+        photoMainPage.topToolBar.logout();
 
+        //photoPage.closePhoto();
         //userMainPage.clickLogout();
     }
 
