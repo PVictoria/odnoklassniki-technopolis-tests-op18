@@ -50,12 +50,12 @@ public class VictoriaTransferPhoto extends TestBase{
         /**
          * Проверка наличия фотографий в альбомах  по id
          */
-        photoMainPage  = new ToolBar(driver).openPhotoMainPage();
+        photoMainPage  = editAlbumPage.toolBar.openPhotoMainPage();
         albums = photoMainPage.getAllAlbums();
         AlbumWrapper fromAlbum = photoMainPage.findAlbumByName(albums, albumNameFrom);
         albumPage = photoMainPage.clickOnAlbum(fromAlbum);
         Assert.assertFalse("Фото не перенесено",albumPage.isPhotoPresent(photoId));
-        photoMainPage  = new ToolBar(driver).openPhotoMainPage();
+        photoMainPage  =albumPage.toolBar.openPhotoMainPage();
         albums = photoMainPage.getAllAlbums();
         AlbumWrapper targetAlbum = photoMainPage.findAlbumByName(albums, albumNameTo);
         albumPage = photoMainPage.clickOnAlbum(targetAlbum);

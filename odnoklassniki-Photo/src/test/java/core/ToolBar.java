@@ -12,24 +12,25 @@ import static sun.security.krb5.Config.refresh;
 
 
 public class ToolBar extends HelperBase {
-   // WebElement element;
+
     public static  final By PHOTO_TAB= By.xpath (".//*[contains(@hrefattrs, 'NavMenu_User_Photos')]");
     public ToolBar(WebDriver driver) {
        super(driver);
-      // element =  driver.findElement(By.id("mainTopContentRow"));
+
 
     }
     public void check(){
         //todo
 
+        Assert.assertTrue("Не найдена вкладка фото",
+                explicitWait(ExpectedConditions.visibilityOfElementLocated(PHOTO_TAB),
+                        15, 500) );
+
     }
 
 
     public PhotoMainPage openPhotoMainPage() throws InterruptedException, KrbException {
-//       WebElement webElement = driver.findElement(PHOTO_TAB);
-//        if(webElement.isDisplayed()) {
-//            webElement.click();
-//        }
+
 
         refresh();
         (new WebDriverWait(driver, 30))

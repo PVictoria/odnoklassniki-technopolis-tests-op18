@@ -12,6 +12,7 @@ import java.util.List;
 
 public class PhotoMainPage extends HelperBase {
     public TopToolBar topToolBar = new TopToolBar(driver);
+    public ToolBar toolBar = new ToolBar(driver);
     private static final By CREATE_ALBUM_BUTTON = By.id("hook_FormButton_button_album_create");
 
     // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");

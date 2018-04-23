@@ -10,6 +10,7 @@ import java.util.List;
 
 public class AlbumsMainPage extends HelperBase{
     public TopToolBar topToolBar = new TopToolBar(driver);
+    public ToolBar toolBar = new ToolBar(driver);
     public static final By MIDDLE_PART_OF_PAGE = By.xpath(".//*[@id= 'hook_Block_MiddleColumn']");
     public static final By ALL_ALBUMS = By.xpath(".//*[contains(@id, 'UserAlbumStreamBlock')]/descendant::li[@class = 'ugrid_i']");
     public AlbumsMainPage(WebDriver driver) {
