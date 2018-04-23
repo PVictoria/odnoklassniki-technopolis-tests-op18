@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserMainPage extends HelperBase{
-    public TopToolBar topToolBar;
+    public TopToolBar topToolBar = new TopToolBar(driver);
    //public static final By TOOLBAR_USER_DROPDOWN =  By.xpath("//div[@id='hook_Block_ToolbarUserDropdown']/div/div/div/div");
     public static final By TOOLBAR_USER_DROPDOWN = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
     public static final By LOGOUT = By.linkText("Выйти");

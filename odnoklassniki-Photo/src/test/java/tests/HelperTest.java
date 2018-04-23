@@ -29,9 +29,10 @@ public class HelperTest {
     public static String loadPhoto(WebDriver driver, TestBot testBot, String pathName) {
         UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
-        String photoId = photoMainPage.addPhoto(pathName);
+        PhotoLoadPage photoLoadPage= photoMainPage.addPhoto(pathName);
+        String photoId = photoLoadPage.getPhotoId();
         //проверка, что фото добавлено не нужна тк это метод before, а не теста
-        photoMainPage.topToolBar.logout();
+        photoLoadPage.topToolBar.logout();
         return photoId;
     }
 
