@@ -37,5 +37,6 @@ public class ElenaDeletePhoto extends TestBase {
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDelete(idPhoto);
         editAlbumPage.isDeleted();
+        editAlbumPage.topToolBar.logout();
     }
 }

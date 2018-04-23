@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class PhotoMainPage extends HelperBase {
+    public TopToolBar topToolBar;
     private static final By CREATE_ALBUM_BUTTON = By.id("hook_FormButton_button_album_create");
 
     // private static final By CREATE_NEW_ALBUM = By.xpath(".//*[contains(@href,'st.layer.cmd=PopLayerCreateAltGroup')]");
@@ -31,6 +32,11 @@ public class PhotoMainPage extends HelperBase {
 
     private static final By LOADED_PHOTO =  By.xpath("(.//span[@class = 'photo-card_cnt']/img)");
     private static final By USER_MAIN_PAGE = By.id("topPanelLeftCorner");
+
+    /*public static final By TOOLBAR_USER_DROPDOWN =  By.xpath("//div[@id='hook_Block_ToolbarUserDropdown']/div/div/div/div");
+    //public static final By TOOLBAR_USER_DROPDOWN = By.xpath(".//*[@class = 'ucard-mini_cnt_i']");
+    public static final By LOGOUT = By.linkText("Выйти");
+    public static final By LOGOFF = By.id("hook_FormButton_logoff.confirm_not_decorate");*/
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -157,4 +163,19 @@ public class PhotoMainPage extends HelperBase {
         return isElementPresent(PHOTO);
 
     }
+    /*public void clickLogout(){
+//
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
+
+
+
+        click(TOOLBAR_USER_DROPDOWN);
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(LOGOUT));
+        click(LOGOUT);
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(LOGOFF));
+        click(LOGOFF);
+    }*/
 }

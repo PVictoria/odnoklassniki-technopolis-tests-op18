@@ -39,8 +39,8 @@ public class ElenaTagYourselfOnPhoto extends TestBase{
         photoPage.clickBy(selfId);
         photoPage.clickDone();
         Assert.assertTrue("Пользователь не отмечен", photoPage.isMarkSelf(fio));
-        photoPage.closePhoto();
-        userMainPage.clickLogout();
+        photoMainPage = photoPage.closePhotoRetPhotoMainP();
+        photoMainPage.topToolBar.logout();
     }
 
     @After

@@ -33,7 +33,7 @@ public class TatyanaAddComment extends TestBase{
         photoPage.setAddComment(com);
         photoPage.clickSetAddComment();
         Assert.assertTrue("Коммент не добавлен", photoPage.isAddComment(com));
-        photoPage.closePhoto();
+        //photoPage.closePhoto();
         userMainPage.clickLogout();
     }
 

@@ -31,7 +31,7 @@ public class TatyanaLike extends TestBase {
         photoPage.clickLike(driver, photoPage).andClickLikeOn();
         //ClickLikePromise clickLikePromise = photoPage.clickLike(driver, photoPage);
         //photoPage = clickLikePromise.andClickLikeOn();
-        photoPage.closePhoto();
+        //photoPage.closePhoto();
         userMainPage.clickLogout();
     }
 

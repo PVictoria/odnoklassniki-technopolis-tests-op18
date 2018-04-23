@@ -17,6 +17,7 @@ public class ElenaAddDescription extends TestBase{
     String idPhoto;
     String description = "Описание...";
 
+
     @Before
     public void beforeAddDescription() throws InterruptedException {
         idPhoto = HelperTest.loadPhoto(driver, testBot, pathname);
@@ -35,8 +36,9 @@ public class ElenaAddDescription extends TestBase{
         photoInterface.clickSaveDescription();
 
         Assert.assertTrue( "Описание не добавлено", photoPage.isAddDescription(description));
-        photoPage.closePhoto();
-        userMainPage.clickLogout();
+        photoMainPage = photoPage.closePhotoRetPhotoMainP();
+        photoMainPage.topToolBar.logout();
+        //topToolBar.logout();
     }
 
     @After
