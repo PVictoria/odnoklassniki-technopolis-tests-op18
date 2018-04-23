@@ -33,6 +33,7 @@ public class PhotoMainPage extends HelperBase {
 
     private static final By LOADED_PHOTO =  By.xpath("(.//span[@class = 'photo-card_cnt']/img)");
     private static final By USER_MAIN_PAGE = By.id("topPanelLeftCorner");
+    public static final By MIDDLE_PART_OF_PAGE = By.xpath(".//*[@id= 'hook_Block_MiddleColumn']");
 
     public PhotoMainPage(WebDriver driver) {
         super(driver);
@@ -52,9 +53,13 @@ public class PhotoMainPage extends HelperBase {
         //.until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_COM));
         //   .until(ExpectedConditions.visibilityOfElementLocated(OPEN_PHOTO_FOR_LIKE));
 
+//
+//        Assert.assertTrue("Не дождались прогрузки раздела Фото",
+//                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(ALL_ALBUMS))),
+//                        15, 500) );
 
         Assert.assertTrue("Не дождались прогрузки раздела Фото",
-                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(ALL_ALBUMS))),
+                explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(MIDDLE_PART_OF_PAGE))),
                         5, 500) );
     }
 
@@ -132,11 +137,9 @@ public class PhotoMainPage extends HelperBase {
 //        return false;
 //    }
 
-    public String addPhoto(String pathName) {
+    public PhotoLoadPage addPhoto(String pathName) {
         driver.findElement(PHOTO_ADD_BUTTON).sendKeys(pathName);
-        Assert.assertTrue("Фото не загружено", isElementPresent(LOADED_PHOTO));
-        String id = driver.findElement(LOADED_PHOTO).getAttribute("id");
-        return id;
+        return new PhotoLoadPage(driver);
     }
 
     public PhotoPage openPhotoById(String photoId){
