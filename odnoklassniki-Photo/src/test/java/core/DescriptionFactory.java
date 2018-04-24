@@ -18,11 +18,7 @@ public class DescriptionFactory { //Lena
     }
 
     private boolean isDescEmpty(WebDriver driver) {
-//        if (driver.findElement(CLEAR_DESC).isDisplayed()){
-//            return  true;
-//        }
-//        return false;
-    return driver.findElement(CLEAR_DESC).isDisplayed();
+        return driver.findElement(CLEAR_DESC).isDisplayed();
     }
 
 }

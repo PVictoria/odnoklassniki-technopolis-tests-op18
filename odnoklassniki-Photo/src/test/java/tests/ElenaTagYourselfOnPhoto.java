@@ -14,7 +14,7 @@ import static java.lang.Thread.sleep;
  */
 public class ElenaTagYourselfOnPhoto extends TestBase{
 
-    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/man.jpg";
+    String pathname = "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";//"C:/Users/User/Desktop/УНИВЕР/Тестирование/man.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     final String idImg = "__plpcte_target";
     final String selfId = "plpp_markSelf";

@@ -34,9 +34,6 @@ public class AlbumsMainPage extends HelperBase{
                 return album;
             }
         }
-
-        //Assert.assertNotNull("Альбом " + albumName + " не найден", null);
         return null;
     }
-
 }

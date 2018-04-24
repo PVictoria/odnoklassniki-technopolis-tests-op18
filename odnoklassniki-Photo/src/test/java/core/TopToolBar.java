@@ -26,10 +26,8 @@ public class TopToolBar extends HelperBase{
                         5, 500) );
     }
     public void logout(){
-//
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(TOOLBAR_USER_DROPDOWN));
-
 
         click(TOOLBAR_USER_DROPDOWN);
         (new WebDriverWait(driver, 10))

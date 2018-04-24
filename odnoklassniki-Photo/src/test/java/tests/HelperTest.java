@@ -31,7 +31,6 @@ public class HelperTest {
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
         PhotoLoadPage photoLoadPage= photoMainPage.addPhoto(pathName);
         String photoId = photoLoadPage.getPhotoId();
-        //проверка, что фото добавлено не нужна тк это метод before, а не теста
         photoLoadPage.topToolBar.logout();
         return photoId;
     }
@@ -44,13 +43,8 @@ public class HelperTest {
         photoMainPage = photoPage.closePhotoRetPhotoMainP();
         Assert.assertTrue("Фото не удалено", photoMainPage.isPhotoPresent(photoId));
         photoMainPage.topToolBar.logout();
-
-//        photoMainPage.clickPersonalPhoto();
-//        AlbumPage albumPage = new AlbumPage(driver);
-//        EditAlbumPage editAlbumPage = albumPage.clickEdit();
-//        editAlbumPage.clickDelete(id);
-//        editAlbumPage.isDeleted();
     }
+
     public static void deleteAlbum(WebDriver driver, TestBot testBot, String albumName) {
         UserMainPage userMainPage = new LoginMainPage(driver).doLogin(testBot);
         PhotoMainPage photoMainPage = userMainPage.clickPhotosOnToolbar();
@@ -60,6 +54,7 @@ public class HelperTest {
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDeleteButton();
         AlbumsMainPage albumsMainPage = editAlbumPage.confirmAlbumDeletion();
+        Assert.assertFalse("Альбом не удален", photoMainPage.isCreationAlbum(albumName));
         albumsMainPage.topToolBar.logout();
     }
 }

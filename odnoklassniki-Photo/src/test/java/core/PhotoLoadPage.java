@@ -16,7 +16,6 @@ public class PhotoLoadPage extends HelperBase {
         super(driver);
     }
     public void check(){
-        //
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(MIDDLE_PART_OF_PAGE));
     }

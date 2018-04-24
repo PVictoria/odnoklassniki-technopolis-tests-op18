@@ -12,7 +12,7 @@ import org.junit.Assert;
 
 public class ElenaAddDescription extends TestBase{
 
-    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/car.jpg";
+    String pathname = "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";//"C:/Users/User/Desktop/УНИВЕР/Тестирование/car.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String idPhoto;
     String description = "Описание...";
@@ -37,7 +37,6 @@ public class ElenaAddDescription extends TestBase{
         Assert.assertTrue( "Описание не добавлено", photoPage.isAddDescription(description));
         photoMainPage = photoPage.closePhotoRetPhotoMainP();
         photoMainPage.topToolBar.logout();
-        //topToolBar.logout();
     }
 
     @After

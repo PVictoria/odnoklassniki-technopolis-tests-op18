@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static core.AlbumPage.newAlbumName;
 import static core.PhotoMainPage.OPEN_ALBUM;
 
 /**
@@ -17,8 +16,8 @@ import static core.PhotoMainPage.OPEN_ALBUM;
  */
 public class TatyanaChangeAlbumsName extends TestBase{
     TestBot testBot = new TestBot("QA18testbot20 ", "QA18testbot1");
-    String oldName = "Старое имя";
-    String newName = "Новое имя";
+    String oldName = "Старый альбом!";
+    String newName = "Новый альбом!";
 
     @Before
     public void beforeChangeAlbumsName(){

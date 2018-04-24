@@ -30,42 +30,12 @@ public abstract class HelperBase {
         driver.findElement(locator).click();
     }
 
-    /*protected void clickBy(String locator, int xOffSet, int yOffSet) { //for me
-        WebElement webElement = driver.findElement(locator);
-        Actions builder = new Actions(driver);
-        builder.moveToElement(webElement, xOffSet, yOffSet).click().build().perform();
-    }*/
-
     public boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;
         } catch (NoSuchElementException e) {
             return false;
-        }
-    }
-
-    protected boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-    protected String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
         }
     }
 
@@ -117,10 +87,6 @@ public abstract class HelperBase {
         Preconditions.checkState(millisecondsBetweenChecks > 0, "milliseconds count between checks must be not 0");
         Preconditions.checkState(millisecondsBetweenChecks < (maxCheckTimeInSeconds * 1000),
                 "Millis between checks must be less than max seconds to wait");
-    }
-
-    public void moveToElement(WebElement webElement){
-        new Actions(driver).moveToElement(webElement).build().perform();
     }
 
     public void clickBy(String id) { //Lena

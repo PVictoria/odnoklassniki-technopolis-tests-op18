@@ -21,8 +21,6 @@ public class DescriptionPresentPage extends PhotoPage implements DescriptionInte
         Assert.assertTrue("Не дождались прогрузки страницы Фото",
                 explicitWait( ( ExpectedConditions.visibilityOfAllElements(driver.findElements(PHOTO))),
                         5, 500) );
-        /*(new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOfElementLocated(PHOTO));*/
     }
 
     @Override

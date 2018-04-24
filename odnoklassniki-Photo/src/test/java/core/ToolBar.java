@@ -20,18 +20,13 @@ public class ToolBar extends HelperBase {
 
     }
     public void check(){
-        //todo
-
         Assert.assertTrue("Не найдена вкладка фото",
                 explicitWait(ExpectedConditions.visibilityOfElementLocated(PHOTO_TAB),
                         15, 500) );
-
     }
 
 
     public PhotoMainPage openPhotoMainPage() throws InterruptedException, KrbException {
-
-
         refresh();
         (new WebDriverWait(driver, 30))
                 .until( ExpectedConditions.elementToBeClickable(PHOTO_TAB));
@@ -39,9 +34,6 @@ public class ToolBar extends HelperBase {
         Assert.assertTrue("Не найдена вкладка фото",
                 explicitWait(ExpectedConditions.visibilityOfElementLocated(PHOTO_TAB),
                         15, 500) );
-
-
-
         click(PHOTO_TAB);
         return new PhotoMainPage(driver);
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * Created by User on 18.04.2018.
  */
-public class ClearDescriptionPage extends PhotoPage implements DescriptionInterface { //Lena
+public class ClearDescriptionPage extends PhotoPage implements DescriptionInterface {
 
     private static final By PHOTO = By.xpath(".//*[contains(@id, '__plpcte_target')]");
 

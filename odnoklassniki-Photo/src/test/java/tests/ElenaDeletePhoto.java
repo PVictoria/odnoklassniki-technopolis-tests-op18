@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ElenaDeletePhoto extends TestBase {
 
-    String pathname = "C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
+    String pathname = "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";//"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
     TestBot testBot = new TestBot("QA18testbot9 ", "QA18testbot");
     String idPhoto;
     final String albumName = "Личные фото";
@@ -35,7 +35,7 @@ public class ElenaDeletePhoto extends TestBase {
         AlbumPage albumPage = photoMainPage.clickOnAlbum(album);
         EditAlbumPage editAlbumPage = albumPage.clickEdit();
         editAlbumPage.clickDelete(idPhoto);
-        editAlbumPage.isDeleted();
+        editAlbumPage.isDeleted(idPhoto);
         editAlbumPage.topToolBar.logout();
     }
 }

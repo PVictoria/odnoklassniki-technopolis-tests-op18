@@ -17,9 +17,9 @@ public class VictoriaMakePhotoMain extends TestBase {
 
     TestBot testBot = new TestBot("QA18testbot57 ", "QA18testbot");
     String albumName = "Личные фото";
-    String pathName = "C:/JavaProjects/myPhoto.jpg";
+    String pathName = //"C:/JavaProjects/myPhoto.jpg";
             //"C:/Users/User/Desktop/УНИВЕР/Тестирование/bo.jpg";
-            //"C:/Users/таня/Pictures/Penguins.jpg";
+            "C:/Users/таня/Pictures/4tqpkF_iGC4.jpg";
     String photoId;
 
 
